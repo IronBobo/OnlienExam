@@ -10,4 +10,4 @@ SQL Server
 
 GCC  
 ## Structure  
-![avatar](http://49.232.214.211/lc.png)
+![](http://49.232.214.211/lc.png)
