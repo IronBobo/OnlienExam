@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>exit</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_004_065">&nbsp;</a>NAME</h4><blockquote>
+exit, _exit - terminate a process
+</blockquote><h4><a name = "tag_000_004_066">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+void exit(int <i>status</i>);
+
+#include &lt;<a href="unistd.h.html">unistd.h</a>&gt;
+
+void _exit(int <i>status</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_004_067">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>exit()</i>
+function first calls all functions registered by
+<i><a href="atexit.html">atexit()</a></i>,
+in the reverse order of their registration.
+Each function is called as many times as it was registered.
+<p>
+If a function registered by a call to
+<i><a href="atexit.html">atexit()</a></i>
+fails to return, the remaining registered functions
+are not called and the rest of the
+<i>exit()</i>
+processing is not completed. If
+<i>exit()</i>
+is called more than once, the effects are undefined.
+<p>
+The
+<i>exit()</i>
+function then flushes all output streams, closes all open streams,
+and removes all files created by
+<i><a href="tmpfile.html">tmpfile()</a></i>.
+Finally, control is returned to the host environment as described
+below.
+The values of
+<i>status</i>
+can be EXIT_SUCCESS or EXIT_FAILURE,
+as described in
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>,
+or any implementation-dependent value, although note that only the range
+0 through 255 will be available to a waiting parent process.
+<p>
+The
+<i>_exit()</i>
+and
+<i>exit()</i>
+functions terminate the calling process with the following consequences:
+<ul>
+<p>
+<li>
+All of the file descriptors, directory streams,
+&nbsp;conversion descriptors and message catalogue descriptors
+open in the calling process are closed.
+<p>
+<li>
+If the parent process of the calling process is executing a
+<i><a href="wait.html">wait()</a></i>,
+<i><a href="wait3.html">wait3()</a></i>,
+<i><a href="waitid.html">waitid()</a></i>
+or
+<i><a href="waitpid.html">waitpid()</a></i>,
+and has neither set its SA_NOCLDWAIT flag nor set SIGCHLD to SIG_IGN,
+it is notified of the calling process'
+termination and the low-order eight bits (that is, bits 0377) of
+<i>status</i>
+are made available to it.  If the parent is not waiting, the child's status
+will be made available to it when the parent subsequently executes
+<i><a href="wait.html">wait()</a></i>,
+<i><a href="wait3.html">wait3()</a></i>,
+<i><a href="waitid.html">waitid()</a></i>
+or
+<i><a href="waitpid.html">waitpid()</a></i>.
+<p>
+<li>
+If the parent process of the calling process is not
+executing a
+<i><a href="wait.html">wait()</a></i>,
+<i><a href="wait3.html">wait3()</a></i>,
+<i><a href="waitid.html">waitid()</a></i>
+or
+<i><a href="waitpid.html">waitpid()</a></i>,
+and has not set its SA_NOCLDWAIT flag,
+or set SIGCHLD to SIG_IGN,
+the calling process is transformed into a <i>zombie process</i>.
+A <i>zombie process</i> is an inactive process
+and it will be deleted at some later time
+when its parent process executes
+<i><a href="wait.html">wait()</a></i>,
+<i><a href="wait3.html">wait3()</a></i>,
+<i><a href="waitid.html">waitid()</a></i>
+or
+<i><a href="waitpid.html">waitpid()</a></i>.
+<p>
+<li>
+Termination of a process does not directly terminate its children. The
+sending of a SIGHUP
+signal as described below indirectly terminates children in some
+circumstances.
+<p>
+<li>
+If the implementation supports the SIGCHLD
+signal, a SIGCHLD
+will be sent to the parent process.
+<p>
+<li>
+If the parent process has set its SA_NOCLDWAIT flag,
+or set SIGCHLD to SIG_IGN, the status will be
+discarded, and the lifetime of the calling process will end immediately.
+If SA_NOCLDWAIT is set, it is implementation-dependent whether a
+SIGCHLD signal will be sent to the parent process.
+<p>
+<li>
+The parent process ID of all of the calling process'
+existing child processes and zombie processes is set to the
+process ID of an implementation-dependent system process.
+That is, these processes are inherited by a special system process.
+<p>
+<li>
+Each attached shared-memory segment is detached and the value of
+<i>shm_nattch</i>
+(see
+<i><a href="shmget.html">shmget()</a></i>)
+in the data structure associated with its shared memory ID
+is decremented by&nbsp;1.
+<br>
+<p>
+<li>
+For each semaphore for which the calling process has set a
+<i>semadj</i>
+value, see
+<i><a href="semop.html">semop()</a></i>,
+that value is added to the
+<i>semval</i>
+of the specified semaphore.
+<p>
+<li>
+If the process is a controlling process, the SIGHUP
+signal will be sent to each process in the foreground process group
+of the controlling terminal belonging to the calling process.
+<p>
+<li>
+If the process is a controlling process, the controlling terminal
+associated with the session is disassociated from the session, allowing
+it to be acquired by a new controlling process.
+<br>
+<p>
+<li>
+If the exit of the
+process causes a process group to become orphaned, and if any member
+of the newly-orphaned process group is stopped, then
+a SIGHUP signal followed by a SIGCONT
+signal will be sent to each process in the newly-orphaned process group.
+<p>
+<li>
+If the Semaphores option is supported, all open named semaphores
+in the calling process are closed as if by appropriate calls to
+<i><a href="sem_close.html">sem_close()</a></i>.
+<p>
+<li>
+If the Process Memory Locking option is supported,
+any memory locks established by the process via calls to
+<i><a href="mlockall.html">mlockall()</a></i>
+or
+<i><a href="mlock.html">mlock()</a></i>
+are removed.
+If locked pages in the address space of the calling process
+are also mapped into the address spaces
+of other processes and are locked by those processes,
+the locks established by the other processes will be unaffected
+by the call by this process to
+<i>_exit()</i>.
+<p>
+<li>
+Memory mappings created in the process are unmapped
+before the process is destroyed.
+<p>
+<li>
+If the Message Passing option is supported,
+all open message queue descriptors in the calling process are
+closed as if by appropriate calls to
+<i><a href="mq_close.html">mq_close()</a></i>.
+<p>
+<li>
+If the Asynchronous Input and Output option is supported
+any outstanding cancelable asynchronous I/O operations may be
+canceled.
+Those asynchronous I/O operations that are not canceled will complete
+as if the
+<i>_exit()</i>
+operation had not yet occurred,
+but any associated signal notifications will be suppressed.
+The
+<i>_exit()</i>
+operation itself may block awaiting such I/O completion.
+Whether any I/O is cancelled, and which I/O may be cancelled upon
+<i>_exit()</i>,
+is implementation-dependent.
+<p>
+<li>
+Threads terminated by a call to
+<i>_exit()</i>
+will not invoke their cancellation cleanup handlers or per-thread data
+destructors.
+<p>
+</ul>
+</blockquote><h4><a name = "tag_000_004_068">&nbsp;</a>RETURN VALUE</h4><blockquote>
+These functions do not return.
+</blockquote><h4><a name = "tag_000_004_069">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_004_070">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_071">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Normally applications should use
+<i>exit()</i>
+rather than
+<i>_exit()</i>.
+</blockquote><h4><a name = "tag_000_004_072">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_073">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="atexit.html">atexit()</a></i>,
+<i><a href="close.html">close()</a></i>,
+<i><a href="fclose.html">fclose()</a></i>,
+<i><a href="semop.html">semop()</a></i>,
+<i><a href="shmget.html">shmget()</a></i>,
+<i><a href="sigaction.html">sigaction()</a></i>,
+<i><a href="wait.html">wait()</a></i>,
+<i><a href="wait3.html">wait3()</a></i>,
+<i><a href="waitid.html">waitid()</a></i>,
+<i><a href="waitpid.html">waitpid()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>,
+<i><a href="unistd.h.html">&lt;unistd.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,2 @@
+test.c: In function `int main()':
+test.c:7: error: expected `;' before '}' token

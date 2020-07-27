@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strcasecmp</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_012">&nbsp;</a>NAME</h4><blockquote>
+strcasecmp, strncasecmp - case-insensitive string comparisons
+</blockquote><h4><a name = "tag_000_009_013">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="strings.h.html">strings.h</a>&gt;
+
+int strcasecmp(const char *<i>s1</i>, const char *<i>s2</i>);
+int strncasecmp(const char *<i>s1</i>, const char *<i>s2</i>, size_t <i>n</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_014">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strcasecmp()</i>
+function compares, while ignoring differences in case,
+the string pointed to by <i>s1</i> to the string pointed to by <i>s2</i>.
+The
+<i><a href="strncasecmp.html">strncasecmp()</a></i>
+function compares, while ignoring differences in case, not more than <i>n</i>
+bytes from the string pointed to by <i>s1</i> to the string pointed to by
+<i>s2</i>.
+<p>
+In the POSIX locale,
+<i>strcasecmp()</i>
+and
+<i><a href="strncasecmp.html">strncasecmp()</a></i>
+do upper to lower conversions, then a byte comparison.  The results are
+unspecified in other locales.
+</blockquote><h4><a name = "tag_000_009_015">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon completion,
+<i>strcasecmp()</i>
+returns an integer greater than, equal to or less than 0, if the
+string pointed to by <i>s1</i> is, ignoring case, greater than, equal to or
+less than the string pointed to by <i>s2</i> respectively.
+<p>
+Upon successful completion,
+<i><a href="strncasecmp.html">strncasecmp()</a></i>
+returns an integer greater than, equal to or less than 0, if the
+possibly null-terminated array pointed to by <i>s1</i> is, ignoring case,
+greater than, equal to or less than the possibly null-terminated array pointed
+to by <i>s2</i> respectively.
+</blockquote><h4><a name = "tag_000_009_016">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_009_017">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_018">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_019">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_020">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="strings.h.html">&lt;strings.h&gt;</a></i>.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>

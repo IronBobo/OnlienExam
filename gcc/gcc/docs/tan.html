@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>tan</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_411">&nbsp;</a>NAME</h4><blockquote>
+tan - tangent function
+</blockquote><h4><a name = "tag_000_009_412">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double tan(double <i>x</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_413">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>tan()</i>
+function computes the tangent of its argument <i>x</i>, measured in radians.
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>tan()</i>.
+If
+<i>errno</i>
+is non-zero on return, or the return value is NaN,
+an error has occurred.
+<p>
+The
+<i>tan()</i>
+function may lose accuracy when its argument is far from 0.0 .
+</blockquote><h4><a name = "tag_000_009_414">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>tan()</i>
+returns the tangent of
+<i>x</i>.
+<p>
+If
+<i>x</i>
+is NaN, NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If
+<i>x</i>
+is &plusmn;Inf, either 0.0 is returned and
+<i>errno</i>
+is set to [EDOM], or NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If the correct value would cause overflow, &plusmn;HUGE_VAL is returned
+and
+<i>errno</i>
+is set to [ERANGE].
+<p>
+If the correct value would cause underflow, 0.0 is returned and
+<i>errno</i>
+may be set to [ERANGE].
+</blockquote><h4><a name = "tag_000_009_415">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>tan()</i>
+function will fail if:
+<dl compact>
+
+<dt>[ERANGE]<dd>
+The value to be returned would cause overflow.
+
+</dl>
+<p>
+The
+<i>tan()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value
+<i>x</i>
+is NaN or &plusmn;Inf.
+
+<dt>[ERANGE]<dd>
+The value to be returned would cause underflow.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_009_416">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_417">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_418">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_419">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="atan.html">atan()</a></i>,
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strncmp</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_144">&nbsp;</a>NAME</h4><blockquote>
+strncmp - compare part of two strings
+</blockquote><h4><a name = "tag_000_009_145">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="string.h.html">string.h</a>&gt;
+
+int strncmp(const char *<i>s1</i>, const char *<i>s2</i>, size_t <i>n</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_146">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strncmp()</i>
+function compares not more than
+<i>n</i>
+bytes (bytes that follow a null byte are not
+compared) from the array pointed to by
+<i>s1</i>
+to the array pointed to by
+<i>s2</i>.
+<p>
+The sign of a non-zero return value
+is determined by the sign of the difference between the values of the
+first pair of bytes (both interpreted as type
+<b>unsigned char</b>)
+that differ in the strings being compared.
+</blockquote><h4><a name = "tag_000_009_147">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>strncmp()</i>
+returns an integer greater than, equal to or less than
+0, if the possibly null-terminated array pointed to by
+<i>s1</i>
+is greater than, equal to or less than the possibly
+null-terminated array pointed to by
+<i>s2</i>
+respectively.
+</blockquote><h4><a name = "tag_000_009_148">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_009_149">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_150">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_151">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_152">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="strcmp.html">strcmp()</a></i>,
+<i><a href="string.h.html">&lt;string.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

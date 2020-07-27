@@ -1,0 +1,61 @@
+<html>
+  <HEAD>
+  <TITLE>Editor and Compiler Help</TITLE>
+  </HEAD>
+  <BODY bgcolor=white>
+<img src=musymb.gif align=right>
+<a href=findex.html>Help for common C Functions</a>
+<a href=summary.htm>Summary of the C language</a>
+<h1> Editor and Compiler Help </h1>
+<hr noshade>
+<h2> Editor </h2>
+The editor looks something like this:<p>
+<img src=jfe.gif><p>
+
+The editor has lots of fancy features that you can probably find by trial and error. 
+Put the cursor over an icon and a message will appear telling you what it does.
+Press F1 and the editor will try to find help for the function or keyword at the cursor.
+<p><img src=image13.gif> Create a New Document - When the document must be saved you will be asked to provide a name and folder for it.
+<p><img src=image14.gif> Open File - Open an existing file, the default folder is where a file was last opened or saved.
+
+<p><img src=image15.gif> Save File - Save the current document, 
+if this icon is red then the text has been changed singe it was last saved.
+<p><img src=image16.gif> Print File - Prints the current document.
+<p><img src=image17.gif> Cut - Delete currently selected text.
+<p><img src=image18.gif> Copy - Copy currently selected text.
+<p><img src=image19.gif> Paste - Insert last deleted or copied text into the current document.
+<p><img src=image20.gif> Undo - Undo what you have done - be careful, there is no redo. 
+<p><img src=image21.gif> Show Line Numbers - Line numbers appear on the left side of each document.
+<p><img src=image22.gif> Show Functions - The names of your functions appear in a tree window. Click on a
++ to view the functions and click on a name to navigate your program.
+<p><img src=image23.gif> Show C Syntax Highlighting - Displays keywords, comments, strings etc in different colors.
+<p><img src=image4.gif> Show Console Window - When this is selected, programs are run in the same console window and it remains on the screen after the program has finished.
+Otherwise programs create a new console window each time they are run that disappears automatically.
+<p><img src=image24.gif> Previous Document - Moves to the last Document (or function) 
+you were editing
+<p><img src=image25.gif> Next Document - Moves to the next Document (or function) 
+you are editing
+<p><img src=image26.gif> Find - Find some text in the current Document.
+<p><img src=image27.gif> Search Files - Find some text in all the open documents or in all the files on disk.
+<p><img src=image28.gif> Replace - Replace all occurances of some text.
+<p><img src=image29.gif> Goto Line - Specify a line number to move to.
+<p><img src=image30.gif> Bookmark - Add an icon to the toolbar for the the current line.
+<p><img src=image31.gif> Cancel Tool - Stop the compilation of a program.
+<p><img src=image32.gif> Compile - Compile the current document using a C++ compiler 
+to produce an object file. The file is automatically saved first.
+Output from the compiler is sent to the window at the bottom of the editor. 
+Just click on an error line in this window to move to the corresponding line in the program.
+<p><img src=image33.gif> Run Program - Execute the program, if necessary compile and/or link first.
+<p><img src=image34.gif> Help - Try to find help for the function or keyword
+at the current cursor position.
+<p>
+If the editor ever gets into a state where you have changed lots of options and don't
+know how to change them back, just copy the default ini file jfedef.ini to jfe.ini.
+<h2> Compiler </h2>
+The compiler is g++ version 2.95.
+It is a 32 bit C++ compiler and it should do everything you need.
+Executables are linked with the windows dlls so you have win32 window, process, console and network functions available.
+To see the complete list of options for g++, run the batch file options.bat in gcc\bin.
+<hr noshade>
+</body>
+</html>

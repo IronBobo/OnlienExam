@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>&lt;stdlib.h&gt;</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_003">&nbsp;</a>NAME</h4><blockquote>
+stdlib.h - standard library definitions
+</blockquote><h4><a name = "tag_000_009_004">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;stdlib.h&gt;
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_005">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The &lt;<b>stdlib.h</b>&gt; header defines the following macro names:
+<dl compact>
+
+<dt>EXIT_FAILURE<dd>
+Unsuccessful termination for
+<i><a href="exit.html">exit()</a></i>,
+evaluates to a non-zero value.
+
+<dt>EXIT_SUCCESS<dd>
+Successful termination for
+<i><a href="exit.html">exit()</a></i>,
+evaluates to 0.
+
+<dt>NULL<dd>
+Null pointer.
+
+<dt>RAND_MAX<dd>
+Maximum value returned by <i>rand</i>(), at least 32,767.
+
+<dt>MB_CUR_MAX<dd>
+Integer expression whose value is the maximum number
+of bytes in a character specified by the current locale.
+
+</dl>
+<p>
+The following data types are defined through <b>typedef</b>:
+<dl compact>
+
+<dt><b>div_t</b><dd><index term="data type, div_t"></index>
+Structure type returned by <i>div</i>() function.
+
+<dt><b>ldiv_t</b><dd><index term="data type, ldiv_t"></index>
+Structure type returned by <i>ldiv</i>() function.
+
+<dt><b>size_t</b><dd>As described in
+<i><a href="stddef.h.html">&lt;stddef.h&gt;</a></i>.
+
+<dt><b>wchar_t</b><dd>As described in
+<i><a href="stddef.h.html">&lt;stddef.h&gt;</a></i>.
+
+</dl>
+<p>
+In addition, the following symbolic names and macros are defined
+as in
+<i><a href="syswait.h.html">&lt;sys/wait.h&gt;</a></i>,
+for use in decoding the return value from
+<i><a href="system.html">system()</a></i>:
+<p>
+<pre>
+WNOHANG
+WUNTRACED
+WEXITSTATUS()
+WIFEXITED()
+WIFSIGNALED()
+WIFSTOPPED()
+WSTOPSIG()
+WTERMSIG()
+</pre>
+<p>
+The following are declared as functions and may also be defined
+as macros.
+Function prototypes must be provided for use with an ISO C
+compiler.
+<pre>
+<code>
+long      <a href="a64l.html">a64l</a>(const char *);
+void      <a href="abort.html">abort</a>(void);
+int       <a href="abs.html">abs</a>(int);
+int       <a href="atexit.html">atexit</a>(void (*)(void));
+double    <a href="atof.html">atof</a>(const char *);
+int       <a href="atoi.html">atoi</a>(const char *);
+long int  <a href="atol.html">atol</a>(const char *);
+void     *<a href="bsearch.html">bsearch</a>(const void *, const void *, size_t, size_t,
+              int (*)(const void *, const void *));
+void     *<a href="calloc.html">calloc</a>(size_t, size_t);
+div_t     <a href="div.html">div</a>(int, int);
+double    <a href="drand48.html">drand48</a>(void);
+char     *<a href="ecvt.html">ecvt</a>(double, int, int *, int *);
+double    <a href="erand48.html">erand48</a>(unsigned short int[3]);
+void      <a href="exit.html">exit</a>(int);
+char     *<a href="fcvt.html">fcvt</a> (double, int, int *, int *);
+void      <a href="free.html">free</a>(void *);
+<br>
+char     *<a href="gcvt.html">gcvt</a>(double, int, char *);
+char     *<a href="getenv.html">getenv</a>(const char *);
+int       <a href="getsubopt.html">getsubopt</a>(char **, char *const *, char **);
+int       <a href="grantpt.html">grantpt</a>(int);
+char     *<a href="initstate.html">initstate</a>(unsigned int, char *, size_t);
+long int  <a href="jrand48.html">jrand48</a>(unsigned short int[3]);
+char     *<a href="l64a.html">l64a</a>(long);
+long int  <a href="labs.html">labs</a>(long int);
+void      <a href="lcong48.html">lcong48</a>(unsigned short int[7]);
+ldiv_t    <a href="ldiv.html">ldiv</a>(long int, long int);
+long int  <a href="lrand48.html">lrand48</a>(void);
+void     *<a href="malloc.html">malloc</a>(size_t);
+int       <a href="mblen.html">mblen</a>(const char *, size_t);
+size_t    <a href="mbstowcs.html">mbstowcs</a>(wchar_t *, const char *, size_t);
+int       <a href="mbtowc.html">mbtowc</a>(wchar_t *, const char *, size_t);
+char     *<a href="mktemp.html">mktemp</a>(char *);
+int       <a href="mkstemp.html">mkstemp</a>(char *);
+long int  <a href="mrand48.html">mrand48</a>(void);
+long int  <a href="nrand48.html">nrand48</a>(unsigned short int [3]);
+char     *<a href="ptsname.html">ptsname</a>(int);
+int       <a href="putenv.html">putenv</a>(char *);
+void      <a href="qsort.html">qsort</a>(void *, size_t, size_t, int (*)(const void *,
+              const void *));
+int       <a href="rand.html">rand</a>(void);
+int       <a href="rand_r.html">rand_r</a>(unsigned int *);
+long      <a href="random.html">random</a>(void);
+void     *<a href="realloc.html">realloc</a>(void *, size_t);
+char     *<a href="realpath.html">realpath</a>(const char *, char *);
+unsigned  short int    <a href="seed48.html">seed48</a>(unsigned short int[3]);
+void      <a href="setkey.html">setkey</a>(const char *);
+char     *<a href="setstate.html">setstate</a>(const char *);
+void      <a href="srand.html">srand</a>(unsigned int);
+void      <a href="srand48.html">srand48</a>(long int);
+void      <a href="srandom.html">srandom</a>(unsigned);
+double    <a href="strtod.html">strtod</a>(const char *, char **);
+long int  <a href="strtol.html">strtol</a>(const char *, char **, int);
+unsigned long int
+          <a href="strtoul.html">strtoul</a>(const char *, char **, int);
+int       <a href="system.html">system</a>(const char *);
+int       <a href="ttyslot.html">ttyslot</a>(void); <b>(LEGACY)</b>
+int       <a href="unlockpt.html">unlockpt</a>(int);
+void     *<a href="valloc.html">valloc</a>(size_t); <b>(LEGACY)</b>
+size_t    <a href="wcstombs.html">wcstombs</a>(char *, const wchar_t *, size_t);
+int       <a href="wctomb.html">wctomb</a>(char *, wchar_t);
+</code>
+</pre>
+<p>
+Inclusion of the
+<i>&lt;stdlib.h&gt;</i>
+header may also make visible all symbols from
+<i><a href="stddef.h.html">&lt;stddef.h&gt;</a></i>,
+<i><a href="limits.h.html">&lt;limits.h&gt;</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>
+and
+<i><a href="syswait.h.html">&lt;sys/wait.h&gt;</a></i>.
+</blockquote><h4><a name = "tag_000_009_006">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_007">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_008">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="a64l.html">a64l()</a></i>,
+<i><a href="abort.html">abort()</a></i>,
+<i><a href="abs.html">abs()</a></i>,
+<i><a href="atexit.html">atexit()</a></i>,
+<i><a href="atof.html">atof()</a></i>,
+<i><a href="atoi.html">atoi()</a></i>,
+<i><a href="atol.html">atol()</a></i>,
+<i><a href="bsearch.html">bsearch()</a></i>,
+<i><a href="calloc.html">calloc()</a></i>,
+<i><a href="div.html">div()</a></i>,
+<i><a href="drand48.html">drand48()</a></i>,
+<i><a href="ecvt.html">ecvt()</a></i>,
+<i><a href="erand48.html">erand48()</a></i>,
+<i><a href="exit.html">exit()</a></i>,
+<i><a href="fcvt.html">fcvt()</a></i>,
+<i><a href="free.html">free()</a></i>,
+<i><a href="gcvt.html">gcvt()</a></i>,
+<i><a href="getenv.html">getenv()</a></i>,
+<i><a href="getsubopt.html">getsubopt()</a></i>,
+<i><a href="grantpt.html">grantpt()</a></i>,
+<i><a href="initstate.html">initstate()</a></i>,
+<i><a href="jrand48.html">jrand48()</a></i>,
+<i><a href="l64a.html">l64a()</a></i>,
+<i><a href="labs.html">labs()</a></i>,
+<i><a href="lcong48.html">lcong48()</a></i>,
+<i><a href="ldiv.html">ldiv()</a></i>,
+<i><a href="lrand48.html">lrand48()</a></i>,
+<i><a href="malloc.html">malloc()</a></i>,
+<i><a href="mblen.html">mblen()</a></i>,
+<i><a href="mbstowcs.html">mbstowcs()</a></i>,
+<i><a href="mbtowc.html">mbtowc()</a></i>,
+<i><a href="mktemp.html">mktemp()</a></i>,
+<i><a href="mkstemp.html">mkstemp()</a></i>,
+<i><a href="mrand48.html">mrand48()</a></i>,
+<i><a href="nrand48.html">nrand48()</a></i>,
+<i><a href="ptsname.html">ptsname()</a></i>,
+<i><a href="putenv.html">putenv()</a></i>,
+<i><a href="qsort.html">qsort()</a></i>,
+<i><a href="rand.html">rand()</a></i>,
+<i><a href="rand.html">rand_r()</a></i>,
+<i><a href="realloc.html">realloc()</a></i>,
+<i><a href="realpath.html">realpath()</a></i>,
+<i><a href="setstate.html">setstate()</a></i>,
+<i><a href="srand.html">srand()</a></i>,
+<i><a href="srand48.html">srand48()</a></i>,
+<i><a href="srandom.html">srandom()</a></i>,
+<i><a href="strtod.html">strtod()</a></i>,
+<i><a href="strtol.html">strtol()</a></i>,
+<i><a href="strtoul.html">strtoul()</a></i>,
+<i><a href="unlockpt.html">unlockpt()</a></i>,
+<i><a href="wcstombs.html">wcstombs()</a></i>,
+<i><a href="wctomb.html">wctomb()</a></i>,
+<i><a href="systypes.h.html">&lt;sys/types.h&gt;</a></i>.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>

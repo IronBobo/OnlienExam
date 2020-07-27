@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>toupper</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_010_118">&nbsp;</a>NAME</h4><blockquote>
+toupper - transliterate lower-case characters to upper-case
+</blockquote><h4><a name = "tag_000_010_119">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="ctype.h.html">ctype.h</a>&gt;
+
+int toupper(int <i>c</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_010_120">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>toupper()</i>
+function has as a domain a type
+<b>int</b>,
+the value of which is representable as an
+<b>unsigned char</b>
+or the value of EOF.
+If the argument has any other value, the behaviour is undefined.
+If the argument of
+<i>toupper()</i>
+represents a lower-case letter,
+and there exists a corresponding upper-case letter
+(as defined by character type information in the program locale
+category LC_CTYPE),
+the result is the corresponding upper-case letter.
+All other arguments in the domain are
+returned unchanged.
+</blockquote><h4><a name = "tag_000_010_121">&nbsp;</a>RETURN VALUE</h4><blockquote>
+On successful completion,
+<i>toupper()</i>
+returns the upper-case letter corresponding to the argument passed.
+</blockquote><h4><a name = "tag_000_010_122">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_010_123">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_124">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_125">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_126">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="setlocale.html">setlocale()</a></i>,
+<i><a href="ctype.h.html">&lt;ctype.h&gt;</a></i>,
+the <b>XBD</b> specification, <a href="../xbd/locale.html"><b>Locale</b>&nbsp;</a>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

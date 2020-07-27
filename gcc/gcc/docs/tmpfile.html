@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>tmpfile</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_010_082">&nbsp;</a>NAME</h4><blockquote>
+tmpfile - create a temporary file
+</blockquote><h4><a name = "tag_000_010_083">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+FILE *tmpfile(void);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_010_084">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>tmpfile()</i>
+function creates a temporary file and opens a corresponding stream.  The file
+will automatically be deleted when all references to the file are closed.  The
+file is opened as in
+<i><a href="fopen.html">fopen()</a></i>
+for update (w+).
+<p>
+The largest value that can be represented correctly in an object of type
+<b>off_t</b>
+will be established as the offset maximum in the open file description.
+<p>
+If the process is killed in the period between file creation and unlinking, 
+a permanent file may be left behind.
+<p>
+An error message may be written to standard error if the stream cannot be 
+opened.
+</blockquote><h4><a name = "tag_000_010_085">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>tmpfile()</i>
+returns a pointer to the stream of the file that is created.
+Otherwise, it returns a
+null pointer and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_010_086">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>tmpfile()</i>
+function will fail if:
+<dl compact>
+
+<dt>[EINTR]<dd>
+A signal was caught during
+<i>tmpfile()</i>.
+
+<dt>[EMFILE]<dd>
+{OPEN_MAX} file descriptors are currently open in the calling process.
+
+<dt>[ENFILE]<dd>
+The maximum allowable number of files is currently open in the
+system.
+
+<dt>[ENOSPC]<dd>
+The directory or file system which would contain the
+new file cannot be expanded.
+
+<dt>[EOVERFLOW]<dd>
+The file is a regular file and the size of the file cannot be
+represented correctly in an object of type
+<b>off_t</b>.
+
+</dl>
+<p>
+The
+<i>tmpfile()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EMFILE]<dd>
+{FOPEN_MAX} streams are currently open in the calling process.
+
+<dt>[ENOMEM]<dd>
+Insufficient storage space is available.
+
+</dl>
+</blockquote><h4><a name = "tag_000_010_087">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_088">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_089">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_090">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="tmpnam.html">tmpnam()</a></i>,
+<i><a href="unlink.html">unlink()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

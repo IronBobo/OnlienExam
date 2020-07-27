@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>ungetc</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_010_256">&nbsp;</a>NAME</h4><blockquote>
+ungetc - push byte back into input stream
+</blockquote><h4><a name = "tag_000_010_257">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int ungetc(int <i>c</i>, FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_010_258">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>ungetc()</i>
+function pushes the byte specified by
+<i>c</i>
+(converted to an
+<b>unsigned char</b>)
+back onto the input stream pointed to by
+<i>stream</i>.
+The pushed-back bytes will be returned by subsequent reads
+on that stream in the reverse order of their pushing.
+A successful intervening call (with the stream pointed to by
+<i>stream</i>)
+to a file-positioning function (.Fn fseek ,
+<i><a href="fsetpos.html">fsetpos()</a></i>
+or
+<i><a href="rewind.html">rewind()</a></i>)
+discards any pushed-back bytes for the stream.
+The external storage corresponding to the stream is unchanged.
+<p>
+One byte of push-back is guaranteed.  If
+<i>ungetc()</i>
+is called too many times on the same stream without an
+intervening read or file-positioning operation on that stream,
+the operation may fail.
+<p>
+If the value of
+<i>c</i>
+equals that of the macro EOF, the operation fails and the input
+stream is unchanged.
+<p>
+A successful call to
+<i>ungetc()</i>
+clears the end-of-file indicator for the stream.
+The value of the file-position indicator for the stream after
+reading or discarding all pushed-back bytes will be the same
+as it was before the bytes were pushed back.
+The file-position indicator is decremented by each successful
+call to
+<i>ungetc()</i>;
+if its value was 0 before a call, its value is indeterminate after the call.
+</blockquote><h4><a name = "tag_000_010_259">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>ungetc()</i>
+returns the byte pushed back after conversion.  Otherwise it returns EOF.
+</blockquote><h4><a name = "tag_000_010_260">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_010_261">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_262">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_263">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_264">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fseek.html">fseek()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="fsetpos.html">fsetpos()</a></i>,
+<i><a href="read.html">read()</a></i>,
+<i><a href="rewind.html">rewind()</a></i>,
+<i><a href="setbuf.html">setbuf()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

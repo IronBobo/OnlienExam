@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strtol</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_231">&nbsp;</a>NAME</h4><blockquote>
+strtol - convert string to a long integer
+</blockquote><h4><a name = "tag_000_009_232">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+long int strtol(const char *<i>str</i>, char *<i>*endptr</i>, int <i>base</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_233">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strtol()</i>
+function converts the initial portion of the string pointed to by
+<i>str</i>
+to a type
+<b>long int</b>
+representation.
+First it decomposes the input string into three parts: an initial,
+possibly empty, sequence of white-space characters (as specified by
+<i><a href="isspace.html">isspace()</a></i>);
+a subject sequence interpreted as an integer represented
+in some radix determined by the value of
+<i>base</i>;
+and a final string of one or more unrecognised characters,
+including the terminating null byte of the input string.
+Then it attempts to convert the subject sequence to an integer,
+and returns the result.
+<p>
+If the value of
+<i>base</i>
+is 0, the expected form of the subject sequence is that of a
+decimal constant, octal constant or hexadecimal constant,
+any of which may be preceded by a + or - sign.
+A decimal constant begins with a non-zero digit, and consists
+of a sequence of decimal digits.
+An octal constant consists of the prefix
+0 optionally followed by a sequence of the digits 0 to 7 only.
+A hexadecimal constant consists of the prefix
+0x or 0X followed by a sequence of the decimal digits and letters
+a (or A) to f (or F) with values 10 to 15 respectively.
+<p>
+If the value of
+<i>base</i>
+is between 2 and 36, the expected form of the subject sequence is
+a sequence of letters and digits representing an integer with the
+radix specified by
+<i>base</i>,
+optionally preceded by a + or - sign.
+The letters from a (or A) to z (or Z)
+inclusive are ascribed the values 10 to 35; only letters whose ascribed
+values are less than that of
+<i>base</i>
+are permitted.
+If the value of
+<i>base</i>
+is 16, the characters 0x or 0X
+may optionally precede the sequence of letters and digits,
+following the sign if present.
+<p>
+The subject sequence is defined as the longest initial subsequence
+of the input string, starting with the first non-white-space character,
+that is of the expected form.
+The subject sequence contains no characters if the input string
+is empty or consists entirely of white-space characters, or if the first
+non-white-space character is other than a sign or a permissible
+letter or digit.
+<p>
+If the subject sequence has the expected form and the value of
+<i>base</i>
+is 0, the sequence of characters starting with the first digit
+is interpreted as an integer constant.
+If the subject sequence has the expected form and the value of
+<i>base</i>
+is between 2 and 36, it is used as the base for conversion,
+ascribing to each letter its value as given above.
+If the subject sequence begins with a minus sign, the value
+resulting from the conversion is negated.
+A pointer to the final string is stored in the object pointed to
+by
+<i>endptr</i>,
+provided that
+<i>endptr</i>
+is not a null pointer.
+<p>
+In other than the POSIX locale, additional implementation-dependent
+subject sequence forms may be accepted.
+<p>
+If the subject sequence is empty or does not have the expected
+form, no conversion is performed; the value of
+<i>str</i>
+is stored in the object pointed to by
+<i>endptr</i>,
+provided that
+<i>endptr</i>
+is not a null pointer.
+<p>
+The
+<i>strtol()</i>
+function will not change the setting of 
+<b>errno</b>
+if successful.
+<p>
+Because 0, LONG_MIN and LONG_MAX are returned on error and are also
+valid returns on success, an application wishing to check for error
+situations should set
+<i>errno</i>
+to 0, then call
+<i>strtol()</i>,
+then check
+<i>errno</i>.
+</blockquote><h4><a name = "tag_000_009_234">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion
+<i>strtol()</i>
+returns the converted value, if any.
+If no conversion could be performed, 0 is returned
+&nbsp;and
+<i>errno</i>
+may be set to [EINVAL].
+<p>
+If the correct value is outside the range of representable values, LONG_MAX
+or LONG_MIN is returned (according to the sign of the value), and
+<i>errno</i>
+is set to [ERANGE].
+<br>
+</blockquote><h4><a name = "tag_000_009_235">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>strtol()</i>
+function will fail if:
+<dl compact>
+
+<dt>[ERANGE]<dd>
+The value to be returned is not representable.
+
+</dl>
+<p>
+The
+<i>strtol()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EINVAL]<dd>
+The value of
+<i>base</i>
+is not supported.
+
+</dl>
+</blockquote><h4><a name = "tag_000_009_236">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_237">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_238">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_239">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="isalpha.html">isalpha()</a></i>,
+<i><a href="scanf.html">scanf()</a></i>,
+<i><a href="strtod.html">strtod()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

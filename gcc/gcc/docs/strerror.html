@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strerror</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_084">&nbsp;</a>NAME</h4><blockquote>
+strerror - get error message string
+</blockquote><h4><a name = "tag_000_009_085">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="string.h.html">string.h</a>&gt;
+
+char *strerror(int <i>errnum</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_086">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strerror()</i>
+function maps the error number in
+<i>errnum</i>
+to a locale-dependent error message string and returns a pointer
+thereto.
+The string
+pointed to must not be modified by the program, but may be
+overwritten by a subsequent call to
+<i>strerror()</i>
+or
+<i><a href="perror.html">perror()</a></i>.
+<p>
+The contents of the error message strings returned by
+<i>strerror()</i>
+should be determined by the setting of the LC_MESSAGES category in the
+current locale.
+<p>
+The implementation will behave as if no function defined in this
+specification calls
+<i>strerror()</i>.
+<p>
+The
+<i>strerror()</i>
+function will not change the setting of 
+<b>errno</b>
+if successful.
+<p>
+Because no return value is reserved to indicate an error, an application
+wishing to check for error situations should set
+<i>errno</i>
+to 0, then call
+<i>strerror()</i>,
+then check
+<i>errno</i>.
+<p>
+This interface need not be reentrant.
+</blockquote><h4><a name = "tag_000_009_087">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>strerror()</i>
+returns a pointer to the generated message string.
+On error
+<i>errno</i>
+may be set, but no return value is reserved to indicate an error.
+</blockquote><h4><a name = "tag_000_009_088">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>strerror()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EINVAL]<dd>
+The value of
+<i>errnum</i>
+is not a valid error number.
+
+</dl>
+</blockquote><h4><a name = "tag_000_009_089">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_090">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_091">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_092">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="perror.html">perror()</a></i>,
+<i><a href="string.h.html">&lt;string.h&gt;</a></i>.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>

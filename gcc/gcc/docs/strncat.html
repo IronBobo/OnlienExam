@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strncat</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_135">&nbsp;</a>NAME</h4><blockquote>
+strncat - concatenate part of two strings
+</blockquote><h4><a name = "tag_000_009_136">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="string.h.html">string.h</a>&gt;
+
+char *strncat(char *<i>s1</i>, const char *<i>s2</i>, size_t <i>n</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_137">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strncat()</i>
+function appends not more than
+<i>n</i>
+bytes (a null byte and bytes that follow it are
+not appended) from the array pointed to by
+<i>s2</i>
+to the end of the string pointed to by
+<i>s1</i>.
+The initial byte of
+<i>s2</i>
+overwrites the null byte at the end of
+<i>s1</i>.
+A terminating null byte is always appended to the result.
+If copying takes place between objects that overlap, the
+behaviour is undefined.
+</blockquote><h4><a name = "tag_000_009_138">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>strncat()</i>
+function returns
+<i>s1</i>;
+no return value is reserved to indicate an error.
+</blockquote><h4><a name = "tag_000_009_139">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_009_140">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_141">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_142">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_143">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="strcat.html">strcat()</a></i>,
+<i><a href="string.h.html">&lt;string.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

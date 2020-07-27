@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>putenv</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_1768">&nbsp;</a>NAME</h4><blockquote>
+putenv - change or add a value to environment
+</blockquote><h4><a name = "tag_000_007_1769">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+int putenv(char *<i>string</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_1770">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>putenv()</i>
+function uses the
+<i>string</i>
+argument to set environment variable values.  The
+<i>string</i>
+argument should point to a string of the form "<i>name</i>=<i>value</i>".
+The
+<i>putenv()</i>
+function makes the value of the environment variable
+<i>name</i>
+equal to
+<i>value</i>
+by altering an existing variable or creating a new one.
+In either case, the string pointed to by
+<i>string</i>
+becomes part of the
+environment, so altering the string will change the environment.
+The space used by
+<i>string</i>
+is no longer used once a new string-defining
+<i>name</i>
+is passed to
+<i>putenv()</i>.
+<p>
+This interface need not be reentrant.
+</blockquote><h4><a name = "tag_000_007_1771">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>putenv()</i>
+returns 0.  Otherwise, it returns a non-zero value and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_007_1772">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>putenv()</i>
+function may fail if:
+<dl compact>
+
+<dt>[ENOMEM]<dd>
+Insufficient memory was available.
+
+</dl>
+</blockquote><h4><a name = "tag_000_007_1773">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1774">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The
+<i>putenv()</i>
+function manipulates the environment pointed to by
+<i>environ</i>,
+and can be used in conjunction with
+<i><a href="getenv.html">getenv()</a></i>.
+<p>
+This routine may use
+<i><a href="malloc.html">malloc()</a></i>
+to enlarge the environment.
+<p>
+A potential error is to call
+<i>putenv()</i>
+with an automatic variable as the argument, then return from the calling
+function while
+<i>string</i>
+is still part of the environment.
+</blockquote><h4><a name = "tag_000_007_1775">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1776">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="exec.html">exec</a></i>,
+<i><a href="getenv.html">getenv()</a></i>,
+<i><a href="malloc.html">malloc()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

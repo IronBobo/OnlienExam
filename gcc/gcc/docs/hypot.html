@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>hypot</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_908">&nbsp;</a>NAME</h4><blockquote>
+hypot - Euclidean distance function
+</blockquote><h4><a name = "tag_000_005_909">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double hypot(double <i>x</i>, double <i>y</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_910">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>hypot()</i>
+function computes the length of the hypotenuse of a right-angled triangle:
+<br>
+<img src="hypot.gif" border=0>
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>hypot()</i>.
+If
+<i>errno</i>
+is non-zero on return,
+or the return value is HUGE_VAL or NaN,
+an error has occurred.
+</blockquote><h4><a name = "tag_000_005_911">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>hypot()</i>
+returns the length of the hypotenuse of a right angled triangle
+with sides of length
+<i>x</i>
+and
+<i>y</i>.
+<p>
+If the result would cause overflow, HUGE_VAL is returned and
+<i>errno</i>
+may be set to [ERANGE].
+<p>
+If
+<i>x</i>
+or
+<i>y</i>
+is NaN, NaN is returned.
+and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If the correct result would cause underflow, 0 is returned and
+<i>errno</i>
+may be set to [ERANGE].
+</blockquote><h4><a name = "tag_000_005_912">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>hypot()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value of
+<i>x</i>
+or
+<i>y</i>
+is NaN.
+
+<dt>[ERANGE]<dd>
+The result overflows or underflows.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_005_913">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_914">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The
+<i>hypot()</i>
+function takes precautions against overflow during intermediate
+steps of the computation.  If the calculated result would still overflow a
+double, then
+<i>hypot()</i>
+returns HUGE_VAL.
+</blockquote><h4><a name = "tag_000_005_915">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_916">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="sqrt.html">sqrt()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

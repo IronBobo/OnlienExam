@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>perror</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_964">&nbsp;</a>NAME</h4><blockquote>
+perror - write error messages to standard error
+</blockquote><h4><a name = "tag_000_007_965">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+void perror(const char *<i>s</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_966">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>perror()</i>
+function maps the error number accessed through the symbol
+<i>errno</i>
+to a language-dependent error message, which is written to the
+standard error stream as follows: first (if
+<i>s</i>
+is not a null pointer and the character pointed to by
+<i>s</i>
+is not the null byte), the string pointed to by
+<i>s</i>
+followed by a colon and a space character;
+then an error message string followed
+by a newline character.  The contents of the error message strings
+are the same as those returned by
+<i><a href="strerror.html">strerror()</a></i>
+with argument
+<i>errno</i>.
+<p>
+The
+<i>perror()</i>
+function will mark the file associated with the standard
+error stream as having been written
+(<i>st_ctime</i>,
+<i>st_mtime</i>
+marked for update) at some time between its successful completion and
+<i><a href="exit.html">exit()</a></i>,
+<i><a href="abort.html">abort()</a></i>,
+or the completion of
+<i><a href="fflush.html">fflush()</a></i>
+or
+<i><a href="fclose.html">fclose()</a></i>
+on
+<i>stderr</i>.
+<p>
+The
+<i>perror()</i>
+function does not change the orientation of the standard error stream.
+</blockquote><h4><a name = "tag_000_007_967">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>perror()</i>
+function returns no value.
+</blockquote><h4><a name = "tag_000_007_968">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_007_969">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_970">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_971">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_972">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="strerror.html">strerror()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>malloc</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_496">&nbsp;</a>NAME</h4><blockquote>
+malloc - a memory allocator
+</blockquote><h4><a name = "tag_000_007_497">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+void *malloc(size_t <i>size</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_498">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>malloc()</i>
+function allocates unused space for an object whose size in bytes is specified
+by
+<i>size</i>
+and whose value is indeterminate.
+<p>
+The order and contiguity of storage allocated by successive calls to
+<i>malloc()</i>
+is unspecified.
+The pointer returned if the allocation succeeds is suitably
+aligned so that it may be assigned to a pointer to any type of
+object and then used to access such an object in the space
+allocated (until the space is explicitly freed or reallocated).
+Each such allocation will yield a pointer to an object disjoint
+from any other object.
+The pointer returned points to the start (lowest byte address) of
+the allocated space.
+If the space cannot be allocated, a null pointer is returned.
+If the size of the space requested is 0, the behaviour is
+implementation-dependent; the value returned will be either a null
+pointer or a unique pointer.
+</blockquote><h4><a name = "tag_000_007_499">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion with
+<i>size</i>
+not equal to 0,
+<i>malloc()</i>
+returns a pointer to the allocated space.  If
+<i>size</i>
+is 0, either a null pointer or a unique pointer that can
+be successfully passed to
+<i><a href="free.html">free()</a></i>
+will be returned.  Otherwise, it returns a null pointer
+and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_007_500">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>malloc()</i>
+function will fail if:
+<dl compact>
+
+<dt>[ENOMEM]<dd>
+Insufficient storage space is available.
+
+</dl>
+</blockquote><h4><a name = "tag_000_007_501">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_502">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_503">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_504">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="calloc.html">calloc()</a></i>,
+<i><a href="free.html">free()</a></i>,
+<i><a href="realloc.html">realloc()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

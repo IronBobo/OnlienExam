@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>atof</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_001_242">&nbsp;</a>NAME</h4><blockquote>
+atof - convert a string to double-precision number
+</blockquote><h4><a name = "tag_000_001_243">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+double atof(const char *<i>str</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_001_244">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The call
+<i>atof</i>(<i>str</i>)
+is equivalent to:
+<pre>
+<code>
+strtod(<i>str</i>,(char **)NULL),
+</code>
+</pre>
+except that the handling of errors may differ.
+If the value cannot be represented, the behaviour is undefined.
+</blockquote><h4><a name = "tag_000_001_245">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>atof()</i>
+function returns the converted value if the value can be
+represented.
+</blockquote><h4><a name = "tag_000_001_246">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_001_247">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_248">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The
+<i>atof()</i>
+function is subsumed by
+<i><a href="strtod.html">strtod()</a></i>
+but is retained because it is used extensively in existing code. If the number
+is not known to be in range,
+<i><a href="strtod.html">strtod()</a></i>
+should be used because
+<i>atof()</i>
+is not required to perform any error checking.
+</blockquote><h4><a name = "tag_000_001_249">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_250">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="strtod.html">strtod()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

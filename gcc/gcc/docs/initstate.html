@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>initstate</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_968">&nbsp;</a>NAME</h4><blockquote>
+initstate, random, setstate, srandom - pseudorandom number functions
+</blockquote><h4><a name = "tag_000_005_969">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+char *initstate(unsigned int <i>seed</i>, char <i>*state</i>, size_t <i>size</i>);
+long random(void);
+char *setstate(const char *<i>state</i>);
+void srandom(unsigned int <i>seed</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_970">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i><a href="random.html">random()</a></i>
+function uses a non-linear additive feedback
+random-number generator employing a default state array size of 31
+long integers to return successive pseudo-random numbers in the range
+from 0 to 2<sup><small>31</small></sup>-1. The period of this random-number generator
+is approximately 16 x (2<small><sup>31</sup></small>-1).
+The size of the state array determines the period of the random-number
+generator. Increasing the state array size increases the period.
+<p>
+With 256 bytes of state information, the period of the
+random-number generator is greater than 2<small><sup>69</small></sup>.
+<p>
+Like
+<i><a href="rand.html">rand()</a></i>,
+<i><a href="random.html">random()</a></i>
+produces by default a sequence of numbers that can be duplicated by calling
+<i><a href="srandom.html">srandom()</a></i>
+with 1 as the seed.
+<p>
+The
+<i><a href="srandom.html">srandom()</a></i>
+function initialises the current state array using the value of <i>seed</i>.
+<p>
+The
+<i>initstate()</i>
+and
+<i><a href="setstate.html">setstate()</a></i>
+functions handle restarting and changing random-number generators.  The
+<i>initstate()</i>
+function allows a state array, pointed to by the <i>state</i> argument, to be
+initialised for future use.
+The <i>size</i> argument, which specifies the size
+in bytes of the state array, is used by
+<i>initstate()</i>
+to decide what type of random-number generator to use;
+the larger the state array, the more random the numbers.  Values
+for the amount of state information are 8, 32, 64, 128, and 256
+bytes.  Other values greater than 8 bytes are rounded down to the nearest one
+of these values.  
+For values greater than or equal to 8, or less than 32
+<i><a href="random.html">random()</a></i>
+uses a simple linear congruential random number generator.  The <i>seed</i>
+argument specifies a starting point for the random-number sequence and
+provides for restarting at the same point.  The
+<i>initstate()</i>
+function returns a pointer to the previous state information array.
+<p>
+If
+<i>initstate()</i>
+has not been called, then
+<i><a href="random.html">random()</a></i>
+behaves as though
+<i>initstate()</i>
+had been called with <i>seed</i>=1 and <i>size</i>=128.
+<p>
+If
+<i>initstate()</i>
+is called with 8 &lt;= <i>size</i> &lt;32, then
+<i><a href="random.html">random()</a></i>
+uses a simple linear congruential random number generator.
+<p>
+Once a state has been initialised,
+<i><a href="setstate.html">setstate()</a></i>
+allows switching between state arrays. The array defined by the <i>state</i>
+argument is used for further random-number generation until
+<i>initstate()</i>
+is called or
+<i><a href="setstate.html">setstate()</a></i>
+is called again. The
+<i><a href="setstate.html">setstate()</a></i>
+function returns a pointer to the previous state array.
+</blockquote><h4><a name = "tag_000_005_971">&nbsp;</a>RETURN VALUE</h4><blockquote>
+If 
+<i>initstate()</i>
+is called with <i>size</i> less than 8, it returns NULL.
+<p>
+The
+<i><a href="random.html">random()</a></i>
+function returns the generated pseudo-random number.
+<p>
+The
+<i><a href="srandom.html">srandom()</a></i>
+function returns no value.
+<p>
+Upon successful completion,
+<i>initstate()</i>
+and
+<i><a href="setstate.html">setstate()</a></i>
+return a pointer to the previous state array.  Otherwise, a null pointer is
+returned.
+</blockquote><h4><a name = "tag_000_005_972">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_005_973">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_974">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+After initialisation, a state array can be restarted at a different
+point in one of two ways:
+<ul>
+<p>
+<li>
+The
+<i>initstate()</i>
+function can be used, with the desired seed, state array, and size of the
+array.
+<p>
+<li>
+The
+<i><a href="setstate.html">setstate()</a></i>
+function, with the desired state, can be used, followed by
+<i><a href="srandom.html">srandom()</a></i>
+with the desired seed. The advantage of using both of these functions is that
+the size of the state array does not have to be saved once it is initialised.
+<p>
+</ul>
+<p>
+Although some implementations of
+<i><a href="random.html">random()</a></i>
+have written messages to standard error, such implementations do not conform
+to this specification.
+<p>
+Issue 5 restores the historical behaviour of this function.
+<p>
+Threaded applications should use
+<i><a href="rand.html">rand_r()</a></i>,
+<i><a href="erand48.html">erand48()</a></i>,
+<i><a href="nrand48.html">nrand48()</a></i>
+or
+<i><a href="jrand48.html">jrand48()</a></i>
+instead of
+<i><a href="random.html">random()</a></i>
+when an independent random number sequence in multiple threads is
+required.
+</blockquote><h4><a name = "tag_000_005_975">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_976">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="drand48.html">drand48()</a></i>,
+<i><a href="rand.html">rand()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>

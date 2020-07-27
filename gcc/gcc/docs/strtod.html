@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strtod</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_213">&nbsp;</a>NAME</h4><blockquote>
+strtod - convert string to a double-precision number
+</blockquote><h4><a name = "tag_000_009_214">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+double strtod(const char *<i>str</i>, char **<i>endptr</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_215">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strtod()</i>
+function converts the initial portion of the string pointed to by
+<i>str</i>
+to type
+<b>double</b>
+representation.
+First it decomposes the input string into three parts: an
+initial, possibly empty, sequence of white-space characters (as
+specified by
+<i><a href="isspace.html">isspace()</a></i>);
+a subject sequence interpreted as a floating-point
+constant; and a final string of one or more unrecognised
+characters, including the terminating null byte of the input
+string.
+Then it attempts to convert the subject sequence to a
+floating-point number, and returns the result.
+<p>
+The expected form of the subject sequence is an optional + or
+- sign, then a non-empty sequence of digits optionally containing a
+radix character, then an optional exponent part.
+An exponent part consists of e or E,
+followed by an optional sign, followed by one or more decimal digits.
+The subject sequence is defined as the longest initial subsequence of
+the input string, starting with the first non-white-space character,
+that is of the expected form.
+The subject sequence is empty if the input string
+is empty or consists entirely of white-space characters, or if the first
+character that is not white space is other than a sign, a digit or a
+radix character.
+<p>
+If the subject sequence has the expected form, the sequence
+starting with the first digit or the radix character
+(whichever occurs first) is interpreted as a
+floating constant of the C language,
+except that the radix character is used in
+place of a period, and that if neither an exponent part nor a
+radix character appears, a radix character is assumed to
+follow the last digit in the string.
+If the subject sequence begins with a minus sign, the value
+resulting from the conversion is negated.
+A pointer to the final string is stored in the object pointed to
+by
+<i>endptr</i>,
+provided that
+<i>endptr</i>
+is not a null pointer.
+<p>
+The radix character is defined in the program's locale
+(category LC_NUMERIC).
+In the POSIX locale, or in a locale where the radix character is
+not defined, the radix character defaults to a period (.).
+<p>
+In other than the POSIX locale, other implementation-dependent
+subject sequence forms may be accepted.
+<p>
+If the subject sequence is empty or does not have the expected
+form, no conversion is performed; the value of
+<i>str</i>
+is stored in the object pointed to by
+<i>endptr</i>,
+provided that
+<i>endptr</i>
+is not a null pointer.
+<br>
+<p>
+The
+<i>strtod()</i>
+function will not change the setting of 
+<b>errno</b>
+if successful.
+<p>
+Because 0 is returned on error and is also a valid return on success, an
+application wishing to check for error situations should set
+<i>errno</i>
+to 0, then call
+<i>strtod()</i>,
+then check
+<i>errno</i>.
+</blockquote><h4><a name = "tag_000_009_216">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>strtod()</i>
+returns the converted value.
+If no conversion could be performed, 0 is returned,
+&nbsp;and
+<i>errno</i>
+may be set to [EINVAL].
+<p>
+If the correct value is outside the range of representable
+values, &plusmn;HUGE_VAL
+is returned (according to the sign of the value), and
+<i>errno</i>
+is set to [ERANGE].
+<p>
+If the correct value would cause an underflow, 0 is returned and
+<i>errno</i>
+is set to [ERANGE].
+<br>
+</blockquote><h4><a name = "tag_000_009_217">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>strtod()</i>
+function will fail if:
+<dl compact>
+
+<dt>[ERANGE]<dd>
+The value to be returned would cause overflow or underflow.
+
+</dl>
+<p>
+The
+<i>strtod()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EINVAL]<dd>
+No conversion could be performed.
+
+</dl>
+</blockquote><h4><a name = "tag_000_009_218">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_219">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_220">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_221">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="isspace.html">isspace()</a></i>,
+<i><a href="localeconv.html">localeconv()</a></i>,
+<i><a href="scanf.html">scanf()</a></i>,
+<i><a href="setlocale.html">setlocale()</a></i>,
+<i><a href="strtol.html">strtol()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>,
+the <b>XBD</b> specification, <a href="../xbd/locale.html"><b>Locale</b>&nbsp;</a>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

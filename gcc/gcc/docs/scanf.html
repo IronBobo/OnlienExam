@@ -1,0 +1,562 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fscanf</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_266">&nbsp;</a>NAME</h4><blockquote>
+fscanf, scanf, sscanf  - convert formatted input
+</blockquote><h4><a name = "tag_000_005_267">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int fscanf(FILE *<i>stream</i>, const char *<i>format</i>, ... );
+int scanf(const char *<i>format</i>, ... );
+int sscanf(const char *<i>s</i>, const char *<i>format</i>, ... );
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_268">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fscanf()</i>
+function reads from the named input
+<i>stream</i>.
+The
+<i>scanf()</i>
+function reads from the standard input stream
+<i><a href="stdin.html">stdin</a></i>.
+The
+<i>sscanf()</i>
+function reads from the string
+<i>s</i>.
+Each function reads bytes, interprets
+them according to a format, and stores the results in its arguments.
+Each expects, as arguments, a control string
+<i>format</i>
+described below, and a set of
+<i>pointer</i>
+arguments
+indicating where the converted input should be stored.
+The result is undefined if there are insufficient arguments for
+the format.
+If the format is exhausted while arguments remain, the excess arguments
+are evaluated but are otherwise ignored.
+<p>
+Conversions can be applied to the
+<i>nth</i>
+argument after the
+<i>format</i>
+in the argument list, rather than to the next unused argument.
+In this case, the conversion character % (see below) is replaced
+by the sequence %<i>n</i>$, where <i>n</i> is a decimal integer
+in the range [1,&nbsp;{NL_ARGMAX}].
+This feature provides for the definition of format strings that
+select arguments in an order appropriate to specific languages.
+In format strings
+containing the %<i>n</i>$ form of conversion specifications,
+it is unspecified whether numbered
+arguments in the argument list can be referenced from the format string
+more than once.
+<p>
+The
+<i>format</i>
+can contain either form of a conversion specification, that is, %
+or %<i>n</i>$, but the two forms cannot normally be mixed within a single
+<i>format</i>
+string.
+The only exception to this is that %% or %* can be mixed with the
+%<i>n</i>$ form.
+<p>
+The
+<i>fscanf()</i>
+function in all its forms allows for detection of a language-dependent radix
+character in the input string.  The radix character is defined
+in the program's locale (category LC_NUMERIC).
+In the POSIX locale, or in a locale where
+the radix character is not defined,
+the radix character defaults to a period (.).
+<p>
+The format is a character string, beginning and ending in its
+initial shift state, if any, composed of zero or more directives.
+Each directive is composed of one of the following:
+one or more white-space characters (space, tab, newline, vertical-tab
+or form-feed characters); an ordinary character (neither % nor a
+white-space character);
+or a conversion specification.
+Each conversion specification is introduced by the character %
+or the character sequence
+<i>%n$</i>
+after which the following appear in sequence:
+<ul>
+<p>
+<li>
+An optional assignment-suppressing character *.
+<p>
+<li>
+An optional non-zero decimal integer that specifies the maximum field
+width.
+<p>
+<li>
+An optional size modifier h, l (ell) or L
+indicating the size of the receiving object.
+The conversion characters d, i and n must be preceded by h
+if the corresponding argument is a pointer to
+<b>short int</b>
+rather than a pointer to
+<b>int</b>,
+or by l (ell) if it is a pointer to
+<b>long int</b>.
+Similarly, the conversion characters o, u and x must be preceded by h
+if the corresponding argument is a pointer to
+<b>unsigned short int</b>
+rather than a pointer to
+<b>unsigned int</b>,
+or by l (ell) if it is a pointer to
+<b>unsigned long int</b>.
+The conversion characters e, f and g must be preceded by l (ell)
+if the corresponding argument is a pointer to
+<b>double</b>
+rather than a pointer to
+<b>float</b>,
+or by L if it is a pointer to
+<b>long double</b>.
+Finally, the conversion characters c, s and [ must be precede by l
+(ell) if the corresponding argument is a pointer to
+<b>wchar_t</b>
+rather than a pointer to a character type.
+If an h, l (ell) or L
+appears with any other conversion character, the behaviour is undefined.
+<p>
+<li>
+A conversion character
+that specifies the type of conversion to be applied.
+The valid conversion characters are described below.
+<p>
+</ul>
+<p>
+The
+<i>fscanf()</i>
+functions execute each directive of the format in turn.  If a directive fails,
+as detailed below, the function returns.  Failures are described as input
+failures (due to the unavailability of input bytes) or matching failures (due
+to inappropriate input).
+<p>
+A directive composed of one or more white-space characters is
+executed by reading input until no more valid input can be read, or
+up to the first byte which is not a white-space character
+which remains unread.
+<p>
+A directive that is an ordinary character is executed as
+follows.
+The next byte is read from the input and compared with the
+byte that comprises the directive;
+if the comparison shows that they are not equivalent,
+the directive fails, and the differing and subsequent
+bytes remain unread.
+<p>
+A directive that is a conversion specification defines a set of
+matching input sequences, as described below for each conversion character.
+A conversion specification is executed in the following steps:
+<p>
+Input white-space characters (as specified by
+<i><a href="isspace.html">isspace()</a></i>)
+are skipped, unless the conversion specification includes a
+[, c, C or n conversion character.
+<p>
+An item is read from the input, unless the conversion specification
+includes an n conversion character.
+An input item is defined as the longest sequence of input bytes
+(up to any specified maximum field width, which may be measured in
+characters or bytes dependent on the conversion character) which is an
+initial subsequence of a matching sequence.
+The first byte, if any, after the input item remains unread.
+If the length of the input item is 0, the execution of the
+conversion specification fails;
+this condition is a matching failure, unless end-of-file, an encoding
+error, or a read error prevented
+input from the stream, in which case it is an input failure.
+<p>
+Except in the case of a % conversion character, the input item (or, in the
+case of a
+<i>%n</i>
+conversion specification, the count of input bytes)
+is converted to a type appropriate to the conversion character.
+If the input item is not a matching sequence, the execution of
+the conversion specification fails; this condition is a matching failure.
+Unless assignment suppression was indicated by a *,
+the result of the conversion is placed in the object pointed to
+by the first argument following the
+<i>format</i>
+argument that has not already received a conversion result
+if the conversion specification is introduced by %,
+&nbsp;or in the
+<i>n</i>th
+argument if introduced by the character sequence
+<i>%n$</i>.
+&nbsp;If this object does not have an appropriate type, or if the
+result of the conversion cannot be represented in the space
+provided, the behaviour is undefined.
+<p>
+The following conversion characters are valid:
+<dl compact>
+
+<dt>d<dd>Matches an optionally signed decimal integer, whose format is the
+same as expected for the subject sequence of
+<i><a href="strtol.html">strtol()</a></i>
+with the value 10 for the
+<i>base</i>
+argument.
+In the absence of a size modifier, the corresponding argument
+must be a pointer to
+<b>int</b>.
+
+<dt>i<dd>Matches an optionally signed integer, whose format is the same as
+expected for the subject sequence of
+<i><a href="strtol.html">strtol()</a></i>
+with 0 for the
+<i>base</i>
+argument.
+In the absence of a size modifier, the corresponding argument
+must be a pointer to
+<b>int</b>.
+
+<dt>o<dd>Matches an optionally signed octal integer, whose format is the same as
+expected for the subject sequence of
+<i><a href="strtoul.html">strtoul()</a></i>
+with the value 8 for the
+<i>base</i>
+argument.
+In the absence of a size modifier, the corresponding argument
+must be a pointer to
+<b>unsigned int</b>.
+
+<dt>u<dd>Matches an optionally signed decimal integer, whose format is the
+same as expected for the subject sequence of
+<i><a href="strtoul.html">strtoul()</a></i>
+with the value 10 for the
+<i>base</i>
+argument.
+In the absence of a size modifier, the corresponding argument
+must be a pointer to
+<b>unsigned int</b>.
+
+<dt>x<dd>Matches an optionally signed hexadecimal integer, whose format is
+the same as expected for the subject sequence of
+<i><a href="strtoul.html">strtoul()</a></i>
+with the value 16 for the
+<i>base</i>
+argument.
+In the absence of a size modifier, the corresponding argument
+must be a pointer to
+<b>unsigned int</b>.
+
+<dt>e,&nbsp;f,&nbsp;g<dd>Matches an optionally signed floating-point number, whose format is
+the same as expected for the subject sequence of
+<i><a href="strtod.html">strtod()</a></i>.
+In the absence of a size modifier, the corresponding argument
+must be a pointer to
+<b>float</b>.
+
+If the 
+<i><a href="fprintf.html">fprintf()</a></i>
+family of functions generates character string
+representations for infinity and NaN (a 7858 symbolic entity encoded
+in floating-point format) to support the ANSI/IEEE&nbsp;Std&nbsp;754:1985 standard, the 
+<i>fscanf()</i>
+family of functions will recognise them as input.
+
+<dt>s<dd>Matches a sequence of bytes that are not white-space characters.
+The corresponding argument must be a pointer to the initial
+byte of an array of
+<b>char</b>,
+<b>signed char</b>
+or
+<b>unsigned char</b>
+large enough to accept the sequence and a
+terminating null character code, which will be added automatically.
+
+If an l (ell) qualifier is present, the input is a sequence of
+characters that begins in the initial shift state.  Each
+character is converted to a wide-character as if by a call
+to the
+<i><a href="mbrtowc.html">mbrtowc()</a></i>
+function, with the conversion state described by an
+<b>mbstate_t</b>
+object initialised to zero before the first character is
+converted.  The corresponding argument must be a pointer to an array
+of
+<b>wchar_t</b>
+large enough to accept the sequence and the terminating null 
+wide-character, which will be added automatically.
+
+<dt>[<dd>Matches a non-empty sequence of bytes from a set of expected
+bytes (the
+<i>scanset</i>).
+The normal skip over white-space characters is suppressed in this case.
+The corresponding argument must be a pointer to the initial
+byte of an array of
+<b>char</b>,
+<b>signed char</b>
+or
+<b>unsigned char</b>
+large enough to accept the sequence and a
+terminating null byte, which will be added automatically.
+
+If an l (ell) qualifier is present, the input is a sequence of
+characters that begins in the initial shift state.  Each
+character in the sequence is converted to a wide-character
+as if by a call to the
+<i><a href="mbrtowc.html">mbrtowc()</a></i>
+function, with the conversion state described by an
+<b>mbstate_t</b>
+object initialised to zero before the first character is
+converted.  The corresponding argument must be a pointer to an array
+of
+<b>wchar_t</b>
+large enough to accept the sequence and the terminating null
+wide-character, which will be added automatically.
+
+The conversion specification includes all subsequent bytes in
+the
+<i>format</i>
+string up to and including the matching right square bracket (]).
+The bytes between the square brackets (the
+<i>scanlist</i>)
+comprise the scanset, unless the byte after the left square bracket
+is a circumflex (^), in which case the scanset contains all
+bytes that do not appear in the scanlist between the
+circumflex and the right square bracket.
+If the conversion specification begins with []
+or [^], the right square bracket is included in the scanlist and the
+next right square bracket is the matching right square bracket that ends the
+conversion specification; otherwise the first right square bracket is the
+one that ends the conversion specification.
+If a - is in the scanlist and is not the first character, nor the second
+where the first character is a ^, nor the last character,
+the behaviour is implementation-dependent.
+
+<dt>c<dd>Matches a sequence of bytes of the number specified by the
+field width (1 if no field width is present in the conversion specification).
+The corresponding argument must be a pointer to the initial
+byte of an array of <b>char</b>, <b>signed&nbsp;char</b> or <b>unsigned char</b>
+large enough to accept the sequence.
+No null byte is added.
+The normal skip over white-space characters is suppressed in this case.
+
+If an l (ell) qualifier is present, the input is a sequence of
+characters that begins in the initial shift state.  Each
+character in the sequence is converted to a wide-character
+as if by a call to the
+<i><a href="mbrtowc.html">mbrtowc()</a></i>
+function, with the conversion state described by an
+<b>mbstate_t</b>
+object initialised to zero before the first character is
+converted.  The corresponding argument must be a pointer to an array
+of
+<b>wchar_t</b>
+large enough to accept the resulting sequence of wide-characters.  No
+null wide-character is added.
+
+<dt>p<dd>Matches an implementation-dependent set of sequences, which must
+be the same as the set of sequences that is produced by the %p
+conversion of the corresponding
+<i><a href="fprintf.html">fprintf()</a></i>
+functions.
+The corresponding argument must be a pointer to a pointer to
+<b>void</b>.
+The interpretation of the input item is implementation-dependent.
+If the input item is a value converted earlier during the
+same program execution, the pointer that results will compare equal
+to that value; otherwise the behaviour of the %p conversion is undefined.
+
+<dt>n<dd>No input is consumed.
+The corresponding argument must be a pointer to
+the integer into which is to be written the number of
+bytes read from the input so far by this call to the
+<i>fscanf()</i>
+functions.
+Execution of a %n
+conversion specification
+does not increment the assignment count returned at the
+completion of execution of the function.
+
+<dt>C<dd>Same as lc.
+
+<dt>S<dd>Same as ls.
+
+<dt>%<dd>Matches a single %;
+no conversion or assignment occurs.
+The complete conversion specification must be %%.
+
+</dl>
+<p>
+If a conversion specification is invalid, the behaviour is
+undefined.
+<p>
+The conversion characters E, G and X
+are also valid and behave the same as, respectively, e, g and x.
+<p>
+If end-of-file is encountered during input, conversion is terminated.
+If end-of-file occurs before any bytes matching the current
+conversion specification (except for
+%n) have been read
+(other than leading white-space characters, where
+permitted), execution of the current conversion specification
+terminates with an
+input failure.  Otherwise, unless execution of the current
+conversion specification is terminated with a matching failure,
+execution of the following conversion specification (if any)
+is terminated with an input failure.
+<p>
+Reaching the end of the string in
+<i>sscanf()</i>
+is equivalent to encountering end-of-file for
+<i>fscanf()</i>.
+<p>
+If conversion terminates on a conflicting input, the
+offending input is left unread in the input.
+Any trailing white space (including newline characters) is left
+unread unless matched by a conversion specification.
+The success of literal matches and suppressed assignments is only
+directly determinable via the %n conversion specification.
+<p>
+The
+<i>fscanf()</i>
+and
+<i>scanf()</i>
+functions may mark the
+<i>st_atime</i>
+field of the file associated with
+<i>stream</i>
+for update.
+The
+<i>st_atime</i>
+field will be marked for update by the first successful execution of
+<i><a href="fgetc.html">fgetc()</a></i>,
+<i><a href="fgets.html">fgets()</a></i>,
+<i><a href="fread.html">fread()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="getchar.html">getchar()</a></i>,
+<i><a href="gets.html">gets()</a></i>,
+<i>fscanf()</i>
+or
+<i>fscanf()</i>
+using
+<i>stream</i>
+that returns data not supplied by a prior call to
+<i><a href="ungetc.html">ungetc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_269">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion, these functions return the number of successfully
+matched and assigned input items; this number can be 0 in the event of an
+early matching failure.  If the input ends before the first matching failure
+or conversion, EOF is returned.  If a read error occurs the error indicator
+for the stream is set, EOF is returned, and
+<i>errno</i>
+is set to indicate the error.
+</blockquote><h4><a name = "tag_000_005_270">&nbsp;</a>ERRORS</h4><blockquote>
+For the conditions under which the
+<i>fscanf()</i>
+functions will fail and may fail, refer to
+<i><a href="fgetc.html">fgetc()</a></i>
+or
+<i><a href="fgetwc.html">fgetwc()</a></i>.
+<p>
+In addition,
+<i>fscanf()</i>
+may fail if:
+<dl compact>
+
+<dt>[EILSEQ]<dd>
+Input byte sequence does not form a valid character.
+
+<dt>[EINVAL]<dd>
+There are insufficient arguments.
+
+</dl>
+</blockquote><h4><a name = "tag_000_005_271">&nbsp;</a>EXAMPLES</h4><blockquote>
+The call:
+<pre>
+<code>
+int i, n; float x; char name[50];
+n = scanf("%d%f%s", &amp;i, &amp;x, name);
+</code>
+</pre>
+with the input line:
+<pre>
+<code>
+25 54.32E-1 Hamster
+</code>
+</pre>
+will assign to
+<i>n</i>
+the value 3, to
+<i>i</i>
+the value 25, to
+<i>x</i>
+the value 5.432, and
+<i>name</i>
+will contain the string Hamster.
+<p>
+The call:
+<pre>
+<code>
+int i; float x; char name[50];
+(void) scanf("%2d%f%*d %[0123456789]", &amp;i, &amp;x, name);
+</code>
+</pre>
+with input:
+<pre>
+<code>
+56789 0123 56a72
+</code>
+</pre>
+<p>
+will assign 56 to
+<i>i</i>,
+789.0 to
+<i>x</i>,
+skip 0123, and place the string 56\0 in
+<i>name</i>.
+The next call to
+<i><a href="getchar.html">getchar()</a></i>
+will return the character a.
+</blockquote><h4><a name = "tag_000_005_272">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+If the application calling
+<i>fscanf()</i>
+has any objects of type
+<b>wint_t</b>
+or
+<b>wchar_t,</b>
+it must also include the header
+<i><a href="wchar.h.html">&lt;wchar.h&gt;</a></i>
+to have these objects defined.
+</blockquote><h4><a name = "tag_000_005_273">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_274">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="printf.html">printf()</a></i>,
+<i><a href="setlocale.html">setlocale()</a></i>,
+<i><a href="strtod.html">strtod()</a></i>,
+<i><a href="strtol.html">strtol()</a></i>,
+<i><a href="strtoul.html">strtoul()</a></i>,
+<i><a href="wcrtomb.html">wcrtomb()</a></i>,
+<i><a href="langinfo.h.html">&lt;langinfo.h&gt;</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>,
+<i><a href="wchar.h.html">&lt;wchar.h&gt;</a></i>,
+the <b>XBD</b> specification, <a href="../xbd/locale.html"><b>Locale</b>&nbsp;</a>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

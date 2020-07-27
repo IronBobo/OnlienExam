@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>ldiv</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_320">&nbsp;</a>NAME</h4><blockquote>
+ldiv - compute quotient and remainder of a long division
+</blockquote><h4><a name = "tag_000_007_321">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+ldiv_t ldiv(long int <i>numer</i>, long int <i>denom</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_322">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>ldiv()</i>
+function computes the quotient and remainder of the division of
+the numerator
+<i>numer</i>
+by the denominator
+<i>denom</i>.
+If the division is inexact, the resulting quotient is the long integer
+of lesser magnitude that is the nearest to the algebraic
+quotient.
+If the result cannot be represented, the behaviour is undefined;
+otherwise, <i>quot * denom + rem</i> will equal
+<i>numer</i>.
+</blockquote><h4><a name = "tag_000_007_323">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>ldiv()</i>
+function returns a structure of type
+<b>ldiv_t</b>,
+comprising both the quotient and the remainder.
+The structure includes the following members, in any order:
+<p><table <tr valign=top><td align=left>long int
+<td align=left>quot;
+<td align=left>/* quotient */
+<tr valign=top><td align=left>long int
+<td align=left>rem;
+<td align=left>/* remainder */
+</table>
+</blockquote><h4><a name = "tag_000_007_324">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_007_325">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_326">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_327">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_328">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="div.html">div()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from the ISO C standard.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>memmove</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_610">&nbsp;</a>NAME</h4><blockquote>
+memmove - copy bytes in memory with overlapping areas
+</blockquote><h4><a name = "tag_000_007_611">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="string.h.html">string.h</a>&gt;
+
+void *memmove(void *<i>s1</i>, const void *<i>s2</i>, size_t <i>n</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_612">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>memmove()</i>
+function copies
+<i>n</i>
+bytes from the object pointed to by
+<i>s2</i>
+into the object pointed to by
+<i>s1</i>.
+Copying takes place as if the
+<i>n</i>
+bytes from the object pointed to by
+<i>s2</i>
+are first copied into a temporary array of
+<i>n</i>
+bytes that does not overlap the objects pointed to by
+<i>s1</i>
+and
+<i>s2</i>,
+and then the
+<i>n</i>
+bytes from the temporary array are copied into the object
+pointed to by
+<i>s1</i>.
+</blockquote><h4><a name = "tag_000_007_613">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>memmove()</i>
+function returns
+<i>s1</i>;
+no return value is reserved to indicate an error.
+</blockquote><h4><a name = "tag_000_007_614">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_007_615">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_616">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_617">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="string.h.html">&lt;string.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from the ANSI C standard.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

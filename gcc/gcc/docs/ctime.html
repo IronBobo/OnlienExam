@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>ctime</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_002_065">&nbsp;</a>NAME</h4><blockquote>
+ctime, ctime_r - convert a time value to date and time string
+</blockquote><h4><a name = "tag_000_002_066">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="time.h.html">time.h</a>&gt;
+
+char *ctime(const time_t *<i>clock</i>);
+char *ctime_r(const time_t *<i>clock</i>, char *<i>buf</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_002_067">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>ctime()</i>
+function converts the time pointed to by
+<i>clock</i>,
+representing time in seconds since the Epoch, to local time in the form
+of a string.
+It is equivalent to:
+<pre>
+<code>
+asctime(localtime(clock))
+</code>
+</pre>
+<p>
+The
+<i><a href="asctime.html">asctime()</a></i>,
+<i>ctime()</i>,
+<i><a href="gmtime.html">gmtime()</a></i>
+and
+<i><a href="localtime.html">localtime()</a></i>
+functions return values in one of two static objects: a
+broken-down time structure and an array of
+<b>char</b>.
+Execution of any of the functions may overwrite the information
+returned in either of these objects by any of the other
+functions.
+<p>
+The
+<i>ctime()</i>
+interface need not be reentrant.
+<p>
+The
+<i>ctime_r()</i>
+function converts the calendar time pointed to by
+<i>clock</i>
+to local time in exactly the same form as
+<i>ctime()</i>
+and puts the string into the array pointed to by
+<i>buf</i>
+(which contains at least 26 bytes)
+and returns
+<i>buf</i>.
+<p>
+Unlike
+<i>ctime()</i>,
+the thread-safe version
+<i>ctime_r()</i>
+is not required to set
+<i>tzname</i>.
+</blockquote><h4><a name = "tag_000_002_068">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>ctime()</i>
+function returns the pointer returned by
+<i><a href="asctime.html">asctime()</a></i>
+with that broken-down time as an argument.
+<p>
+On successful completion,
+<i>ctime_r()</i>
+returns a pointer to the string pointed to by
+<i>buf</i>.
+When an error is encountered, a NULL pointer is returned.
+</blockquote><h4><a name = "tag_000_002_069">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_002_070">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_002_071">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Values for the broken-down time structure can be obtained by calling
+<i><a href="gmtime.html">gmtime()</a></i>
+or
+<i><a href="localtime.html">localtime()</a></i>.
+This interface is included for compatibility with older
+implementations, and does not support localised date and time
+formats.
+Applications should use the
+<i><a href="strftime.html">strftime()</a></i>
+interface to achieve maximum portability.
+</blockquote><h4><a name = "tag_000_002_072">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_002_073">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="asctime.html">asctime()</a></i>,
+<i><a href="clock.html">clock()</a></i>,
+<i><a href="difftime.html">difftime()</a></i>,
+<i><a href="gmtime.html">gmtime()</a></i>,
+<i><a href="localtime.html">localtime()</a></i>,
+<i><a href="mktime.html">mktime()</a></i>,
+<i><a href="strftime.html">strftime()</a></i>,
+<i><a href="strptime.html">strptime()</a></i>,
+<i><a href="time.html">time()</a></i>,
+<i><a href="utime.html">utime()</a></i>,
+<i><a href="time.h.html">&lt;time.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+<i>ctime()</i> derived from Issue 1 of the SVID.
+<P>
+<i>ctime_r()</i> derived from the POSIX Threads Extension (1003.1c-1995).
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

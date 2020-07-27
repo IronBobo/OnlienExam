@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>getw</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_797">&nbsp;</a>NAME</h4><blockquote>
+getw - get a word from a stream
+(<b>LEGACY</b>)
+</blockquote><h4><a name = "tag_000_005_798">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int getw(FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_799">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>getw()</i>
+function reads the next word from the
+<i>stream</i>.
+The size of a word is the size of an
+<b>int</b>
+and may vary from machine to machine.  The
+<i>getw()</i>
+function presumes no special alignment in the file.
+<p>
+The
+<i>getw()</i>
+function may mark the
+<i>st_atime</i>
+field of the file associated with
+<i>stream</i>
+for update.
+The
+<i>st_atime</i>
+field will be marked for update by the first successful execution of
+<i><a href="fgetc.html">fgetc()</a></i>,
+<i><a href="fgets.html">fgets()</a></i>,
+<i><a href="fread.html">fread()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="getchar.html">getchar()</a></i>,
+<i><a href="gets.html">gets()</a></i>,
+<i><a href="fscanf.html">fscanf()</a></i>
+or
+<i><a href="scanf.html">scanf()</a></i>
+using
+<i>stream</i>
+that returns data not supplied by a prior call to
+<i><a href="ungetc.html">ungetc()</a></i>.
+<p>
+This interface need not be reentrant.
+</blockquote><h4><a name = "tag_000_005_800">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>getw()</i>
+returns the next word from the input stream pointed
+to by
+<i>stream</i>.
+If the stream is at end-of-file, the end-of-file indicator for
+the stream is set and
+<i>getw()</i>
+returns EOF.
+If a read error occurs, the error indicator for the stream is set,
+<i>getw()</i>
+returns EOF and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_005_801">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="fgetc.html">fgetc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_802">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_803">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Because of possible differences in word length and byte ordering,
+files written using
+<i><a href="putw.html">putw()</a></i>
+are implementation-dependent, and possibly cannot be read using
+<i>getw()</i>
+by a different application or by the same application on a
+different processor.
+<p>
+Because the representation of EOF is a valid integer,
+applications wishing to check for errors should use
+<i><a href="ferror.html">ferror()</a></i>
+and
+<i><a href="feof.html">feof()</a></i>.
+<p>
+The
+<i>getw()</i>
+function is inherently byte stream-oriented and is not tenable in the
+context of either multibyte character streams or wide-character streams.  
+Application programmers are recommended to use one of the
+character-based input functions instead.
+</blockquote><h4><a name = "tag_000_005_804">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_805">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="feof.html">feof()</a></i>,
+<i><a href="ferror.html">ferror()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="putw.html">putw()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>,
+<i><a href="utmpx.h.html">&lt;utmpx.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

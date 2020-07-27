@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>bsearch</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_001_314">&nbsp;</a>NAME</h4><blockquote>
+bsearch - binary search a sorted table
+</blockquote><h4><a name = "tag_000_001_315">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+void *bsearch(const void *<i>key</i>, const void *<i>base</i>, size_t <i>nel</i>,
+    size_t <i>width</i>, int (*<i>compar</i>)(const void *, const void *));
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_001_316">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>bsearch()</i>
+function searches an array of
+<i>nel</i>
+objects, the initial element of which is pointed to by
+<i>base</i>,
+for an element that matches the object pointed to by
+<i>key</i>.
+The size of each element in the array is specified by
+<i>width</i>.
+<p>
+The comparison function pointed to by
+<i>compar</i>
+is called with two arguments that point to the
+<i>key</i>
+object and to an array element, in that order.
+<p>
+The function must return an integer less than, equal to, or
+greater than 0 if the
+<i>key</i>
+object is considered, respectively, to be less than, to match, or
+to be greater than the array element.
+The array must consist of: all the elements that compare less
+than, all the elements that compare equal to, and all the
+elements that compare greater than the
+<i>key</i>
+object, in that order.
+</blockquote><h4><a name = "tag_000_001_317">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>bsearch()</i>
+function returns a pointer to a matching member of the array, or
+a null pointer if no match is found.
+If two or more members compare equal, which member is returned is
+unspecified.
+</blockquote><h4><a name = "tag_000_001_318">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_001_319">&nbsp;</a>EXAMPLES</h4><blockquote>
+The example below searches a table containing pointers
+to nodes consisting of a string and its length.
+The table is ordered alphabetically on the string in the
+node pointed to by each entry.
+<p>
+The code fragment below reads in strings and either finds the
+corresponding node and prints out the string and its length,
+or prints an error message.
+<pre>
+<code>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+#define&nbsp;TABSIZE    1000
+
+struct node {                  /* these are stored in the table */
+    char *string;
+    int length;
+};
+struct node table[TABSIZE];    /* table to be searched */
+    .
+    .
+    .
+{
+    struct node *node_ptr, node;
+    /* routine to compare 2 nodes */
+    int node_compare(const void *, const void *);
+    char str_space[20];   /* space to read string into */
+    .
+    .
+    .
+    node.string = str_space;
+    while (scanf("%s", node.string) != EOF) {
+        node_ptr = (struct node *)bsearch((void *)(&amp;node),
+               (void *)table, TABSIZE,
+               sizeof(struct node), node_compare);
+        if (node_ptr != NULL) {
+            (void)printf("string = %20s, length = %d\n",
+                node_ptr-&gt;string, node_ptr-&gt;length);
+        } else {
+            (void)printf("not found: %s\n", node.string);
+        }
+    }
+}
+/*
+    This routine compares two nodes based on an
+    alphabetical ordering of the string field.
+*/
+int
+node_compare(const void *node1, const void *node2)
+{
+    return strcoll(((const struct node *)node1)-&gt;string,
+        ((const struct node *)node2)-&gt;string);
+}
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_001_320">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The pointers to the key and the element at the base of
+the table should be of type pointer-to-element.
+<p>
+The comparison function need not compare every byte,
+so arbitrary data may be contained in the elements in addition to the values
+being compared.
+<p>
+In practice, the array is usually sorted according to the
+comparison function.
+<br>
+</blockquote><h4><a name = "tag_000_001_321">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_322">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="hsearch.html">hsearch()</a></i>,
+<i><a href="lsearch.html">lsearch()</a></i>,
+<i><a href="qsort.html">qsort()</a></i>,
+<i><a href="tsearch.html">tsearch()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

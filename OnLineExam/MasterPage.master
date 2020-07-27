@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>慧联考试系统</title>
+    <link href="CSS/CSS.css" rel="stylesheet" type="text/css" />
+    <link href='./bootstrap/css/bootstrap.css' rel="stylesheet" type="text/css" />
+    <link href='./bootstrap/css/ie.css' rel="stylesheet" type="text/css" />
+    <script src='<%=Request.ApplicationPath %>/JS/jquery-1.7.2.min.js' type="text/javascript" ></script>  
+    <script src="../JS/bootstrap-ie.js"type="text/javascript" ></script>
+    <script src="../JS/jquery-1.7.2.min.js" type="text/javascript" ></script>   
+    <script src="../JS/Morning_JS.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <form id="Form1" method="post" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div style="background-image:url('<%=ResolveClientUrl("./Images/3.jpg")%>'); text-align: center;line-height: 200px;background-size:100%;">
+        <img src="<%=ResolveClientUrl("./Images/logopng.png")%>" style="" title="" width="30%" height="30%" alt="" />
+        
+    </div>
+    <div style="background-color:gray;height:30px;line-height:30px;font-size:16px;">
+        &nbsp;&nbsp;&nbsp;欢迎您：<asp:Label ID="labUser" runat="server" Text="Label" Width="70px"></asp:Label>&nbsp;&nbsp;
+        <script type="text/javascript">
+            getDate();
+                    </script>
+
+        <span id="ShowTime"></span>&nbsp;&nbsp;&nbsp;
+        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"  style="font-size:14px;color:yellow;">退出</asp:LinkButton>
+    </div>
+    <div style="float: left; width:155px;">
+        <dl>
+            <dt id="imgmenu0" onclick="showsubmenu(0)" style="font-family: 楷体_GB2312;color:black;" >试题类别管理</dt>
+            <dd id="submenu0">
+                <a href="SingleSelectManage.aspx">
+                    <menu>
+                        单选题维护</menu>
+                </a>
+                 
+                <a href="MultiSelectManage.aspx">
+                    <menu>
+                        多选题维护</menu>
+                </a>
+                 
+                <a href="JudgeManage.aspx">
+                    <menu>
+                        判断题维护</menu>
+                </a>
+                 
+                <a href="FillBlankManage.aspx">
+                    <menu>
+                        填空题维护</menu>
+                </a>
+                 
+                <a href="QuestionManage.aspx">
+                    <menu>
+                        程序题</menu>
+                </a>
+                 
+            </dd>
+            <dt id="imgmenu1" onclick="showsubmenu(1)" style="font-family: 楷体_GB2312;color:black;" >试卷制定维护</dt>
+            <dd id="submenu1">
+                <a href="CourseManage.aspx">
+                    <menu>
+                        考试科目</menu>
+                </a>
+                 
+                <a href="PaperSetup.aspx">
+                    <menu>
+                        试卷制定</menu>
+                </a>
+                 
+                <a href="PaperLists.aspx">
+                    <menu>
+                        试卷维护</menu>
+                </a>
+                 
+                
+            </dd>
+    <!--    未启用，调试中    <dt id="Dt1" onclick="showsubmenu(1)" style="font-family: 楷体_GB2312;color:black;" >角色信息管理</dt>
+            <dd id="Dd1">
+                <a href="RoleAdd.aspx">
+                    <menu>
+                        添加角色</menu>
+                </a>
+                 
+                <a href="RoleManage.aspx">
+                    <menu>
+                        角色管理</menu>
+                </a>
+                 
+                <a href="RoleDel.aspx">
+                    <menu>
+                        删除角色</menu>  删除角色后依然可以执行功能，考虑缓存？
+                </a>
+                 
+            </dd>-->
+            <dt id="imgmenu2" onclick="showsubmenu(2)" style="font-family: 楷体_GB2312;color:black;" >用户试卷管理</dt>
+            <dd id="submenu2">
+                <a href="UserPaperList.aspx">
+                    <menu>
+                        试卷评阅</menu>
+                </a>
+                 
+                <a href="UserScore.aspx">
+                    <menu>
+                        用户成绩</menu>
+                </a>
+                 
+            </dd>
+            <dt id="imgmenu3" onclick="showsubmenu(3)" style="font-family: 楷体_GB2312;color:black;" >用户信息管理</dt>
+            <dd id="submenu3">
+                <a href="UserManage.aspx">
+                    <menu>
+                        用户管理</menu>
+                </a>
+                 
+                <a href="UserAdd.aspx">
+                    <menu>
+                        添加用户</menu>
+                </a>
+                 
+                
+            </dd>
+            <dt id="imgmenu4" onclick="showsubmenu(4)" style="font-family: 楷体_GB2312;color:black;" >个人信息管理</dt>
+            <dd id="submenu4">
+                <a href="PwdModify.aspx">
+                    <menu>
+                        修改密码
+
+                    </menu>
+                </a>
+                
+            </dd>
+        </dl>
+    </div>
+    <div style="" class="left_menu">
+    </div>
+    <div style="float: left; text-align: left; vertical-align: top; height: 600px; width: 80%;">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

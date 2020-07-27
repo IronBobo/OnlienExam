@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>getenv</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_524">&nbsp;</a>NAME</h4><blockquote>
+getenv - get value of an environment variable
+</blockquote><h4><a name = "tag_000_005_525">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+char *getenv(const char *<i>name</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_526">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>getenv()</i>
+function searches the environment list for a string of the form
+"<i>name=value</i>",
+and returns a pointer to a string containing the
+<i>value</i>
+for the specified name.
+If the specified name cannot be found, a null pointer is returned.
+The string pointed to must not be modified by the application, but
+may be overwritten by a subsequent call to
+<i>getenv()</i>
+or
+<i><a href="putenv.html">putenv()</a></i>
+but will not be overwritten by a call to any other function in this document.
+<p>
+This interface need not be reentrant.
+</blockquote><h4><a name = "tag_000_005_527">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>getenv()</i>
+returns a pointer to a string containing the
+<i>value</i>
+for the specified
+<i>name</i>.
+If the specified name cannot be found a null pointer is returned.
+<p>
+The return value from
+<i>getenv()</i>
+may point to static data which may be overwritten by subsequent calls to
+<i>getenv()</i>
+or
+<i><a href="putenv.html">putenv()</a></i>.
+</blockquote><h4><a name = "tag_000_005_528">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_005_529">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_530">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_531">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_532">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="exec.html">exec</a></i>,
+<i><a href="putenv.html">putenv()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>,
+the <b>XBD</b> specification, <a href="../xbd/envvar.html"><b>Environment Variables</b>&nbsp;</a>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

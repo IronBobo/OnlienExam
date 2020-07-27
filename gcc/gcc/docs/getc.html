@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>getc</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_443">&nbsp;</a>NAME</h4><blockquote>
+getc - get a byte from a stream
+</blockquote><h4><a name = "tag_000_005_444">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int getc(FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_445">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>getc()</i>
+function is equivalent to
+<i><a href="fgetc.html">fgetc()</a></i>,
+except that if it is implemented as a macro it may evaluate
+<i>stream</i>
+more than once, so the argument should never be an expression
+with side effects.
+</blockquote><h4><a name = "tag_000_005_446">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Refer to
+<i><a href="fgetc.html">fgetc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_447">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="fgetc.html">fgetc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_448">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_449">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+If the integer value returned by
+<i>getc()</i>
+is stored into a variable of type
+<b>char</b>
+and then compared against
+the integer constant EOF,
+the comparison may never succeed,
+because sign-extension of a variable of type
+<b>char</b>
+on widening to integer is implementation-dependent.
+<p>
+Because it may be implemented as a macro,
+<i>getc()</i>
+may treat incorrectly a
+<i>stream</i>
+argument with side effects.  In particular,
+<i>getc</i>(*<i>f</i>++)
+will not necessarily work as expected.
+Therefore, use of this function should be preceded 
+by &quot;#undef getc&quot; in such situations; 
+<i><a href="fgetc.html">fgetc()</a></i>
+could also be used.
+</blockquote><h4><a name = "tag_000_005_450">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_451">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fgetc.html">fgetc()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

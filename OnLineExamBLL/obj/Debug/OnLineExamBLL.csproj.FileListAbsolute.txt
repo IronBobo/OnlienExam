@@ -1,0 +1,72 @@
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+E:\work\在线考核\在线多功能考试系统 20170725\在线多功能考试系统 20170721\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+E:\work\在线考核\在线多功能考试系统 20170810-4\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-8\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\bin\Debug\OnLineExamBLL.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\bin\Debug\OnLineExamBLL.pdb
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\bin\Debug\OnLineExamDAL.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\bin\Debug\OnLineExamModel.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\bin\Debug\OnLineExamDAL.pdb
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\bin\Debug\OnLineExamModel.pdb
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\obj\Debug\OnLineExamBLL.csprojResolveAssemblyReference.cache
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\obj\Debug\OnLineExamBLL.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamBLL\obj\Debug\OnLineExamBLL.pdb

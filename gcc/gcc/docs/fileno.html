@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fileno</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_086">&nbsp;</a>NAME</h4><blockquote>
+fileno - map a stream pointer to a file descriptor
+</blockquote><h4><a name = "tag_000_005_087">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int fileno(FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_088">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fileno()</i>
+function returns the integer file descriptor
+associated with the stream pointed to by
+<i>stream</i>.
+</blockquote><h4><a name = "tag_000_005_089">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>fileno()</i>
+returns the integer value of the file descriptor associated with
+<i>stream</i>.
+Otherwise, the value -1 is returned and
+<i>errno</i>
+is set to indicate the error.
+</blockquote><h4><a name = "tag_000_005_090">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>fileno()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EBADF]<dd>
+The
+<i>stream</i>
+argument is not a valid stream.
+
+</dl>
+</blockquote><h4><a name = "tag_000_005_091">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_092">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_093">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_094">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fdopen.html">fdopen()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="stdin.html">stdin</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>,
+<a href="stdio.html">Standard I/O Streans</a>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

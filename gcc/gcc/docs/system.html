@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>system</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_360">&nbsp;</a>NAME</h4><blockquote>
+system - issue a command
+</blockquote><h4><a name = "tag_000_009_361">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+int system(const char *<i>command</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_362">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>system()</i>
+function passes the string pointed to by
+<i>command</i>
+to the host environment to be executed by a command processor in an
+implementation-dependent manner.  If the implementation supports
+the <b>XCU</b> specification commands, the environment of the executed
+command will be as if a child process were created using
+<i><a href="fork.html">fork()</a></i>,
+and the child process invoked the
+<i><a href="../xcu/sh.html">sh</a></i>
+utility (see
+<i><a href="../xcu/sh.html">sh</a></i>
+in the <b>XCU</b> specification) using
+<i><a href="exec.html">execl()</a></i>
+as follows:
+<pre>
+<code>
+execl(&lt;<i>shell path</i>&gt;, "sh", "-c", <i>command</i>, (char *)0);
+</code>
+</pre>
+where
+<i>&lt;shell path&gt;</i>
+is an unspecified pathname for the
+<i><a href="../xcu/sh.html">sh</a></i>
+utility.
+<p>
+The
+<i>system()</i>
+function ignores the SIGINT and SIGQUIT signals, and blocks the SIGCHLD
+signal, while waiting for the command to terminate.
+If this might cause the application to miss a signal that would have
+killed it, then the application should examine the return value from
+<i>system()</i>
+and take whatever action is appropriate to the application if
+the command terminated due to receipt of a signal.
+<p>
+The
+<i>system()</i>
+function will not affect the termination status of
+any child of the calling processes other than the process or
+processes it itself creates.
+<p>
+The
+<i>system()</i>
+function will not return until the child process has terminated.
+</blockquote><h4><a name = "tag_000_009_363">&nbsp;</a>RETURN VALUE</h4><blockquote>
+If
+<i>command</i>
+is a null pointer,
+<i>system()</i>
+returns non-zero only if a command processor is available.
+<p>
+If
+<i>command</i>
+is not a null pointer,
+<i>system()</i>
+returns the termination status of the
+command language interpreter in the format specified by
+<i><a href="waitpid.html">waitpid()</a></i>.
+The termination status of the command language interpreter is as
+specified for the
+<i><a href="../xcu/sh.html">sh</a></i>
+utility, except that if some error prevents the command language interpreter
+from executing after the child process is created, the return value from
+<i>system()</i>
+will be as if the command language interpreter
+had terminated using
+<i>exit</i>(127)
+or
+<i>_exit</i>(127).
+If a child process cannot be created, or if the termination status for the
+command language interpreter cannot be obtained,
+<i>system()</i>
+returns -1 and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_009_364">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>system()</i>
+function may set
+<i>errno</i>
+values as described by
+<i><a href="fork.html">fork()</a></i>.
+<p>
+In addition,
+<i>system()</i>
+may fail if:
+<dl compact>
+
+<dt>[ECHILD]<dd>
+The status of the child process created by
+<i>system()</i>
+is no longer available.
+
+</dl>
+</blockquote><h4><a name = "tag_000_009_365">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_366">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+If the return value of
+<i>system()</i>
+is not -1, its value can be decoded through the use of the
+macros described in
+<i><a href="syswait.h.html">&lt;sys/wait.h&gt;</a></i>.
+For convenience, these macros are also provided in
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+<p>
+To determine whether or not the <b>XCU</b> specification's environment is present, use:
+<pre>
+<code>
+sysconf(_SC_2_VERSION)
+</code>
+</pre>
+<p>
+Note that, while
+<i>system()</i>
+must ignore SIGINT and SIGQUIT and block SIGCHLD while waiting for the
+child to terminate, the handling of signals in the executed
+command is as specified by
+<i><a href="fork.html">fork()</a></i>
+and
+<i>exec</i>.
+For example, if
+SIGINT is being caught or is set to SIG_DFL when
+<i>system()</i>
+is called, then the child will be started with
+SIGINT handling set to SIG_DFL.
+<p>
+Ignoring SIGINT and SIGQUIT
+in the parent process prevents coordination problems (two processes
+reading from the same terminal, for example) when the executed command
+ignores or catches one of the signals.
+It is also usually the correct action when the user has given a
+command to the application to be executed synchronously (as in the "!"
+command in many interactive applications).
+In either case, the signal should be delivered only to the child
+process, not to the application itself.
+There is one situation where ignoring the signals might have less than
+the desired effect.  This is when the application uses
+<i>system()</i>
+to perform some task invisible to the user.  If the user typed the interrupt
+character (^C, for example) while
+<i>system()</i>
+is being used in this way, one would expect the application to be killed, but
+only the executed command will be killed.  Applications that use
+<i>system()</i>
+in this way should carefully check the return status from
+<i>system()</i>
+to see if the executed command was successful, and should take appropriate
+action when the command fails.
+<p>
+Blocking SIGCHLD
+while waiting for the child to terminate prevents the application from
+catching the signal and obtaining status from
+<i>system()</i>'s
+child process before
+<i>system()</i>
+can get the status itself.
+<p>
+The context in which the utility is ultimately executed may
+differ from that in which
+<i>system()</i>
+was called.
+For example, file descriptors that have the FD_CLOEXEC
+flag set will be closed, and the process ID and parent process ID
+will be different.
+Also,
+if the executed utility changes its environment
+variables or its current working
+directory, that change will not be reflected in the caller's context.
+<p>
+There is no defined way for an application to find the specific path for the
+shell.  However,
+<i><a href="confstr.html">confstr()</a></i>
+can provide a value for
+that is guaranteed to find the
+<i><a href="../xcu/sh.html">sh</a></i>
+utility.
+</blockquote><h4><a name = "tag_000_009_367">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_368">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="exec.html">exec</a></i>,
+<i><a href="pipe.html">pipe()</a></i>,
+<i><a href="waitpid.html">waitpid()</a></i>,
+<i><a href="limits.h.html">&lt;limits.h&gt;</a></i>,
+<i><a href="signal.h.html">&lt;signal.h&gt;</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>,
+the <b><a href="../xcuix.html">XCU</a></b> specification.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>exp</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_004_074">&nbsp;</a>NAME</h4><blockquote>
+exp - exponential function
+</blockquote><h4><a name = "tag_000_004_075">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double exp(double <i>x</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_004_076">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>exp()</i>
+function computes the exponent of
+<i>x,</i>
+defined as
+<i>e</i><small><sup>x</sup></small>.
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>exp()</i>.
+If
+<i>errno</i>
+is non-zero on return,
+or the return value is NaN,
+an error has occurred.
+</blockquote><h4><a name = "tag_000_004_077">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>exp()</i>
+returns the exponential value of
+<i>x</i>.
+<p>
+If the correct value would cause overflow,
+<i>exp()</i>
+returns HUGE_VAL and sets
+<i>errno</i>
+to [ERANGE].
+<p>
+If the correct value would cause underflow,
+<i>exp()</i>
+returns 0 and may set
+<i>errno</i>
+to [ERANGE].
+<p>
+If
+<i>x</i>
+is NaN, NaN is returned
+and
+<i>errno</i>
+may be set to [EDOM].
+</blockquote><h4><a name = "tag_000_004_078">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>exp()</i>
+function will fail if:
+<dl compact>
+
+<dt>[ERANGE]<dd>
+The result overflows.
+
+</dl>
+<p>
+The
+<i>exp()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value of
+<i>x</i>
+is NaN.
+
+<dt>[ERANGE]<dd>
+The result underflows.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_004_079">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_080">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_081">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_082">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="log.html">log()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

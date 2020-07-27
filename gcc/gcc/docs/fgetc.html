@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fgetc</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_041">&nbsp;</a>NAME</h4><blockquote>
+fgetc - get a byte from a stream
+</blockquote><h4><a name = "tag_000_005_042">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int fgetc(FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_043">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fgetc()</i>
+function obtains the next byte (if present) as an
+<b>unsigned char</b>
+converted to an
+<b>int</b>,
+from the input stream pointed to by
+<i>stream</i>,
+and advances the associated file position indicator for the
+stream (if defined).
+<p>
+The
+<i>fgetc()</i>
+function may mark the
+<i>st_atime</i>
+field of the file associated with
+<i>stream</i>
+for update.
+The
+<i>st_atime</i>
+field will be marked for update by the first successful
+execution of
+<i>fgetc()</i>,
+<i><a href="fgets.html">fgets()</a></i>,
+<i><a href="fgetwc.html">fgetwc()</a></i>,
+<i><a href="fgetws.html">fgetws()</a></i>,
+<i><a href="fread.html">fread()</a></i>,
+<i><a href="fscanf.html">fscanf()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="getchar.html">getchar()</a></i>,
+<i><a href="gets.html">gets()</a></i>
+or
+<i><a href="scanf.html">scanf()</a></i>
+using
+<i>stream</i>
+that returns data not supplied by a prior call to
+<i><a href="ungetc.html">ungetc()</a></i>
+or
+<i><a href="ungetwc.html">ungetwc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_044">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>fgetc()</i>
+returns the next byte from the input stream pointed to by
+<i>stream</i>.
+If the stream is at end-of-file, the end-of-file indicator for
+the stream is set and
+<i>fgetc()</i>
+returns EOF.
+If a read error occurs, the error indicator for the stream is set,
+<i>fgetc()</i>
+returns EOF and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_005_045">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>fgetc()</i>
+function will fail if data needs to be read and:
+<dl compact>
+
+<dt>[EAGAIN]<dd>
+The O_NONBLOCK flag is set for the file descriptor underlying
+<i>stream</i>
+and the process would be delayed in the
+<i>fgetc()</i>
+operation.
+
+<dt>[EBADF]<dd>
+The file descriptor underlying
+<i>stream</i>
+is not a valid file descriptor open for reading.
+
+<dt>[EINTR]<dd>
+The read operation was terminated due to the receipt
+of a signal, and no data was transferred.
+
+<dt>[EIO]<dd>
+A physical I/O error has occurred, or
+the process is in a background process group attempting to read
+from its controlling terminal, and either the process is ignoring or
+blocking the SIGTTIN signal or the process group is orphaned.
+This error may also be generated for implementation-dependent reasons.
+
+<dt>[EOVERFLOW]<dd>
+The file is a regular file and an attempt was made to read at or beyond
+the offset maximum associated with the corresponding stream.
+
+</dl>
+<p>
+The
+<i>fgetc()</i>
+function may fail if:
+<dl compact>
+
+<dt>[ENOMEM]<dd>
+Insufficient storage space is available.
+
+<dt>[ENXIO]<dd>
+A request was made of a non-existent device, or the request was
+outside the capabilities of the device.
+
+</dl>
+<br>
+</blockquote><h4><a name = "tag_000_005_046">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_047">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+If the integer value returned by
+<i>fgetc()</i>
+is stored into a variable of type
+<b>char</b>
+and then compared against
+the integer constant EOF, the comparison may never succeed,
+because sign-extension of a variable of type
+<b>char</b>
+on widening to integer is
+implementation-dependent.
+<p>
+The
+<i><a href="ferror.html">ferror()</a></i>
+or
+<i><a href="feof.html">feof()</a></i>
+functions must be used to distinguish between
+an error condition and an end-of-file condition.
+</blockquote><h4><a name = "tag_000_005_048">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_049">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="feof.html">feof()</a></i>,
+<i><a href="ferror.html">ferror()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="getchar.html">getchar()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

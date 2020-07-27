@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fgetpos</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_050">&nbsp;</a>NAME</h4><blockquote>
+fgetpos - get current file position information
+</blockquote><h4><a name = "tag_000_005_051">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int fgetpos(FILE *<i>stream</i>, fpos_t *<i>pos</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_052">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fgetpos()</i>
+function stores the current value of the file position indicator
+for the stream pointed to by
+<i>stream</i>
+in the object pointed to by
+<i>pos</i>.
+The value stored contains unspecified information usable by
+<i><a href="fsetpos.html">fsetpos()</a></i>
+for repositioning the stream to its position at the time
+of the call to
+<i>fgetpos()</i>.
+</blockquote><h4><a name = "tag_000_005_053">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>fgetpos()</i>
+returns 0.  Otherwise, it returns a non-zero value and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_005_054">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>fgetpos()</i>
+function will fail if:
+<dl compact>
+
+<dt>[EOVERFLOW]<dd>
+The current value of the file position cannot be represented correctly in
+an object of type
+<b>fpos_t</b>.
+
+</dl>
+<p>
+The
+<i>fgetpos()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EBADF]<dd>
+The file descriptor underlying
+<i>stream</i>
+is not valid.
+
+<dt>[ESPIPE]<dd>
+The file descriptor underlying
+<i>stream</i>
+is associated with a pipe or FIFO.
+
+</dl>
+</blockquote><h4><a name = "tag_000_005_055">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_056">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_057">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_058">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="ftell.html">ftell()</a></i>,
+<i><a href="rewind.html">rewind()</a></i>,
+<i><a href="ungetc.html">ungetc()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from the ISO C standard.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

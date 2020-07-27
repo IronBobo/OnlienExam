@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>floor</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_110">&nbsp;</a>NAME</h4><blockquote>
+floor - floor function
+</blockquote><h4><a name = "tag_000_005_111">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double floor(double <i>x</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_112">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>floor()</i>
+function computes the largest integral value not greater than
+<i>x</i>.
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>floor()</i>.
+If
+<i>errno</i>
+is non-zero on return,
+or the return value is NaN,
+an error has occurred.
+</blockquote><h4><a name = "tag_000_005_113">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>floor()</i>
+returns the largest integral value not greater than
+<i>x</i>,
+expressed as a
+<b>double</b>.
+<p>
+If
+<i>x</i>
+is NaN, NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If the correct value would cause overflow, -HUGE_VAL is returned and
+<i>errno</i>
+is set to [ERANGE].
+<p>
+If
+<i>x</i>
+is &plusmn;Inf or &plusmn;0, the value of
+<i>x</i>
+is returned.
+</blockquote><h4><a name = "tag_000_005_114">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>floor()</i>
+function will fail if:
+<dl compact>
+
+<dt>[ERANGE]<dd>
+The result would cause an overflow.
+
+</dl>
+<p>
+The
+<i>floor()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value of
+<i>x</i>
+is NaN.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_005_115">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_116">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The integral value returned by
+<i>floor()</i>
+as a
+<b>double</b>
+might not be expressible as an
+<b>int</b>
+or
+<b>long int</b>.
+The return value should be tested before assigning it to an
+integer type to avoid the undefined results of an integer overflow.
+<p>
+The
+<i>floor()</i>
+function can only overflow when the floating point
+representation has DBL_MANT_DIG &gt; DBL_MAX_EXP.
+</blockquote><h4><a name = "tag_000_005_117">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_118">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="ceil.html">ceil()</a></i>,
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

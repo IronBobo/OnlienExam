@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>putw</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_1807">&nbsp;</a>NAME</h4><blockquote>
+putw - put a word on a stream
+(<b>LEGACY</b>)
+</blockquote><h4><a name = "tag_000_007_1808">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int putw(int <i>w</i>, FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_1809">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>putw()</i>
+function writes the word (that is, type
+<b>int</b>)
+<i>w</i>
+to the output
+<i>stream</i>
+(at the position at which the file offset, if defined, is pointing).
+The size of a word is the size of a type
+<b>int</b>
+and varies from machine to machine.  The
+<i>putw()</i>
+function neither assumes nor causes special alignment in the file.
+<p>
+The
+<i>st_ctime</i>
+and
+<i>st_mtime</i>
+fields of the file will be marked for update between the successful
+execution of
+<i>putw()</i>
+and the next successful completion of a call to
+<i><a href="fflush.html">fflush()</a></i>
+or
+<i><a href="fclose.html">fclose()</a></i>
+on the same stream or a call to
+<i><a href="exit.html">exit()</a></i>
+or
+<i><a href="abort.html">abort()</a></i>.
+<p>
+This interface need not be reentrant.
+</blockquote><h4><a name = "tag_000_007_1810">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>putw()</i>
+returns 0.  Otherwise, a non-zero value is returned, the error indicators
+for the stream are set, and
+<i>errno</i>
+is set to indicate the error.
+</blockquote><h4><a name = "tag_000_007_1811">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="fputc.html">fputc()</a></i>.
+</blockquote><h4><a name = "tag_000_007_1812">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1813">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Because of possible differences in word length and byte ordering,
+files written using
+<i>putw()</i>
+are implementation-dependent, and possibly cannot be read using
+<i><a href="getw.html">getw()</a></i>
+by a different application or by the same application on a
+different processor.
+<p>
+The
+<i>putw()</i>
+function is inherently byte stream oriented and is not tenable in the
+context of either multibyte character streams or wide-character streams.  
+Application programmers are recommended to use one of the character
+based output functions instead.
+</blockquote><h4><a name = "tag_000_007_1814">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1815">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="fwrite.html">fwrite()</a></i>,
+<i><a href="getw.html">getw()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

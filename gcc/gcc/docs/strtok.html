@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strtok</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_222">&nbsp;</a>NAME</h4><blockquote>
+strtok, strtok_r - split string into tokens
+</blockquote><h4><a name = "tag_000_009_223">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="string.h.html">string.h</a>&gt;
+
+char *strtok(char *<i>s1</i>, const char *<i>s2</i>);
+char *strtok_r(char *<i>s</i>, const char *<i>sep</i>, char **<i>lasts</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_224">&nbsp;</a>DESCRIPTION</h4><blockquote>
+A sequence of calls to
+<i>strtok()</i>
+breaks the string pointed to by
+<i>s1</i>
+into a sequence of tokens, each of which is delimited by a
+byte from the string pointed to by
+<i>s2</i>.
+The first call in the sequence has
+<i>s1</i>
+as its first argument, and is followed by calls with a null
+pointer as their first argument.
+The separator string pointed to by
+<i>s2</i>
+may be different from call to call.
+<p>
+The first call in the sequence searches the string pointed to by
+<i>s1</i>
+for the first byte that is
+<i>not</i>
+contained in the current separator string pointed to by
+<i>s2</i>.
+If no such byte is found, then there are no tokens in the
+string pointed to by
+<i>s1</i>
+and
+<i>strtok()</i>
+returns a null pointer.  If such a byte is found, it is the start of the first
+token.
+<p>
+The
+<i>strtok()</i>
+function then searches from there for a byte that
+<i>is</i>
+contained in the current separator string.
+If no such byte is found, the current token extends to the
+end of the string pointed to by
+<i>s1</i>,
+and subsequent searches for a token will return a null pointer.
+If such a byte is found, it is overwritten by a
+null byte, which terminates the current token.
+The
+<i>strtok()</i>
+function saves a pointer to the following byte, from which
+the next search for a token will start.
+<p>
+Each subsequent call, with a null pointer as the value of the
+first argument, starts searching from the saved pointer and
+behaves as described above.
+<p>
+The implementation will behave as if no function defined in this document
+calls
+<i>strtok()</i>.
+<p>
+The
+<i>strtok()</i>
+interface need not be reentrant.
+<p>
+The function
+<i>strtok_r()</i>
+considers the null-terminated string
+<i>s</i>
+as a sequence of zero or more text tokens
+separated by spans of one or more characters from the separator string
+<i>sep</i>.
+The argument
+<i>lasts</i>
+points to a user-provided pointer
+which points to stored information necessary for
+<i>strtok_r()</i>
+to continue scanning the same string.
+<p>
+In the first call to
+<i>strtok_r()</i>,
+<i>s</i>
+points to a null-terminated string,
+<i>sep</i>
+to a null-terminated string of separator characters
+and the value pointed to by
+<i>lasts</i>
+is ignored.
+The function
+<i>strtok_r()</i>
+returns a pointer to the first character of the first token,
+writes a null character into
+<i>s</i>
+immediately following the returned token,
+and updates the pointer to which
+<i>lasts</i>
+points.
+<p>
+In subsequent calls,
+<i>s</i>
+is a NULL pointer and
+<i>lasts</i>
+will be unchanged from the previous call
+so that subsequent calls will move through the string
+<i>s</i>,
+returning successive tokens until no tokens remain.
+The separator string
+<i>sep</i>
+may be different from call to call.
+When no token remains in
+<i>s</i>,
+a NULL pointer is returned.
+</blockquote><h4><a name = "tag_000_009_225">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>strtok()</i>
+returns a pointer to the first byte of a token.  Otherwise, if there is no
+token,
+<i>strtok()</i>
+returns a null pointer.
+<p>
+The function
+<i>strtok_r()</i>
+returns a pointer to the token found,
+or a NULL pointer when no token is found.
+</blockquote><h4><a name = "tag_000_009_226">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_009_227">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_228">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_229">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_230">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="string.h.html">&lt;string.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+<i>strtok()</i> derived from Issue 1 of the SVID.
+<P>
+<i>strtok_r()</i> derived from the POSIX Threads Extension (1003.1c-1995).
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fdopen</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_004_182">&nbsp;</a>NAME</h4><blockquote>
+fdopen - associate a stream with a file descriptor
+</blockquote><h4><a name = "tag_000_004_183">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+FILE *fdopen(int <i>fildes</i>, const char *<i>mode</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_004_184">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fdopen()</i>
+function associates a stream with a file descriptor.
+<p>
+The
+<i>mode</i>
+argument is a character string having one of the following values:
+<dl compact>
+
+<dt>r or rb <dd>Open a file for reading.
+
+<dt>w or wb <dd>Open a file for writing.
+
+<dt>a or ab <dd>Open a file for writing at end of file.
+
+<dt>r+ or rb+ or r+b <dd>Open a file for update (reading and writing).
+
+<dt>w+ or wb+ or w+b <dd>Open a file for update (reading and writing).
+
+<dt>a+ or ab+ or a+b <dd>Open a file for update (reading and writing) at end of file.
+
+</dl>
+<p>
+The meaning of these flags is exactly as specified in
+<i><a href="fopen.html">fopen()</a></i>,
+except that modes beginning with <b>w</b> do not cause
+truncation of the file.
+<p>
+Additional values for the
+<i>mode</i>
+argument may be supported by an implementation.
+<p>
+The mode of the stream must be allowed by the file access mode of
+the open file.
+The file position indicator associated with the new stream is set
+to the position indicated by the file offset associated with the
+file descriptor.
+<p>
+The error and end-of-file indicators for the stream are cleared.
+The
+<i>fdopen()</i>
+function may cause the
+<i>st_atime</i>
+field of the underlying file to be marked for update.
+<p>
+If
+<i>fildes</i>
+refers to a shared memory object, the result of the
+<i>fdopen()</i>
+function is unspecified.
+<p>
+The
+<i>fdopen()</i>
+function will preserve the offset maximum previously set for the open
+file description corresponding to
+<i>fildes</i>.
+</blockquote><h4><a name = "tag_000_004_185">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>fdopen()</i>
+returns a pointer to a stream.
+Otherwise, a null pointer is returned and
+<i>errno</i>
+is set to indicate the error.
+</blockquote><h4><a name = "tag_000_004_186">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>fdopen()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EBADF]<dd>
+The
+<i>fildes</i>
+argument
+is not a valid file descriptor.
+
+<dt>[EINVAL]<dd>
+The <i>mode</i> argument is not a valid mode.
+
+<dt>[EMFILE]<dd>
+{FOPEN_MAX} streams are currently open in the calling process.
+
+<dt>[EMFILE]<dd>
+{STREAM_MAX} streams are currently open in the calling process.
+
+<dt>[ENOMEM]<dd>
+Insufficient space to allocate a buffer.
+
+</dl>
+</blockquote><h4><a name = "tag_000_004_187">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_188">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+File descriptors are obtained from calls like
+<i><a href="open.html">open()</a></i>,
+<i><a href="dup.html">dup()</a></i>,
+<i><a href="creat.html">creat()</a></i>
+or
+<i><a href="pipe.html">pipe()</a></i>,
+which open files but do not return streams.
+</blockquote><h4><a name = "tag_000_004_189">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_190">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fclose.html">fclose()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="open.html">open()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>,
+<a href="stdio.html">Standard I/O Streans</a>.
+<br>
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

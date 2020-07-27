@@ -1,0 +1,24 @@
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-3\OnLineExamModel\bin\Debug\OnLineExamModel.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-3\OnLineExamModel\bin\Debug\OnLineExamModel.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-3\OnLineExamModel\obj\Debug\OnLineExamModel.csprojResolveAssemblyReference.cache
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-3\OnLineExamModel\obj\Debug\OnLineExamModel.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20170810-3\OnLineExamModel\obj\Debug\OnLineExamModel.pdb
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamModel\bin\Debug\OnLineExamModel.dll
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamModel\bin\Debug\OnLineExamModel.pdb
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamModel\obj\Debug\OnLineExamModel.dll
+J:\OnlineEX\在线多功能考试系统 20170815 公开版\在线多功能考试系统 20170810-4\OnLineExamModel\obj\Debug\OnLineExamModel.pdb
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamModel\bin\Debug\OnLineExamModel.dll
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamModel\bin\Debug\OnLineExamModel.pdb
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.csprojResolveAssemblyReference.cache
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.dll
+J:\OnlineEX\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamModel\bin\Debug\OnLineExamModel.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamModel\bin\Debug\OnLineExamModel.pdb
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.csprojResolveAssemblyReference.cache
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.dll
+I:\学习开发\在线多功能考试系统\在线多功能考试系统 20180129 添加权限2\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.pdb
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamModel\bin\Debug\OnLineExamModel.dll
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamModel\bin\Debug\OnLineExamModel.pdb
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.csprojResolveAssemblyReference.cache
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.dll
+C:\Users\Derrick.Deep\Desktop\在线多功能考试系统 20180129 添加权限\在线多功能考试系统 20180129 添加权限\OnLineExamModel\obj\Debug\OnLineExamModel.pdb

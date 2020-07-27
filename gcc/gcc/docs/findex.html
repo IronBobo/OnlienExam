@@ -1,0 +1,435 @@
+<html>
+  <HEAD>
+  <TITLE>C Functions</TITLE>
+  </HEAD>
+  <BODY bgcolor=white>
+<img src=musymb.gif align=right>
+<h1> C Functions </h1>
+<hr noshade>
+<A href=abort.html>
+abort </a> generate an abnormal process abort
+<br>
+<A href=abs.html>
+abs </a> return an integer absolute value
+<br>
+<A href=acos.html>
+acos </a> arc cosine function
+<br>
+<A href=asin.html>
+asin </a> arc sine function
+<br>
+<A href=atan.html>
+atan </a> arc tangent function
+<br>
+<A href=atan2.html>
+atan2 </a> arc tangent function
+<br>
+<A href=atof.html>
+atof </a> convert a string to double-precision number
+<br>
+<A href=atoi.html>
+atoi </a> convert a string to integer
+<br>
+<A href=atol.html>
+atol </a> convert a string to long integer
+<br>
+<A href=bsearch.html>
+bsearch </a> binary search a sorted table
+<br>
+<A href=calloc.html>
+calloc </a> a memory allocator
+<br>
+<A href=ceil.html>
+ceil </a> ceiling value function
+<br>
+<A href=clearerr.html>
+clearerr </a> clear indicators on a stream
+<br>
+<A href=clock.html>
+clock </a> report CPU time used
+<br>
+<A href=cos.html>
+cos </a> cosine function
+<br>
+<A href=ctime.html>
+ctime, ctime_r </a> convert a time value to date and time string
+<br>
+<A href=div.html>
+div </a> compute the quotient and remainder of an integer division
+<br>
+<A href=ecvt.html>
+ecvt, fcvt, gcvt </a> convert a floating-point number to a string
+<br>
+<A href=exit.html>
+exit, _exit </a> terminate a process
+<br>
+<A href=exp.html>
+exp </a> exponential function
+<br>
+<A href=fabs.html>
+fabs </a> absolute value function
+<br>
+<A href=fclose.html>
+fclose </a> close a stream
+<br>
+<A href=fcvt.html>
+fcvt </a> convert a floating-point number to a string
+<br>
+<A href=fdopen.html>
+fdopen </a> associate a stream with a file descriptor
+<br>
+<A href=feof.html>
+feof </a> test end-of-file indicator on a stream
+<br>
+<A href=ferror.html>
+ferror </a> test error indicator on a stream
+<br>
+<A href=fflush.html>
+fflush </a> flush a stream
+<br>
+<A href=fgetc.html>
+fgetc </a> get a byte from a stream
+<br>
+<A href=fgetpos.html>
+fgetpos </a> get current file position information
+<br>
+<A href=fgets.html>
+fgets </a> get a string from a stream
+<br>
+<A href=fileno.html>
+fileno </a> map a stream pointer to a file descriptor
+<br>
+<A href=floor.html>
+floor </a> floor function
+<br>
+<A href=fmod.html>
+fmod </a> floating-point remainder value function
+<br>
+<A href=fopen.html>
+fopen </a> open a stream
+<br>
+<A href=fprintf.html>
+fprintf, printf, snprintf, sprintf </a> print formatted output
+<br>
+<A href=fputc.html>
+fputc </a> put a byte on a stream
+<br>
+<A href=fputs.html>
+fputs </a> put a string on a stream
+<br>
+<A href=fread.html>
+fread </a> binary input
+<br>
+<A href=free.html>
+free </a> free allocated memory
+<br>
+<A href=freopen.html>
+freopen </a> open a stream
+<br>
+<A href=frexp.html>
+frexp </a> extract mantissa and exponent from a double precision number
+<br>
+<A href=fscanf.html>
+fscanf, scanf, sscanf  </a> convert formatted input
+<br>
+<A href=fseek.html>
+fseek, fseeko </a> reposition a file-position indicator in a stream
+<br>
+<A href=fsetpos.html>
+fsetpos </a> set current file position
+<br>
+<A href=ftell.html>
+ftell, ftello </a> return a file offset in a stream
+<br>
+<A href=fwrite.html>
+fwrite </a> binary output
+<br>
+<A href=gcvt.html>
+gcvt </a> convert a floating-point number to a string
+<br>
+<A href=getc.html>
+getc </a> get a byte from a stream
+<br>
+<A href=getchar.html>
+getchar </a> get a byte from a <i><a href="stdin.html">stdin</a></i> stream
+<br>
+<A href=getenv.html>
+getenv </a> get value of an environment variable
+<br>
+<A href=gets.html>
+gets </a> get a string from a <i>stdin</i> stream
+<br>
+<A href=getw.html>
+getw </a> get a word from a stream
+(<b>LEGACY</b>)
+<br>
+<A href=hypot.html>
+hypot </a> Euclidean distance function
+<br>
+<A href=ind.html>
+index </a> character string operations
+<br>
+<A href=initstate.html>
+initstate, random, setstate, srandom </a> pseudorandom number functions
+<br>
+<A href=isalnum.html>
+isalnum </a> test for an alphanumeric character
+<br>
+<A href=isalpha.html>
+isalpha </a> test for an alphabetic character
+<br>
+<A href=isascii.html>
+isascii </a> test for a 7-bit US-ASCII character
+<br>
+<A href=iscntrl.html>
+iscntrl </a> test for a control character
+<br>
+<A href=isdigit.html>
+isdigit </a> test for a decimal digit
+<br>
+<A href=isgraph.html>
+isgraph </a> test for a visible character
+<br>
+<A href=islower.html>
+islower </a> test for a lower-case letter
+<br>
+<A href=isprint.html>
+isprint </a> test for a printing character
+<br>
+<A href=ispunct.html>
+ispunct </a> test for a punctuation character
+<br>
+<A href=isspace.html>
+isspace </a> test for a white-space character
+<br>
+<A href=isupper.html>
+isupper </a> test for an upper-case letter
+<br>
+<A href=isxdigit.html>
+isxdigit </a> test for a hexadecimal digit
+<br>
+<A href=labs.html>
+labs </a> return a long integer absolute value
+<br>
+<A href=ldexp.html>
+ldexp </a> load exponent of a floating point number
+<br>
+<A href=ldiv.html>
+ldiv </a> compute quotient and remainder of a long division
+<br>
+<A href=lfind.html>
+lfind </a> find entry in a linear search table
+<br>
+<A href=log.html>
+log </a> natural logarithm function
+<br>
+<A href=log10.html>
+log10 </a> base 10 logarithm function
+<br>
+<A href=lsearch.html>
+lsearch, lfind </a> linear search and update
+<br>
+<A href=malloc.html>
+malloc </a> a memory allocator
+<br>
+<A href=memccpy.html>
+memccpy </a> copy bytes in memory
+<br>
+<A href=memchr.html>
+memchr </a> find byte in memory
+<br>
+<A href=memcmp.html>
+memcmp </a> compare bytes in memory
+<br>
+<A href=memcpy.html>
+memcpy </a> copy bytes in memory
+<br>
+<A href=memmove.html>
+memmove </a> copy bytes in memory with overlapping areas
+<br>
+<A href=memset.html>
+memset </a> set bytes in memory
+<br>
+<A href=modf.html>
+modf </a> decompose a floating-point number
+<br>
+<A href=perror.html>
+perror </a> write error messages to standard error
+<br>
+<A href=pow.html>
+pow </a> power function
+<br>
+<A href=printf.html>
+fprintf, printf, snprintf, sprintf </a> print formatted output
+<br>
+<A href=putc.html>
+putc </a> put byte on a stream
+<br>
+<A href=putchar.html>
+putchar </a> put byte on <i>stdout</i> stream
+<br>
+<A href=putenv.html>
+putenv </a> change or add a value to environment
+<br>
+<A href=puts.html>
+puts </a> put a string on standard output
+<br>
+<A href=putw.html>
+putw </a> put a word on a stream
+(<b>LEGACY</b>)
+<br>
+<A href=rand.html>
+rand, rand_r </a> pseudo-random number generator
+<br>
+<A href=random.html>
+random </a> generate pseudorandom number
+<br>
+<A href=realloc.html>
+realloc </a> memory reallocator
+<br>
+<A href=remove.html>
+remove </a> remove files
+<br>
+<A href=rewind.html>
+rewind </a> reset file position indicator in a stream
+<br>
+<A href=rindex.html>
+rindex </a> character string operations
+<br>
+<A href=scanf.html>
+fscanf, scanf, sscanf  </a> convert formatted input
+<br>
+<A href=setbuf.html>
+setbuf </a> assign buffering to a stream
+<br>
+<A href=setstate.html>
+setstate </a> switch pseudorandom number generator state arrays
+<br>
+<A href=setvbuf.html>
+setvbuf </a> assign buffering to a stream
+<br>
+<A href=sin.html>
+sin </a> sine function
+<br>
+<A href=snprintf.html>
+fprintf, printf, snprintf, sprintf </a> print formatted output
+<br>
+<A href=sprintf.html>
+sprintf, snprintf </a> print formatted output
+<br>
+<A href=sqrt.html>
+sqrt </a> square root function
+<br>
+<A href=srand.html>
+srand </a> seed simple pseudo-random number generator
+<br>
+<A href=srandom.html>
+srandom </a> seed pseudorandom number generator
+<br>
+<A href=sscanf.html>
+sscanf </a> convert formatted input
+<br>
+<A href=stdin.html>
+stderr, stdin, stdout </a> standard I/O streams
+<br>
+<A href=stdio.h.html>
+stdio.h </a> standard buffered input/output
+<br>
+<A href=stdlib.h.html>
+stdlib.h </a> standard library definitions
+<br>
+<A href=strcasecmp.html>
+strcasecmp, strncasecmp </a> case-insensitive string comparisons
+<br>
+<A href=strcat.html>
+strcat </a> concatenate two strings
+<br>
+<A href=strchr.html>
+strchr </a> string scanning operation
+<br>
+<A href=strcmp.html>
+strcmp </a> compare two strings
+<br>
+<A href=strcpy.html>
+strcpy </a> copy a string
+<br>
+<A href=strcspn.html>
+strcspn </a> get length of a complementary substring
+<br>
+<A href=strdup.html>
+strdup </a> duplicate a string
+<br>
+<A href=strerror.html>
+strerror </a> get error message string
+<br>
+<A href=strlen.html>
+strlen </a> get string length
+<br>
+<A href=strncasecmp.html>
+strncasecmp </a> case-insensitive string comparison
+<br>
+<A href=strncat.html>
+strncat </a> concatenate part of two strings
+<br>
+<A href=strncmp.html>
+strncmp </a> compare part of two strings
+<br>
+<A href=strncpy.html>
+strncpy </a> copy part of a string
+<br>
+<A href=strpbrk.html>
+strpbrk </a> scan string for byte
+<br>
+<A href=strspn.html>
+strspn </a> get length of a substring
+<br>
+<A href=strstr.html>
+strstr </a> find a substring
+<br>
+<A href=strtod.html>
+strtod </a> convert string to a double-precision number
+<br>
+<A href=strtok.html>
+strtok, strtok_r </a> split string into tokens
+<br>
+<A href=strtol.html>
+strtol </a> convert string to a long integer
+<br>
+<A href=strtoul.html>
+strtoul </a> convert string to an unsigned long
+<br>
+<A href=swab.html>
+swab </a> swap bytes
+<br>
+<A href=system.html>
+system </a> issue a command
+<br>
+<A href=tan.html>
+tan </a> tangent function
+<br>
+<A href=tmpfile.html>
+tmpfile </a> create a temporary file
+<br>
+<A href=tmpnam.html>
+tmpnam </a> create a name for a temporary file
+<br>
+<A href=toascii.html>
+toascii </a> translate integer to a 7-bit ASCII character
+<br>
+<A href=tolower.html>
+tolower </a> transliterate upper-case characters to lower-case
+<br>
+<A href=toupper.html>
+toupper </a> transliterate lower-case characters to upper-case
+<br>
+<A href=ungetc.html>
+ungetc </a> push byte back into input stream
+<br>
+<A href=vfprintf.html>
+vfprintf, vprintf, vsnprintf, vsprintf </a> format output of a
+stdarg argument list
+<br>
+</multicol>
+<hr noshade>
+</body>
+</html>

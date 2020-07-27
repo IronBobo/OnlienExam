@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>Standard I/O Streams</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade><blockquote>
+<center>
+<h3><a name = "tag_000_009">&nbsp;</a>Standard I/O Streams</h3>
+</center>
+<xref type="2" name="streams"></xref>
+A stream is associated with an external file (which may be a physical
+device) by
+<i>opening</i>
+a file, which may involve
+<i>creating</i>
+a new file.
+Creating an existing file causes its former contents to be
+discarded if necessary.
+If a file can support positioning requests,
+(such as a disk file, as opposed to a terminal),
+then a
+<i>file position indicator</i>
+associated with the stream is positioned at the start
+(byte number 0)
+of the file, unless the file is opened with append mode,
+in which case it is implementation-dependent whether the
+file position indicator
+is initially positioned at the beginning or end of the file.
+The file position indicator is maintained by subsequent reads,
+writes and positioning requests, to facilitate an orderly
+progression through the file.
+All input takes place as if bytes were read by successive calls to
+<i><a href="fgetc.html">fgetc()</a></i>;
+all output
+takes place as if bytes were written by successive calls to
+<i><a href="fputc.html">fputc()</a></i>.
+<p>
+When a stream is
+<i>unbuffered</i>,
+bytes are intended to appear from the source or at the
+destination as soon as possible.
+Otherwise bytes may be accumulated and transmitted
+as a block.
+When a stream is
+<i>fully buffered</i>,
+bytes are intended to be transmitted
+as a block when a buffer is filled.
+When a stream is
+<i>line buffered</i>,
+bytes are intended to be transmitted
+as a block when a newline byte is
+encountered.
+Furthermore, bytes are intended to be transmitted as a block
+when a buffer is filled, when input is
+requested on an unbuffered stream, or when input is requested on
+a line-buffered stream that requires the transmission of
+bytes.
+Support for these characteristics is implementation-dependent,
+and may be affected via
+<i><a href="setbuf.html">setbuf()</a></i>
+and
+<i><a href="setvbuf.html">setvbuf()</a></i>.
+<p>
+A file may be disassociated from a controlling stream by
+<i>closing</i>
+the file.
+Output streams are flushed
+(any unwritten buffer contents are transmitted)
+before the stream is disassociated from the file.
+The value of a pointer to a
+FILE
+object is indeterminate after the associated file is closed
+(including the standard streams).
+<p>
+A file may be subsequently reopened,
+by the same or another program execution,
+and its contents reclaimed or modified
+(if it can be repositioned at its start).
+If the
+<i>main()</i>
+function returns to its original caller,
+or if the
+<i><a href="exit.html">exit()</a></i>
+function is called, all open files are closed
+(hence all output streams are flushed)
+before program termination.
+Other paths to program termination,
+such as calling
+<i><a href="abort.html">abort()</a></i>,
+need not close all files properly.
+<p>
+The address of the FILE object used to control a stream may be significant; a
+copy of a FILE object need not necessarily serve in place of the original.
+<p>
+At program startup, three streams are predefined and need not
+be opened explicitly:
+<i>standard input</i>
+(for reading conventional input),
+<i>standard output</i>
+(for writing conventional output), and
+<i>standard error</i>
+(for writing diagnostic output).
+When opened, the standard error stream is not fully buffered;
+the standard input and standard output streams are fully buffered
+if and only if the stream can be determined not to refer to an
+interactive device.
+<h4><a name = "tag_000_009_001">&nbsp;</a>Interaction of File Descriptors and Standard I/O Streams</h4>
+<xref type="3" name="interaction"></xref>
+An open file description may be accessed through a
+file descriptor, which is created using functions such as
+<i><a href="open.html">open()</a></i>
+or
+<i><a href="pipe.html">pipe()</a></i>,
+or through a stream, which is created using functions such as
+<i><a href="fopen.html">fopen()</a></i>
+or
+<i><a href="popen.html">popen()</a></i>.
+Either a file descriptor or a stream will
+be called a
+<i>handle</i>
+on the open file description to which it refers; an open file description
+may have several handles.
+<p>
+Handles can be created or destroyed by explicit user action, without
+affecting the underlying open file description.  Some of the ways to
+create them include
+<i><a href="fcntl.html">fcntl()</a></i>,
+<i><a href="dup.html">dup()</a></i>,
+<i><a href="fdopen.html">fdopen()</a></i>,
+<i><a href="fileno.html">fileno()</a></i>
+and
+<i><a href="fork.html">fork()</a></i>.
+They can be destroyed by at least
+<i><a href="fclose.html">fclose()</a></i>,
+<i><a href="close.html">close()</a></i>
+and the
+<i>exec</i>
+functions.
+<p>
+A file descriptor that is never used in an operation that could affect
+the file offset (for example,
+<i><a href="read.html">read()</a></i>,
+<i><a href="write.html">write()</a></i>
+or
+<i><a href="lseek.html">lseek()</a></i>)
+is not considered a handle for this discussion, but could
+give rise to one (for example, as a consequence of
+<i><a href="fdopen.html">fdopen()</a></i>,
+<i><a href="dup.html">dup()</a></i>
+or
+<i><a href="fork.html">fork()</a></i>).
+This exception does not include the file descriptor
+underlying a stream, whether created with
+<i><a href="fopen.html">fopen()</a></i>
+or
+<i><a href="fdopen.html">fdopen()</a></i>,
+so long as it is not used directly by the application to affect
+the file offset.  The
+<i><a href="read.html">read()</a></i>
+and
+<i><a href="write.html">write()</a></i>
+functions implicitly affect the file offset;
+<i><a href="lseek.html">lseek()</a></i>
+explicitly affects it.
+<p>
+The result of function calls involving any one handle (the
+<i>active handle</i>)
+are defined elsewhere in this specification, but if two or more handles
+are used, and any one of them is a stream, their actions must be
+coordinated as described below.
+If this is not done, the
+result is undefined.
+<p>
+A handle which is a stream is considered to be closed when either an
+<i><a href="fclose.html">fclose()</a></i>
+or
+<i><a href="freopen.html">freopen()</a></i>
+is executed on it (the result of
+<i><a href="freopen.html">freopen()</a></i>
+is a new stream, which cannot be a handle on
+the same open file description as its previous value), or when the
+process owning that stream terminates with
+<i><a href="exit.html">exit()</a></i>
+or
+<i><a href="abort.html">abort()</a></i>.
+A file descriptor is closed by
+<i><a href="close.html">close()</a></i>,
+<i><a href="_exit.html">_exit()</a></i>
+or the
+<i>exec</i>
+functions when FD_CLOEXEC is set on that file descriptor.
+<p>
+For a handle to become the active handle, the actions below must
+be performed between the last use of the handle (the current
+active handle) and the first use of the second
+handle (the future active handle).  The second handle then becomes
+the active handle.  All activity by the application affecting the file
+offset on the first handle must be suspended until it again becomes the
+active file handle.  (If a stream function has as an underlying
+function one that affects the file offset, the stream function will
+be considered to affect the file offset.)
+<p>
+The handles need not be in the same process for these rules to apply.
+<p>
+Note that after a
+<i><a href="fork.html">fork()</a></i>,
+two handles exist where one existed before.
+The application must assure that,
+if both handles will ever be accessed,
+that they will both be in a state where the other could
+become the active handle first.
+The application must prepare for a
+<i><a href="fork.html">fork()</a></i>
+exactly as if it were a change of active handle.
+(If the only action performed by one of the processes is one of the
+<i>exec</i>
+functions or
+<i><a href="_exit.html">_exit()</a></i>
+(not
+<i><a href="exit.html">exit()</a></i>),
+the handle is never accessed in that process.)
+<p>
+For the first handle, the first applicable condition below applies.
+After the actions required below are taken, if the handle is still
+open, the application can close it.
+<p>
+<ul>
+<p>
+<li>
+If it is a file descriptor, no action is required.
+<p>
+<li>
+If the only further action to be performed on any handle to this open
+file descriptor is to close it, no action need be taken.
+<p>
+<li>
+If it is a stream which is unbuffered, no action need be taken.
+<p>
+<li>
+If it is a stream which is line buffered, and the last
+byte written to the stream was a newline (that is, as if a:
+<pre>
+putc('\n')
+</pre>
+was the most recent operation on that stream),
+no action need be taken.
+<p>
+<li>
+If it is a stream which is open for writing or appending (but not also open
+for reading), either an
+<i><a href="fflush.html">fflush()</a></i>
+must be done, or the stream must be closed.
+<p>
+<li>
+If the stream is open for reading and it is at the end of the file (.Fn feof
+is true), no action need be taken.
+<p>
+<li>
+If the stream is open with a mode that allows reading and the underlying open
+file description refers to a device that is capable of seeking, either
+an
+<i><a href="fflush.html">fflush()</a></i>
+must occur or the stream must be closed.
+<p>
+</ul>
+<p>
+Otherwise, the result is undefined.
+<p>
+For the second handle:
+<ul>
+<p>
+<li>
+If any previous active handle has been used by a function that explicitly
+changed the file offset, except as required above for the first handle,
+the application must perform an
+<i><a href="lseek.html">lseek()</a></i>
+or
+<i><a href="fseek.html">fseek()</a></i>
+(as appropriate to the type of handle)
+to an appropriate location.
+<p>
+</ul>
+<p>
+If the active handle ceases to be accessible before the requirements
+on the first handle, above, have been met, the state of the open file
+description becomes undefined.  This might occur during functions such as a
+<i><a href="fork.html">fork()</a></i>
+or
+<i><a href="_exit.html">_exit()</a></i>.
+<p>
+The
+<i>exec</i>
+functions make inaccessible all streams
+that are open at the time they are called, independent of which streams
+or file descriptors may be available to the new process image.
+<p>
+When these rules are followed,
+regardless of the sequence of handles used,
+implementations will ensure that an application, even one consisting
+of several processes, will yield correct results:
+no data will be lost or duplicated when writing, and
+all data will be written in order, except as requested by seeks.
+It is implementation-dependent whether, and under what conditions,
+all input is seen exactly once.
+<p>
+If the rules above are not followed, the result is unspecified.
+<h4><a name = "tag_000_009_002">&nbsp;</a>Stream Orientation</h4>
+<xref type="3" name="orientation"></xref>
+For conformance to the Multibyte Support Extension, the definition of
+a stream is adjusted to include an
+<i>orientation</i>
+for both text and binary streams.  After a stream is associated with
+an external file, but before any operations are performed on it, the
+stream is without orientation.  Once a wide-character input/output
+function has been applied to a stream without orientation, the stream
+becomes
+<i>wide-orientated</i>.
+Similarly, once a byte input/output function has been applied to a
+stream without orientation, the stream becomes
+<i>byte-orientated</i>.
+Only a call to the
+<i><a href="freopen.html">freopen()</a></i>
+function or the
+<i><a href="fwide.html">fwide()</a></i>
+function can otherwise alter the orientation of a stream.
+<p>
+A successful call to
+<i><a href="freopen.html">freopen()</a></i>
+removes any orientation.  The three predefined streams
+<i>standard input</i>,
+<i>standard output</i>
+and
+<i>standard error</i>
+are unorientated at program startup.
+<p>
+Byte input/output functions cannot be applied to a wide-orientated
+stream, and wide-character input/output functions cannot be applied to
+a byte-orientated stream.  The remaining stream operations do not
+affect and are not affected by a stream's orientation, except for the
+following additional restrictions:
+<ul>
+<p>
+<li>
+Binary wide-orientated streams have the file positioning restrictions
+ascribed to both text and binary streams.
+<p>
+<li>
+For wide-orientated streams, after a successful call to a
+file-positioning function that leaves the file position indicator
+prior to the end-of-file, a wide-character output function can
+overwrite a partial character; any file contents beyond the
+byte(s) written are henceforth undefined.
+<p>
+</ul>
+<p>
+Each wide-orientated stream has an associated
+<b>mbstate_t</b>
+object that stores the current parse state of the stream.  A
+successful call to
+<i><a href="fgetpos.html">fgetpos()</a></i>
+stores a representation of the value of this
+<b>mbstate_t</b>
+object as part of the value of the
+<b>fpos_t</b>
+object.  A later successful call to
+<i><a href="fsetpos.html">fsetpos()</a></i>
+using the same stored
+<b>fpos_t</b>
+value restores the value of the associated
+<b>mbstate_t</b>
+object as well as the position within the controlled stream.
+<p>
+Although both text and binary wide-orientated streams are conceptually
+sequences of wide-characters, the external file associated with a
+wide-orientated stream is a sequence of (possibly multibyte)
+characters
+generalised as follows:
+<ul>
+<p>
+<li>
+Multibyte encodings within files may contain embedded null bytes
+(unlike multibyte encodings valid for use internal to the program).
+<p>
+<li>
+A file need not begin nor end in the initial shift state.
+<p>
+</ul>
+<p>
+Moreover, the encodings used for characters may differ among
+files.  Both the nature and choice of such encodings are
+implementation-dependent.
+<p>
+The wide-character input functions read characters from the
+stream and convert them to wide-characters as if they were read by
+successive calls to the
+<i><a href="fgetwc.html">fgetwc()</a></i>
+function.  Each conversion occurs as if by a call to the
+<i><a href="mbrtowc.html">mbrtowc()</a></i>
+function, with the conversion state described by the stream's own
+<b>mbstate_t</b>
+object.
+<p>
+The wide-character output functions convert wide-characters
+to (possibly multibyte) characters and write them to the stream as
+if they were written by successive calls to the
+<i><a href="fputwc.html">fputwc()</a></i>
+function.  Each conversion occurs as if by a call to the
+<i><a href="wcrtomb.html">wcrtomb()</a></i>
+function, with the conversion state described by the stream's own
+<b>mbstate_t</b>
+object.
+<p>
+An <i>encoding&nbsp;error</i> occurs if the character sequence presented to
+the underlying
+<i><a href="mbrtowc.html">mbrtowc()</a></i>
+function does not form a valid (generalised) character, or
+if the code value passed to the underlying
+<i><a href="wcrtomb.html">wcrtomb()</a></i>
+function does not correspond to a valid (generalised)
+character.  The wide-character input/output functions and the byte
+input/output functions store the value of the macro EILSEQ in
+<i>errno</i>
+if and only if an encoding error occurs.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>

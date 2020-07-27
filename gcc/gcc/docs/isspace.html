@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>isspace</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_116">&nbsp;</a>NAME</h4><blockquote>
+isspace - test for a white-space character
+</blockquote><h4><a name = "tag_000_007_117">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="ctype.h.html">ctype.h</a>&gt;
+
+int isspace(int <i>c</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_118">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>isspace()</i>
+function tests whether
+<i>c</i>
+is a character of class
+<b>space</b>
+in the program's current locale, see
+the <b>XBD</b> specification, <a href="../xbd/locale.html"><b>Locale</b>&nbsp;</a>.
+<p>
+In all cases
+<i>c</i>
+is an
+<b>int</b>,
+the value of which must be a character representable as an
+<b>unsigned char</b>
+or must equal the value of the macro EOF.
+If the argument has any other value, the behaviour is undefined.
+</blockquote><h4><a name = "tag_000_007_119">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>isspace()</i>
+function returns non-zero if
+<i>c</i>
+is a white-space character; otherwise it returns 0.
+</blockquote><h4><a name = "tag_000_007_120">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_007_121">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_122">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+To ensure applications portability,
+especially across natural languages,
+only this function and those listed in the SEE ALSO section
+should be used for character classification.
+</blockquote><h4><a name = "tag_000_007_123">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_124">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="isalnum.html">isalnum()</a></i>,
+<i><a href="isalpha.html">isalpha()</a></i>,
+<i><a href="iscntrl.html">iscntrl()</a></i>,
+<i><a href="isdigit.html">isdigit()</a></i>,
+<i><a href="isgraph.html">isgraph()</a></i>,
+<i><a href="islower.html">islower()</a></i>,
+<i><a href="isprint.html">isprint()</a></i>,
+<i><a href="ispunct.html">ispunct()</a></i>,
+<i><a href="isupper.html">isupper()</a></i>,
+<i><a href="isxdigit.html">isxdigit()</a></i>,
+<i><a href="setlocale.html">setlocale()</a></i>,
+<i><a href="ctype.h.html">&lt;ctype.h&gt;</a></i>,
+the <b>XBD</b> specification, <a href="../xbd/locale.html"><b>Locale</b>&nbsp;</a>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

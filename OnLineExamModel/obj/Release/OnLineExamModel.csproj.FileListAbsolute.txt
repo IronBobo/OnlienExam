@@ -1,0 +1,4 @@
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamModel\bin\Release\OnLineExamModel.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamModel\bin\Release\OnLineExamModel.pdb
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamModel\obj\Release\OnLineExamModel.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamModel\obj\Release\OnLineExamModel.pdb

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>pow</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_1006">&nbsp;</a>NAME</h4><blockquote>
+pow - power function
+</blockquote><h4><a name = "tag_000_007_1007">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double pow(double <i>x</i>, double <i>y</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_1008">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>pow()</i>
+function computes the value of
+<i>x</i>
+raised to the power
+<i>y,</i>
+<i>x<sup><small>y</small></sup></i>.
+If
+<i>x</i>
+is negative,
+<i>y</i>
+must be an integer value.
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>pow()</i>.
+If
+<i>errno</i>
+is non-zero on return,
+or the return value is NaN,
+an error has occurred.
+</blockquote><h4><a name = "tag_000_007_1009">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>pow()</i>
+returns the value of
+<i>x</i>
+raised to the power
+<i>y.</i>
+<p>
+If
+<i>x</i>
+is 0 and
+<i>y</i>
+is 0, 1.0 is returned.
+<p>
+If
+<i>y</i>
+is NaN, or
+<i>y</i>
+is non-zero and
+<i>x</i>
+is NaN, NaN is returned and
+<i>errno</i>
+may be set to [EDOM].  If
+<i>y</i>
+is 0.0 and
+<i>x</i>
+is NaN, either 1.0 is returned, or NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If
+<i>x</i>
+is 0.0 and
+<i>y</i>
+is negative, -HUGE_VAL
+is returned and
+<i>errno</i>
+may be set to [EDOM]
+&nbsp;or [ERANGE].
+<p>
+If the correct value would cause overflow, &plusmn;HUGE_VAL is returned, and
+<i>errno</i>
+is set to [ERANGE].
+<p>
+If the correct value would cause underflow, 0 is returned and
+<i>errno</i>
+may be set to [ERANGE].
+</blockquote><h4><a name = "tag_000_007_1010">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>pow()</i>
+function will fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value of
+<i>x</i>
+is negative and
+<i>y</i>
+is non-integral.
+
+<dt>[ERANGE]<dd>
+The value to be returned would have caused overflow.
+
+</dl>
+<p>
+The
+<i>pow()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value of
+<i>x</i>
+is 0.0 and
+<i>y</i>
+is negative,
+&nbsp;or
+<i>y</i>
+is NaN.
+
+<dt>[ERANGE]<dd>
+The correct value would cause underflow.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_007_1011">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1012">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1013">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1014">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="exp.html">exp()</a></i>,
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

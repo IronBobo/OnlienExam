@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>clock</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_001_476">&nbsp;</a>NAME</h4><blockquote>
+clock - report CPU time used
+</blockquote><h4><a name = "tag_000_001_477">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="time.h.html">time.h</a>&gt;
+
+clock_t clock(void);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_001_478">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>clock()</i>
+function returns the implementation's best approximation to the
+processor time used by the process since the beginning of an
+implementation-dependent time related only to the process invocation.
+</blockquote><h4><a name = "tag_000_001_479">&nbsp;</a>RETURN VALUE</h4><blockquote>
+To determine the time in seconds, the value returned by
+<i>clock()</i>
+should be divided by the value of the macro CLOCKS_PER_SEC.
+CLOCKS_PER_SEC is defined to be one million in
+<i><a href="time.h.html">&lt;time.h&gt;</a></i>.
+If the processor time used is not available or its value cannot
+be represented, the function returns the value (<b>clock_t</b>)-1.
+</blockquote><h4><a name = "tag_000_001_480">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_001_481">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_482">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+In order to measure the time spent in a program,
+<i>clock()</i>
+should be called at the start of the program and its
+return value subtracted from the value returned by subsequent
+calls.
+The value returned by
+<i>clock()</i>
+is defined for compatibility across systems that have clocks
+with different resolutions.
+The resolution on any particular system need not be to
+microsecond accuracy.
+<p>
+The value returned by
+<i>clock()</i>
+may wrap around on some systems. For example, on a machine with 32-bit
+values for
+<b>clock_t</b>
+it will wrap after 2147 seconds or 36 minutes.
+</blockquote><h4><a name = "tag_000_001_483">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_484">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="asctime.html">asctime()</a></i>,
+<i><a href="ctime.html">ctime()</a></i>,
+<i><a href="difftime.html">difftime()</a></i>,
+<i><a href="gmtime.html">gmtime()</a></i>,
+<i><a href="localtime.html">localtime()</a></i>,
+<i><a href="mktime.html">mktime()</a></i>,
+<i><a href="strftime.html">strftime()</a></i>,
+<i><a href="strptime.html">strptime()</a></i>,
+<i><a href="time.html">time()</a></i>,
+<i><a href="utime.html">utime()</a></i>,
+<i><a href="time.h.html">&lt;time.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fgets</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_059">&nbsp;</a>NAME</h4><blockquote>
+fgets - get a string from a stream
+</blockquote><h4><a name = "tag_000_005_060">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+char *fgets(char *<i>s</i>, int <i>n</i>, FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_061">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fgets()</i>
+function reads bytes from
+<i>stream</i>
+into the array pointed to by
+<i>s</i>,
+until
+<i>n</i>-1
+bytes are read, or a newline character is read and transferred to
+<i>s</i>,
+or an end-of-file condition is encountered.
+The string is then terminated with a null byte.
+<p>
+The
+<i>fgets()</i>
+function may mark the
+<i>st_atime</i>
+field of the file associated with
+<i>stream</i>
+for update.
+The
+<i>st_atime</i>
+field will be marked for update by the first successful
+execution of
+<i><a href="fgetc.html">fgetc()</a></i>,
+<i>fgets()</i>,
+<i><a href="fgetwc.html">fgetwc()</a></i>,
+<i><a href="fgetws.html">fgetws()</a></i>,
+<i><a href="fread.html">fread()</a></i>,
+<i><a href="fscanf.html">fscanf()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="getchar.html">getchar()</a></i>,
+<i><a href="gets.html">gets()</a></i>
+or
+<i><a href="scanf.html">scanf()</a></i>
+using
+<i>stream</i>
+that returns data not supplied by a prior call to
+<i><a href="ungetc.html">ungetc()</a></i>
+or
+<i><a href="ungetwc.html">ungetwc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_062">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>fgets()</i>
+returns
+<i>s.</i>
+If the stream is at end-of-file, the end-of-file indicator for
+the stream is set and
+<i>fgets()</i>
+returns a null pointer.
+If a read error occurs, the error indicator for the stream is set,
+<i>fgets()</i>
+returns a null pointer and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_005_063">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="fgetc.html">fgetc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_064">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_065">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_066">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_067">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="fread.html">fread()</a></i>,
+<i><a href="gets.html">gets()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

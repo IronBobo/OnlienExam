@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>setbuf</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_008_384">&nbsp;</a>NAME</h4><blockquote>
+setbuf - assign buffering to a stream
+</blockquote><h4><a name = "tag_000_008_385">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+void setbuf(FILE *<i>stream</i>, char *<i>buf</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_008_386">&nbsp;</a>DESCRIPTION</h4><blockquote>
+Except that it returns no value,
+the function call:
+<pre>
+<code>
+setbuf(stream, buf)
+</code>
+</pre>
+is equivalent to:
+<pre>
+<code>
+setvbuf(stream, buf, _IOFBF, BUFSIZ)
+</code>
+</pre>
+<p>
+if
+<i>buf</i>
+is not a null pointer, or to:
+<pre>
+<code>
+setvbuf(stream, buf, _IONBF, BUFSIZ)
+</code>
+</pre>
+<p>
+if
+<i>buf</i>
+is a null pointer.
+</blockquote><h4><a name = "tag_000_008_387">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>setbuf()</i>
+function returns no value.
+</blockquote><h4><a name = "tag_000_008_388">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_008_389">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_008_390">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+A common source of error is allocating buffer space
+as an &quot;automatic&quot; variable in a code block, and then
+failing to close the stream in the same block.
+<p>
+With
+<i>setbuf()</i>,
+allocating a buffer of BUFSIZ bytes does not necessarily imply
+that all of BUFSIZ bytes are used for the buffer area.
+</blockquote><h4><a name = "tag_000_008_391">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_008_392">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="setvbuf.html">setvbuf()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

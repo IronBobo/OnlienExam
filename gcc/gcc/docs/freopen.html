@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>freopen</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_248">&nbsp;</a>NAME</h4><blockquote>
+freopen - open a stream
+</blockquote><h4><a name = "tag_000_005_249">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+FILE *freopen(const char *<i>filename</i>, const char *<i>mode</i>, FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_250">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>freopen()</i>
+function first attempts to flush the stream and close any file
+descriptor associated with
+<i>stream</i>.
+Failure to flush or close the file successfully is ignored.
+The error and end-of-file indicators for the stream are cleared.
+<p>
+The
+<i>freopen()</i>
+function opens the file whose pathname is the string pointed to by
+<i>filename</i>
+and associates the stream pointed to by
+<i>stream</i>
+with it.
+The
+<i>mode</i>
+argument is used just as in
+<i><a href="fopen.html">fopen()</a></i>.
+<p>
+The original stream is closed regardless of
+whether the subsequent open succeeds.
+<p>
+After a successful call to the
+<i>freopen()</i>
+function, the orientation of the stream is cleared and the
+associated
+<b>mbstate_t</b>
+object is set to describe an initial conversion state.
+<p>
+The largest value that can be represented correctly in an object of type
+<b>off_t</b>
+will be established as the offset maximum in the open file description.
+</blockquote><h4><a name = "tag_000_005_251">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>freopen()</i>
+returns the value of
+<i>stream</i>.
+Otherwise a null pointer is returned and
+<i>errno</i>
+is set to indicate the error.
+</blockquote><h4><a name = "tag_000_005_252">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>freopen()</i>
+function will fail if:
+<dl compact>
+
+<dt>[EACCES]<dd>
+Search permission is denied on a component of the path prefix,
+or the file exists and the permissions specified by
+<i>mode</i>
+are denied, or the file does not exist and write permission is
+denied for the parent directory of the file to be created.
+
+<dt>[EINTR]<dd>
+A signal was caught during
+<i>freopen()</i>.
+
+<dt>[EISDIR]<dd>
+The named file is a directory and
+<i>mode</i>
+requires write access.
+
+<dt>[ELOOP]<dd>
+Too many symbolic links were encountered in resolving <i>path</i>.
+
+<dt>[EMFILE]<dd>
+{OPEN_MAX}
+file descriptors are currently open in the calling process.
+
+<dt>[ENAMETOOLONG]<dd>
+
+The length of the
+<i>filename</i>
+exceeds {PATH_MAX} or a pathname component is longer than {NAME_MAX}.
+
+<dt>[ENFILE]<dd>
+The maximum allowable number of files is currently open in the
+system.
+
+<dt>[ENOENT]<dd>
+A component of <i>filename</i> does not name an existing file
+or <i>filename</i> is an empty string.
+
+<dt>[ENOSPC]<dd>
+The directory or file system that would contain the
+new file cannot be expanded, the file does not exist, and
+it was to be created.
+
+<dt>[ENOTDIR]<dd>
+A component of the path prefix is not a directory.
+
+
+<dt>[ENXIO]<dd>
+The named file is a character special or block special file,
+and the device associated with this special file does not exist.
+
+
+<dt>[EOVERFLOW]<dd>
+The named file is a regular file and the size of the file cannot be
+represented correctly in an object of type
+<b>off_t</b>.
+
+<dt>[EROFS]<dd>
+The named file resides on a read-only file system and
+<i>mode</i>
+requires write access.
+
+</dl>
+<p>
+The
+<i>freopen()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EINVAL]<dd>
+The value of the
+<i>mode</i>
+argument is not valid.
+
+<dt>[ENAMETOOLONG]<dd>
+
+Pathname resolution of a symbolic link produced an intermediate result whose
+length exceeds {PATH_MAX}.
+
+<dt>[ENOMEM]<dd>
+Insufficient storage space is available.
+
+<dt>[ENXIO]<dd>
+A request was made of a non-existent device, or the request was
+outside the capabilities of the device.
+
+<dt>[ETXTBSY]<dd>
+The file is a pure procedure (shared text) file that is being
+executed and
+<i>mode</i>
+requires write access.
+
+</dl>
+</blockquote><h4><a name = "tag_000_005_253">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_254">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The
+<i>freopen()</i>
+function is typically used to attach the preopened
+<i>streams</i>
+associated with
+<i><a href="stdin.html">stdin</a></i>,
+<i><a href="stdout.html">stdout</a></i>
+and
+<i><a href="stderr.html">stderr</a></i>
+to other files.
+</blockquote><h4><a name = "tag_000_005_255">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_256">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fclose.html">fclose()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="fdopen.html">fdopen()</a></i>,
+<i><a href="mbsinit.html">mbsinit()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

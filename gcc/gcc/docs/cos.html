@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>cos</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_002_014">&nbsp;</a>NAME</h4><blockquote>
+cos - cosine function
+</blockquote><h4><a name = "tag_000_002_015">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double cos(double <i>x</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_002_016">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>cos()</i>
+function computes the cosine of
+<i>x</i>,
+measured in radians.
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>cos()</i>.
+If
+<i>errno</i>
+is non-zero on return,
+or the returned value is NaN,
+an error has occurred.
+</blockquote><h4><a name = "tag_000_002_017">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>cos()</i>
+returns the cosine of
+<i>x</i>.
+<p>
+If
+<i>x</i>
+is NaN, NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If
+<i>x</i>
+is &plusmn;Inf, either 0 is returned and
+<i>errno</i>
+is set to [EDOM], or NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If the result underflows, 0 is returned and
+<i>errno</i>
+may be set to [ERANGE].
+</blockquote><h4><a name = "tag_000_002_018">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>cos()</i>
+function may fail if:
+<br>
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value of
+<i>x</i>
+is NaN or
+<i>x</i>
+is &plusmn;Inf.
+
+<dt>[ERANGE]<dd>
+The result underflows.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_002_019">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_002_020">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The
+<i>cos()</i>
+function may lose accuracy when its argument is far from 0.
+</blockquote><h4><a name = "tag_000_002_021">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_002_022">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="acos.html">acos()</a></i>,
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="sin.html">sin()</a></i>,
+<i><a href="tan.html">tan()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>stdin</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_008_862">&nbsp;</a>NAME</h4><blockquote>
+stderr, stdin, stdout - standard I/O streams
+</blockquote><h4><a name = "tag_000_008_863">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+extern FILE *<i>stderr</i>, *<i>stdin</i>, *<i>stdout</i>;
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_008_864">&nbsp;</a>DESCRIPTION</h4><blockquote>
+A file with associated buffering is called a
+<i>stream</i>
+and is declared to be a pointer to a defined type
+<b>FILE</b>.
+The
+<i><a href="fopen.html">fopen()</a></i>
+function
+creates certain descriptive data for a stream
+and returns a pointer to designate the stream in all
+further transactions.
+Normally, there are three open streams with constant
+pointers declared in
+the
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>
+header and associated with the standard open files.
+<p>
+At program startup, three streams are predefined and need
+not be opened explicitly:
+<i>standard input</i>
+(for reading conventional input),
+<i>standard output</i>
+(for writing conventional output) and
+<i>standard error</i>
+(for writing diagnostic output).
+When opened, the standard error stream is not fully buffered; the standard
+input and standard output streams are fully buffered if and only if the stream
+can be determined not to refer to an interactive device.
+<p>
+The following symbolic values in
+<i><a href="unistd.h.html">&lt;unistd.h&gt;</a></i>
+define the file descriptors that will be associated with the C-language
+<i>stdin</i>,
+<i>stdout</i>
+and
+<i>stderr</i>
+when the application is started:
+<dl compact>
+
+<dt>STDIN_FILENO<dd>
+Standard input value, <i>stdin</i>.  Its value is 0.
+
+<dt>STDOUT_FILENO<dd>
+Standard output value, <i>stdout</i>.  Its value is 1.
+
+<dt>STDERR_FILENO<dd>
+Standard error value, <i>stderr</i>.  Its value is 2.
+
+</dl>
+</blockquote><h4><a name = "tag_000_008_865">&nbsp;</a>RETURN VALUE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_008_866">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_008_867">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_008_868">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_008_869">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_008_870">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fclose.html">fclose()</a></i>,
+<i><a href="feof.html">feof()</a></i>,
+<i><a href="ferror.html">ferror()</a></i>,
+<i><a href="fileno.html">fileno()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="fread.html">fread()</a></i>,
+<i><a href="fseek.html">fseek()</a></i>,
+<i><a href="getc.html">getc()</a></i>,
+<i><a href="gets.html">gets()</a></i>,
+<i><a href="popen.html">popen()</a></i>,
+<i><a href="printf.html">printf()</a></i>,
+<i><a href="putc.html">putc()</a></i>,
+<i><a href="puts.html">puts()</a></i>,
+<i><a href="read.html">read()</a></i>,
+<i><a href="scanf.html">scanf()</a></i>,
+<i><a href="setbuf.html">setbuf()</a></i>,
+<i><a href="setvbuf.html">setvbuf()</a></i>,
+<i><a href="tmpfile.html">tmpfile()</a></i>,
+<i><a href="ungetc.html">ungetc()</a></i>,
+<i><a href="vprintf.html">vprintf()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>,
+<i><a href="unistd.h.html">&lt;unistd.h&gt;</a></i>.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>

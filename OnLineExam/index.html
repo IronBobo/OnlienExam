@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="UTF-8" />
+<title>慧联考试系统</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="css/reset.css" rel="stylesheet" />
+<link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+<div class="i_header header">
+	<div class="wrap">
+		<div class="logo"><a href="Web/Login.aspx" title="hisense"><img src="images/logo2.png" /></a></div>
+		
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="banner">
+	<ul class="pic">
+		<li style="background:url(images/1.jpg) center top no-repeat #f6f5ee;"><a href="#"></a></li>
+		<li style="background:url(images/2.jpg) center top no-repeat #f6f5ee;"><a href="#"></a></li>
+		<li style="background:url(images/3.jpg) center top no-repeat #f6f5ee;"><a href="#"></a></li>
+	</ul>
+	<a class="prev" href="javascript:void(0)"></a>
+	<a class="next" href="javascript:void(0)"></a>
+	<ul class="hd">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<div class="h30"></div>
+<div class="main">
+	<a href="Web/Login.aspx" class="btn btn_css3">
+		<p class="pic"><img src="images/bt_p1.jpg"/></p>
+		<h2 class="txt">学生考试</h2>
+	</a>
+	<a href="#" class="btn btn_css3">
+		<p class="pic"><img src="images/bt_p2.jpg"/></p>
+		<h2 class="txt">相关资料</h2>
+	</a>
+	<a href="#" class="btn btn_css3">
+		<p class="pic"><img src="images/bt_p3.jpg"/></p>
+		<h2 class="txt">开发软件下载</h2>
+	</a>
+	<a href="#" class="btn btn_css3">
+		<p class="pic"><img src="images/bt_p4.jpg"/></p>
+		<h2 class="txt">老师答疑</h2>
+	</a>
+	<div class="clear"></div>
+</div>
+<div class="h30"></div>
+<div class="h30"></div>
+<div class="footer">
+	<div class="wrap">
+		
+	
+		<div class="clear"></div>
+	</div>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script> 
+<script src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+jQuery(".banner").hover(function(){ jQuery(this).find(".prev,.next").stop(true,true).fadeTo("show",0.2) },function(){ jQuery(this).find(".prev,.next").fadeOut() });
+jQuery(".banner").slide({ mainCell:".pic",effect:"fold", autoPlay:true, delayTime:600, trigger:"click"});//banner图
+</script>
+</body>
+</html>

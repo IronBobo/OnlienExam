@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>tmpnam</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_010_091">&nbsp;</a>NAME</h4><blockquote>
+tmpnam - create a name for a temporary file
+</blockquote><h4><a name = "tag_000_010_092">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+char *tmpnam(char *<i>s</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_010_093">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>tmpnam()</i>
+function generates a string that is a valid filename and that is
+not the same as the name of an existing file.
+<p>
+The
+<i>tmpnam()</i>
+function generates a different string each time it is called from the same
+process, up to {TMP_MAX} times.  If it is called more than {TMP_MAX} times,
+the behaviour is implementation-dependent.
+<p>
+The implementation will behave as if no function defined in this document calls
+<i>tmpnam()</i>.
+<p>
+If the application uses any of the interfaces guaranteed to be
+available if either _POSIX_THREAD_SAFE_FUNCTIONS or _POSIX_THREADS is
+defined, the
+<i>tmpnam()</i>
+function must be called with a non-NULL parameter.
+</blockquote><h4><a name = "tag_000_010_094">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>tmpnam()</i>
+returns a pointer to a string.
+<p>
+If the argument
+<i>s</i>
+is a null pointer,
+<i>tmpnam()</i>
+leaves its result in an internal static object and returns a pointer to that
+object.  Subsequent calls to
+<i>tmpnam()</i>
+may modify the same object.  If the argument
+<i>s</i>
+is not a null pointer, it is presumed to point to an array of at
+least {L_tmpnam}
+<b>char</b>s;
+<i>tmpnam()</i>
+writes its result in that array and returns the argument as its value.
+</blockquote><h4><a name = "tag_000_010_095">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_010_096">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_097">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+This function only creates filenames.  It is the application's responsibility
+to create and remove the files.
+<p>
+Between the time a pathname is created and the file is opened, it
+is possible for some other process to create a file with the same name.
+Applications may find
+<i><a href="tmpfile.html">tmpfile()</a></i>
+more useful.
+</blockquote><h4><a name = "tag_000_010_098">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_099">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="open.html">open()</a></i>,
+<i><a href="tempnam.html">tempnam()</a></i>,
+<i><a href="tmpfile.html">tmpfile()</a></i>,
+<i><a href="unlink.html">unlink()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strdup</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_075">&nbsp;</a>NAME</h4><blockquote>
+strdup - duplicate a string
+</blockquote><h4><a name = "tag_000_009_076">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="string.h.html">string.h</a>&gt;
+
+char *strdup(const char *<i>s1</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_077">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strdup()</i>
+function returns a pointer to a new string, which is a duplicate of the string
+pointed to by <i>s1</i>.  The returned pointer can be passed to
+<i><a href="free.html">free()</a></i>.
+A null pointer is returned if the new string cannot be created.
+</blockquote><h4><a name = "tag_000_009_078">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>strdup()</i>
+function returns a pointer to a new string on success.  Otherwise it returns a
+null pointer and sets <i>errno</i> to indicate the error.
+</blockquote><h4><a name = "tag_000_009_079">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>strdup()</i>
+function may fail if:
+<dl compact>
+
+<dt>[ENOMEM]<dd>
+Storage space available is insufficient.
+
+</dl>
+</blockquote><h4><a name = "tag_000_009_080">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_081">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_082">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_083">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="malloc.html">malloc()</a></i>,
+<i><a href="free.html">free()</a></i>,
+<i><a href="string.h.html">&lt;string.h&gt;</a></i>.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>

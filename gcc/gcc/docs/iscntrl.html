@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>iscntrl</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_047">&nbsp;</a>NAME</h4><blockquote>
+iscntrl - test for a control character
+</blockquote><h4><a name = "tag_000_007_048">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="ctype.h.html">ctype.h</a>&gt;
+
+int iscntrl(int <i>c</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_049">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>iscntrl()</i>
+function tests whether
+<i>c</i>
+is a character of class
+<b>cntrl</b>
+in the program's current locale, see
+the <b>XBD</b> specification, <a href="../xbd/locale.html"><b>Locale</b>&nbsp;</a>.
+<p>
+In all cases
+<i>c</i>
+is a type
+<b>int</b>,
+the value of which must be a character representable as an
+<b>unsigned char</b>
+or must equal the value of the macro EOF.
+If the argument has any other value, the behaviour is undefined.
+</blockquote><h4><a name = "tag_000_007_050">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>iscntrl()</i>
+function returns non-zero if
+<i>c</i>
+is a control character; otherwise it returns 0.
+</blockquote><h4><a name = "tag_000_007_051">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_007_052">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_053">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+To ensure applications portability,
+especially across natural languages,
+only this function and those listed in the SEE ALSO section
+should be used for character classification.
+</blockquote><h4><a name = "tag_000_007_054">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_055">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="isalnum.html">isalnum()</a></i>,
+<i><a href="isalpha.html">isalpha()</a></i>,
+<i><a href="isdigit.html">isdigit()</a></i>,
+<i><a href="isgraph.html">isgraph()</a></i>,
+<i><a href="islower.html">islower()</a></i>,
+<i><a href="isprint.html">isprint()</a></i>,
+<i><a href="ispunct.html">ispunct()</a></i>,
+<i><a href="isspace.html">isspace()</a></i>,
+<i><a href="isupper.html">isupper()</a></i>,
+<i><a href="isxdigit.html">isxdigit()</a></i>,
+<i><a href="setlocale.html">setlocale()</a></i>,
+<i><a href="ctype.h.html">&lt;ctype.h&gt;</a></i>,
+the <b>XBD</b> specification, <a href="../xbd/locale.html"><b>Locale</b>&nbsp;</a>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

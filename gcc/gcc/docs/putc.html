@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>putc</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_1744">&nbsp;</a>NAME</h4><blockquote>
+putc - put byte on a stream
+</blockquote><h4><a name = "tag_000_007_1745">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int putc(int <i>c</i>, FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_1746">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>putc()</i>
+function is equivalent to
+<i><a href="fputc.html">fputc()</a></i>,
+except that if it is implemented as a macro it may evaluate
+<i>stream</i>
+more than once, so the argument should never be an expression with
+side-effects.
+</blockquote><h4><a name = "tag_000_007_1747">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Refer to
+<i><a href="fputc.html">fputc()</a></i>.
+</blockquote><h4><a name = "tag_000_007_1748">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="fputc.html">fputc()</a></i>.
+</blockquote><h4><a name = "tag_000_007_1749">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1750">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Because it may be implemented as a macro,
+<i>putc()</i>
+may treat a
+<i>stream</i>
+argument with side-effects incorrectly.  In particular,
+<i>putc</i>(<i>c</i>, *<i>f</i>++)
+will not necessarily work correctly.
+Therefore, use of this interface is not recommended in such situations;
+<i><a href="fputc.html">fputc()</a></i>
+should be used instead.
+</blockquote><h4><a name = "tag_000_007_1751">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1752">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fputc.html">fputc()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

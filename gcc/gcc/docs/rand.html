@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>rand</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_1861">&nbsp;</a>NAME</h4><blockquote>
+rand, rand_r - pseudo-random number generator
+</blockquote><h4><a name = "tag_000_007_1862">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+int rand (void);
+void srand(unsigned int <i>seed</i>);
+int rand_r(unsigned int *<i>seed</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_1863">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>rand()</i>
+function computes a sequence of pseudo-random integers in the range 0 to
+{RAND_MAX}
+&nbsp;with a period of at least 2<sup><small>32</small></sup>.
+<p>
+The
+<i><a href="srand.html">srand()</a></i>
+function uses the argument as a seed for a new sequence of
+pseudo-random numbers to be returned by subsequent calls to
+<i>rand()</i>.
+If
+<i><a href="srand.html">srand()</a></i>
+is then called with the same seed value, the sequence of pseudo-random numbers
+will be repeated.  If
+<i>rand()</i>
+is called before any calls to
+<i><a href="srand.html">srand()</a></i>
+are made, the same sequence will be generated as when
+<i><a href="srand.html">srand()</a></i>
+is first called with a seed value of 1.
+<p>
+The implementation will behave as if no function defined in this document calls
+<i>rand()</i>
+or
+<i>srand</i>.
+<p>
+The
+<i>rand()</i>
+interface need not be reentrant.
+<p>
+The
+<i>rand_r()</i>
+function computes a sequence of pseudo-random integers
+in the range 0 to {RAND_MAX}.
+(The value of the {RAND_MAX}
+macro will be at least 32767.)
+<p>
+If
+<i>rand_r()</i>
+is called with the same initial value for the object pointed to by
+<i>seed</i>
+and that object is not modified between successive returns and calls to
+<i>rand_r()</i>,
+the same sequence shall be generated.
+</blockquote><h4><a name = "tag_000_007_1864">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>rand()</i>
+function returns the next pseudo-random number in the sequence.  The
+<i><a href="srand.html">srand()</a></i>
+function returns no value.
+<p>
+The
+<i>rand_r()</i>
+function returns a pseudo-random integer.
+</blockquote><h4><a name = "tag_000_007_1865">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_007_1866">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1867">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The
+<i><a href="drand48.html">drand48()</a></i>
+function provides a much more elaborate random number generator.
+<p>
+The following code defines a pair of functions which could
+be incorporated into applications wishing to ensure that the
+same sequence of numbers is generated across different machines:
+<pre>
+<code>
+static unsigned long int next = 1;
+int myrand(void)    /* RAND_MAX assumed to be 32767 */
+{
+    next = next * 1103515245 + 12345;
+    return((unsigned int)(next/65536) % 32768);
+}
+
+void mysrand(unsigned int seed)
+{
+    next = seed;
+}
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_1868">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1869">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="drand48.html">drand48()</a></i>,
+<i><a href="srand.html">srand()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+<i>rand()</i> derived from Issue 1 of the SVID.
+<P>
+<i>rand_r()</i> derived from the POSIX Threads Extension (1003.1c-1995).
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

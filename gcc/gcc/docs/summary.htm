@@ -1,0 +1,482 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Summary of 59101</TITLE>
+</HEAD>
+<BODY bgcolor="#ffffff">
+<br>
+<FONT FACE="Helvetica,Arial" SIZE=6><P ALIGN="CENTER">Summary of the C Programming Language
+</FONT><FONT FACE="Helvetica,Arial" SIZE=5>
+</FONT><FONT FACE="Helvetica,Arial"><p>General structure of a C program:
+<br>
+</FONT><b><FONT FACE="Monaco,Courier New"><p>/*&nbsp;&nbsp;&nbsp;&nbsp;include statements */
+<br>#include &lt;stdio.h&gt;
+<br>#include &lt;string.h&gt;
+<br>
+<br>/*&nbsp;&nbsp;&nbsp;&nbsp;define statements */
+<br>#define MAX 2000
+<br>
+<br>/*&nbsp;&nbsp;&nbsp;&nbsp;declarations of functions and global variables */
+<br>void subfunc(void);
+<br>int i,j;
+<br>char c;
+<br>float x,y;
+<br>char s[80];
+<br>
+<br>/*&nbsp;&nbsp;&nbsp;&nbsp;main program */
+<br>main() {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>}
+<br>
+<br>/*&nbsp;&nbsp;&nbsp;&nbsp;functions used by main */
+<br>void subfunc(void) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>}
+<br>
+</FONT><FONT FACE="Helvetica,Arial"><br>Comments:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;Can occur anywhere that whitespace is allowed. Start with </FONT><B><FONT FACE="Monaco,Courier New">/*</B></FONT><FONT FACE="Helvetica,Arial"> end with </FONT><B><FONT FACE="Monaco,Courier New">*/
+</B></FONT><FONT FACE="Helvetica,Arial">
+<B><br>Indentation rule:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;Indent one further tab stop when a </FONT><B><FONT FACE="Monaco,Courier New">{</B></FONT><FONT FACE="Helvetica,Arial"> is encountered
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Remove one tab stop from the indentation when a </FONT><B><FONT FACE="Monaco,Courier New">}</B></FONT><FONT FACE="Helvetica,Arial"> is encountered
+<br>
+<a name=functions></a>
+<B><br>Functions:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;Functions are used to structure programs. They must be declared before being used. </FONT><B><FONT FACE="Monaco,Courier New">void</B></FONT><FONT FACE="Helvetica,Arial"> functions have no arguments and do not return a value. 
+<br>
+<B><br>Variables:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;Are used to store data.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Reading a variable does not affect its contents.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Writing to a variable overwrites any previous values.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;We <B>must</B> store a value in a variable before we can read it.
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Variables must be declared before they are used. Names must start with a letter, subsequent characters can be letters, numbers or the underscore. They can be any length. Use lower case.
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Those declared at the top of the file are GLOBAL - all functions can use them.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Those declared inside functions are LOCAL to a function and can only be used by it.
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;There are three simple types of variables:
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float
+<br>
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;Strings are created by using </FONT><B><FONT FACE="Monaco,Courier New">arrays</B></FONT><FONT FACE="Helvetica,Arial"> of <B>chars</B>, individual characters within strings can be accessed by using the notation </FONT><B><FONT FACE="Monaco,Courier New">s[i]</B></FONT><FONT FACE="Helvetica,Arial"> where </FONT><B><FONT FACE="Monaco,Courier New">i</B></FONT><FONT FACE="Helvetica,Arial"> is zero for the first element of the string. 
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Text strings are enclosed in double quotes. Characters are enclosed in single quotes.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Special characters can be entered using a </FONT><B><FONT FACE="Monaco,Courier New">\ - \n</B></FONT><FONT FACE="Helvetica,Arial"> gives a new line </FONT><B><FONT FACE="Monaco,Courier New">\\</B></FONT><FONT FACE="Helvetica,Arial"> a backslash.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;The last element in a valid string is the </FONT><B><FONT FACE="Monaco,Courier New">NUL</B></FONT><FONT FACE="Helvetica,Arial"> character - </FONT><B><FONT FACE="Monaco,Courier New">\0
+</B></FONT><FONT FACE="Helvetica,Arial">
+<B><br>Assignment statements:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;Are used to assign values to variables.
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;i = 3;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;x = 4.5;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;c = 'a';
+<br>&nbsp;&nbsp;&nbsp;&nbsp;strcpy(s,"a string"); /*must use functions for strings*/
+</B></FONT><FONT FACE="Helvetica,Arial">
+<B><br>Expressions:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;Assignments can also include expressions involving the operators </FONT><B><FONT FACE="Monaco,Courier New">+ - * / %</B></FONT><FONT FACE="Helvetica,Arial">.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Where the </FONT><B><FONT FACE="Monaco,Courier New">%</B></FONT><FONT FACE="Helvetica,Arial"> operator forms the remainder after division. Integer division always truncates.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Use round brackets to force the order of evaluation.
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;i = (i*j) + 3;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;c = s[3];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;i = c - 48; /*converts a char digit to a number*/
+<br>&nbsp;&nbsp;&nbsp;&nbsp;x = 4.5*i/1.2e2;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;strcpy(s,t);
+</B></FONT><FONT FACE="Helvetica,Arial">
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Shortcut operators are </FONT><B><FONT FACE="Monaco,Courier New">++, += -= </B></FONT><FONT FACE="Helvetica,Arial">etc
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j += k;
+</B></FONT><FONT FACE="Helvetica,Arial">
+<B><br>Output:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;The standard library routine </FONT><B><FONT FACE="Monaco,Courier New">printf</B></FONT><FONT FACE="Helvetica,Arial"> is used for output. </FONT><B><FONT FACE="Monaco,Courier New">printf</B></FONT><FONT FACE="Helvetica,Arial"> has at least one argument. The first argument is a text string, which may contain format specifers.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;When </FONT><B><FONT FACE="Monaco,Courier New">printf</B></FONT><FONT FACE="Helvetica,Arial"> encounters a format specifier it prints the next argument in that form.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">%d</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;for integers
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">%c</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;for characters
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">%f</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;for real numbers
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">%s</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;for strings
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">%%</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;to output one </FONT><FONT FACE="Monaco,Courier New">%</FONT><FONT FACE="Helvetica,Arial"> sign
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Format specifers can contain an optional field-width. This specifies the minimum number of characters to be used on output. A negative field-width will make the output left justified.
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;An optional precision can be used to specify either the maximum field-width (for strings), whether leading zeroes should be printed (for integers) or the number of decimal places (for reals).
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;A variable field-width can be created by using an </FONT><B><FONT FACE="Monaco,Courier New">*</B></FONT><FONT FACE="Helvetica,Arial">. When </FONT><B><FONT FACE="Monaco,Courier New">printf</B></FONT><FONT FACE="Helvetica,Arial"> encounters an </FONT><B><FONT FACE="Monaco,Courier New">*</B></FONT><FONT FACE="Helvetica,Arial">, it takes the value of the next argument as the field-width.
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;printf("%12.4f %-8s %c %*d\n",x,buffer,c,fw,i);
+</B></FONT><FONT FACE="Helvetica,Arial">
+<B><br>Input:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">gets</B></FONT><FONT FACE="Helvetica,Arial"> for complete lines of text.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">gets(s1);
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">getchar/getch</B></FONT><FONT FACE="Helvetica,Arial"> for characters.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">a = getchar();
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">scanf</B></FONT><FONT FACE="Helvetica,Arial"> for numbers and words&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">scanf("%d %s",&amp;i,s2);
+</B></FONT><FONT FACE="Helvetica,Arial">
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">gets</B></FONT><FONT FACE="Helvetica,Arial"> discards the newline character. </FONT><B><FONT FACE="Monaco,Courier New">getchar/getch/scanf</FONT><FONT FACE="Helvetica,Arial"> </B>do not.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">scanf</B></FONT><FONT FACE="Helvetica,Arial"> uses the same format specifiers as </FONT><B><FONT FACE="Monaco,Courier New">printf</B></FONT><FONT FACE="Helvetica,Arial">, use </FONT><B><FONT FACE="Monaco,Courier New">&amp;</B></FONT><FONT FACE="Helvetica,Arial"> for simple types.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<B><br>
+<a name=loops></a>
+Loops:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;There are two different loop structures: pre-test and post-test.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Pre-test loops are implemented in C using the </FONT><B><FONT FACE="Monaco,Courier New">while</B></FONT><FONT FACE="Helvetica,Arial"> and </FONT><B><FONT FACE="Monaco,Courier New">for</B></FONT><FONT FACE="Helvetica,Arial"> loops.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Post-test loops (which are rarely used) use the </FONT><B><FONT FACE="Monaco,Courier New">do while</B></FONT><FONT FACE="Helvetica,Arial"> loop.
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;while (test) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;for (initialisation;test;end of loop increment) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;do {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;} while (test);
+<br>
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">test</B></FONT><FONT FACE="Helvetica,Arial"> uses <B>logical operators</B>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">&lt; &lt;= ==</B></FONT><FONT FACE="Helvetica,Arial">(equals)</FONT><B><FONT FACE="Monaco,Courier New"> !=</B></FONT><FONT FACE="Helvetica,Arial">(not equals)</FONT><B><FONT FACE="Monaco,Courier New"> &gt;= &gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;&amp;</B></FONT><FONT FACE="Helvetica,Arial">(and)</FONT><B><FONT FACE="Monaco,Courier New"> ||</B></FONT><FONT FACE="Helvetica,Arial">(or)</FONT><B><FONT FACE="Monaco,Courier New"> !</B></FONT><FONT FACE="Helvetica,Arial">(not) 
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;i = 1;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;while (i&lt;10) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("the value of i is %d\n",i);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;for (i=0;i&lt;10;i++) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("the value of i is %d\n",i);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+</B></FONT><FONT FACE="Helvetica,Arial">
+<a name=cond></a>
+<B><br>Conditional statements:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;The </FONT><B><FONT FACE="Monaco,Courier New">if</B></FONT><FONT FACE="Helvetica,Arial"> and </FONT><B><FONT FACE="Monaco,Courier New">switch</B></FONT><FONT FACE="Helvetica,Arial"> statements allow the program to chose between several options.
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;if (test) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if (test) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;else {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if (test) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;else if (test) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;else {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;switch (<I>int or char</I>) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;case <I>number or character</I>:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;case <I>number or character</I>:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;default:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+</FONT><FONT FACE="Helvetica,Arial"><br>String functions:
+</B><br>&nbsp;&nbsp;&nbsp;&nbsp;Assignment statements and tests only work for simple types.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Functions available in the standard library must be used for strings:
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;strcpy(s1,s2);
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;copies string </FONT><B><FONT FACE="Monaco,Courier New">s2</B></FONT><FONT FACE="Helvetica,Arial"> into string </FONT><B><FONT FACE="Monaco,Courier New">s1
+</B></FONT><FONT FACE="Helvetica,Arial">
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;strlen(s1);
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returns the length of string </FONT><B><FONT FACE="Monaco,Courier New">s1
+</B></FONT><FONT FACE="Helvetica,Arial">
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;strcmp(s1,s2);
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compares </FONT><B><FONT FACE="Monaco,Courier New">s1</B></FONT><FONT FACE="Helvetica,Arial">with </FONT><B><FONT FACE="Monaco,Courier New">s2</B></FONT><FONT FACE="Helvetica,Arial"> alphabetically.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">s1</B></FONT><FONT FACE="Helvetica,Arial">&lt; </FONT><B><FONT FACE="Monaco,Courier New">s2</B></FONT><FONT FACE="Helvetica,Arial"> &nbsp;&nbsp;&nbsp;&nbsp;returns a negative value
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">s1</B></FONT><FONT FACE="Helvetica,Arial">== </FONT><B><FONT FACE="Monaco,Courier New">s2</B></FONT><FONT FACE="Helvetica,Arial"> &nbsp;&nbsp;&nbsp;&nbsp;returns zero
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">s1</B></FONT><FONT FACE="Helvetica,Arial">&gt; </FONT><B><FONT FACE="Monaco,Courier New">s2</B></FONT><FONT FACE="Helvetica,Arial"> &nbsp;&nbsp;&nbsp;&nbsp;returns a positive value
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;strcat(s1,s2);
+</B></FONT><FONT FACE="Helvetica,Arial"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adds string </FONT><B><FONT FACE="Monaco,Courier New">s2</B></FONT><FONT FACE="Helvetica,Arial"> onto the end of </FONT><B><FONT FACE="Monaco,Courier New">s1</B></FONT><FONT FACE="Helvetica,Arial">. </FONT><B><FONT FACE="Monaco,Courier New">s2</B></FONT><FONT FACE="Helvetica,Arial"> is not affected
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B><FONT FACE="Monaco,Courier New">strncpy</B></FONT><FONT FACE="Helvetica,Arial">, </FONT><B><FONT FACE="Monaco,Courier New">strncmp</B></FONT><FONT FACE="Helvetica,Arial"> and </FONT><B><FONT FACE="Monaco,Courier New">strncat</B></FONT><FONT FACE="Helvetica,Arial"> are similar to above but with a third argument - the maximum number of characters in the string that the function should handle.
+</FONT><FONT FACE="Helvetica,Arial" SIZE=5>
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>Functions:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>can <B>return</B> values, and have <B>arguments</B> or <B>parameters</B>:
+<br>
+<br>eg:
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>int fct1(int i,int j);&nbsp;&nbsp;&nbsp;&nbsp;/*returns an int, two int parameters*/
+<br>char fct2(char c);&nbsp;&nbsp;&nbsp;&nbsp;/*returns a char, 1 char parameter */
+<br>void fct3(char *s);&nbsp;&nbsp;&nbsp;&nbsp;/*no return value, 1 char string */
+</B></FONT><FONT FACE="Helvetica,Arial">
+<B><br>actual</B> parameters are the values used as arguments when the function is called.
+<br>
+<B><br>formal</B> parameters are the variables used in the function, which are initialised with the value of the actual parameter.
+<br>
+<br>There must be the same number of formal and actual parameters.
+<br>Parameters must also be of compatible type.
+<br>
+<br>Arguments which are simple types, have their values copied into the corresponding formal parameter. For arrays, a pointer to the first element of the array is copied instead.
+<br>
+<br>The <B>return</B> statement can be used anywhere within a function.
+<br>Its value (optionally enclosed in ()’s) is the returned value of the function.
+<br>
+<B><br>Global</B> variables are declared at the beginning of the program. If they are not initialised, they default to the value 0 - however it is good practice to explicitly initialise them.
+<br>
+<B><br>Local</B> variables are declared within a function. They are not automatically initialised.
+<br>
+<br>A program may force its own termination inside any function by use of the <B>exit</B> function.
+<br>
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>Arrays:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>can be of any type eg:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>int m[100];
+<br>float f[10];
+<br>char s[80];
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>To access any particular element of an array we use eg:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;m[4] = 3;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;f[i] = f[i+1];
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>Individual elements of an array, which are simple types, can be acted on using the standard C operators. Actions on whole arrays may only be performed via function calls.
+<br>
+<br>Only a <B>pointer</B> is copied to a function when an array is used as an argument.
+<br>
+<br>Arrays have many uses including: storing many similar data items, counting up categories and looking up items (table look-up).
+<br>
+<br>Loops and arrays are used extensively. Typical actions on arrays are: finding maximum/minimum values, averaging, summing values and sorting.
+<br>The <B>selection</B> sort is one of many ways of sorting data.
+<br>
+<br>Arrays may have more than one dimension:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;int mm[10][50];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;char sarray[25][80];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;float x[4][5][6];
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>declares:
+<br>
+<UL>
+<LI>a two-dimensional array of ints</LI>
+<LI>an array of 25 strings</LI>
+<LI>a three dimensional array of reals.</LI></UL>
+<br>
+<br>
+<br>Individual elements can be accessed:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;sarray[10][4]
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>will access the 5’th character of the 11’th string in the array.
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>sarray</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is an array of strings
+</FONT><B><FONT FACE="Monaco,Courier New"><br>sarray[i]</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;is a string
+</FONT><B><FONT FACE="Monaco,Courier New"><br>sarray[i][j]</B></FONT><FONT FACE="Helvetica,Arial">&nbsp;&nbsp;&nbsp;&nbsp;is a character within a string
+<br>
+<br>&nbsp;
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>Initialising variables:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>variables may be initialised when they are declared:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>char c = ‘A’;
+<br>int i = 10;
+<br>char s[80] = “hello world”;
+<br>int m[5] = {4,7,5,9,1};
+<br>float x[2][3] = {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{1.2,4.0,5.6},
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{2.2,0.0,1.3}
+<br>};
+<br>char s[3][80] = {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;“string one”,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;“string two”,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;“string three”
+<br>};
+</B></FONT><FONT FACE="Helvetica,Arial">
+<br>&nbsp;
+<br>&nbsp;
+
+<br>
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>Files:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>Can be accessed either by I/O redirection:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;test &lt;input.dat &gt;output.dat
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>keyboard input will now be from a file </FONT><B><FONT FACE="Monaco,Courier New">input.dat</B></FONT><FONT FACE="Helvetica,Arial"> and output will go to the file </FONT><B><FONT FACE="Monaco,Courier New">output.dat
+</B></FONT><FONT FACE="Helvetica,Arial">
+<br>or by using library routines:
+<br>
+<a name=file></a>
+<br>All file I/O routines use a </FONT><B><FONT FACE="Monaco,Courier New">FILE</B></FONT><FONT FACE="Helvetica,Arial"> pointer variable.
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;
+
+<br>
+<br>FILE *f;
+<br>
+<br>f = fopen(filename,mode);
+<br>/* opens a file for either reading or writing*/
+<br>
+<br>fprintf(f,”%s”,s);
+<br>/* writes to a file - similar to printf*/
+<br>
+<br>fgets(string,size,f);
+<br>fscanf(f,”%d”,&amp;i);
+<br>/* read from a file*/
+<br>
+<br>fclose(f);
+<br>/*closes off the file*/
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>fopen</B></FONT><FONT FACE="Helvetica,Arial"> may fail if you try to open a non-existent file for reading.
+<br>In this case it will return the value </FONT><B><FONT FACE="Monaco,Courier New">NULL</B></FONT><FONT FACE="Helvetica,Arial">.
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>fscanf</B></FONT><FONT FACE="Helvetica,Arial"> and </FONT><B><FONT FACE="Monaco,Courier New">fgets</B></FONT><FONT FACE="Helvetica,Arial"> will fail if they try to read past the end of a file.
+</FONT><B><FONT FACE="Monaco,Courier New"><br>fscanf</B></FONT><FONT FACE="Helvetica,Arial"> will return the value </FONT><B><FONT FACE="Monaco,Courier New">EOF</B></FONT><FONT FACE="Helvetica,Arial">, </FONT><B><FONT FACE="Monaco,Courier New">fgets</B></FONT><FONT FACE="Helvetica,Arial"> returns the </FONT><B><FONT FACE="Monaco,Courier New">NULL</B></FONT><FONT FACE="Helvetica,Arial"> pointer.
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>sprintf</B></FONT><FONT FACE="Helvetica,Arial"> and </FONT><B><FONT FACE="Monaco,Courier New">sscanf</B></FONT><FONT FACE="Helvetica,Arial"> work like </FONT><B><FONT FACE="Monaco,Courier New">fprintf</B></FONT><FONT FACE="Helvetica,Arial"> and </FONT><B><FONT FACE="Monaco,Courier New">fscanf</B></FONT><FONT FACE="Helvetica,Arial">, except the first argument is a character string, where the data will be either read from or written to.
+<br>
+<br>&nbsp;
+<a name=struct></a>
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>Structures:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>Allow the programmer to group similar data items together.
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>struct person {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;char surname[80];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;char forename[80];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;int sex;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;int age;
+<br>};
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>declares a structure called person. Variables may now be declared with this structure:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>struct person x;
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>The individual elements within the structure are called <B>fields</B> and can be accessed using the dot operator
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>x.age = 26;
+<br>strcpy(x.surname,”Kay”);
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<a name=typedef></a>
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>New types:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>can be defined by the programmer:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>typedef struct person person_type;
+</B></FONT><FONT FACE="Helvetica,Arial">
+<br>&nbsp;
+</FONT><B><FONT FACE="Monaco,Courier New"><br>person_type x;
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>Pointers:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>are variables that hold the address of other variables.
+<br>
+<br>To declare a pointer:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>int *p;
+<br>char *s;
+<br>stuct person *q;
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>Addresses of other variables can be found with the </FONT><B><FONT FACE="Monaco,Courier New">&amp;</B></FONT><FONT FACE="Helvetica,Arial"> operator:
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;p = &amp;i;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;s = &amp;filename[0];&nbsp;&nbsp;&nbsp;&nbsp;/*or s = filename*/
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>The item that the pointer points to can be accessed using the </FONT><B><FONT FACE="Monaco,Courier New">*</B></FONT><FONT FACE="Helvetica,Arial"> operator (or </FONT><B><FONT FACE="Monaco,Courier New">-&gt;</B></FONT><FONT FACE="Helvetica,Arial"> for structs)
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;*p = 6;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;*s = ‘A’;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;q-&gt;age = 26;
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>If a function wants to alter the value of one of its parameters, then a <B>pointer</B> to that variable must be used.
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;void fct1(int *i) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*i = 6;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>Arithmetical operators can be used on pointers
+
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;p++;
+</B></FONT><FONT FACE="Helvetica,Arial">
+
+<br>
+<br>will make </FONT><B><FONT FACE="Monaco,Courier New">p</B></FONT><FONT FACE="Helvetica,Arial"> point to the next item.
+<br>This is particularly useful for writing efficient code that handles arrays of items.
+<br>
+<br>Pointers can also be assigned the address of unused memory - dynamic memory.
+</FONT><B><FONT FACE="Monaco,Courier New"><br>malloc</B></FONT><FONT FACE="Helvetica,Arial"> is a function that will obtain unused memory from the operating system.
+
+<br>
+</FONT><B><FONT FACE="Monaco,Courier New"><br>&nbsp;&nbsp;&nbsp;&nbsp;p = malloc(128);
+
+<br>
+</B></FONT><FONT FACE="Helvetica,Arial"><br>This memory can be returned to the system using the </FONT><B><FONT FACE="Monaco,Courier New">free</B></FONT><FONT FACE="Helvetica,Arial"> function.
+<br>
+</FONT><B><FONT FACE="Helvetica,Arial" SIZE=4><br>Recursion:
+</B></FONT><FONT FACE="Helvetica,Arial"><br>A function may call itself (<B>direct</B> recursion) or may call itself via a call to another function (<B>indirect</B> recursion).
+<br>
+<br>A recursive function <B>must</B> always have a route through it that does not involve any more recursive calls.
+<br>
+<br>Local variables in a recursive routine will be created at each call.
+<br>There will only be one instance of a global variable in a program.
+<br>
+<br>The recursive call should, in some sense, be nearer to the solution of the problem
+<br>
+<br>Care should be taken with deeply nested recursive calls. Memory requirements for each call can easily mount up. The program will fail when all of memory has been used.
+</FONT></BODY>
+</HTML>

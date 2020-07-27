@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>atan2</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_001_221">&nbsp;</a>NAME</h4><blockquote>
+atan2 - arc tangent function
+</blockquote><h4><a name = "tag_000_001_222">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double atan2(double <i>y</i>, double <i>x</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_001_223">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>atan2()</i>
+function computes the principal value of the arc tangent of
+<i>y/x</i>,
+using the signs of both arguments to determine the quadrant of
+the return value.
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>atan2()</i>.
+If
+<i>errno</i>
+is non-zero on return, or the return value is NaN,
+an error has occurred.
+</blockquote><h4><a name = "tag_000_001_224">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>atan2()</i>
+returns the arc tangent of
+<i>y/x</i>
+in the range [-, ] radians.
+If both arguments are 0.0, an implementation-dependent value is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If
+<i>x</i>
+or
+<i>y</i>
+is NaN, NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+<p>
+If the result underflows, 0.0 is returned and
+<i>errno</i>
+may be set to [ERANGE].
+</blockquote><h4><a name = "tag_000_001_225">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>atan2()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+Both arguments are 0.0
+&nbsp;or one or more of the arguments is NaN.
+
+<dt>[ERANGE]<dd>
+The result underflows.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_001_226">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_227">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_228">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_229">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="atan.html">atan()</a></i>,
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="tan.html">tan()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

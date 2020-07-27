@@ -1,0 +1,7 @@
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamDAL\bin\Release\OnLineExamDAL.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamDAL\bin\Release\OnLineExamDAL.pdb
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamDAL\bin\Release\OnLineExamModel.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamDAL\bin\Release\OnLineExamModel.pdb
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamDAL\obj\Release\OnLineExamDAL.csprojResolveAssemblyReference.cache
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamDAL\obj\Release\OnLineExamDAL.dll
+C:\Users\Derrick.Deep\Desktop\王乾垒毕业设计\OnLineExamDAL\obj\Release\OnLineExamDAL.pdb

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>strcat</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_009_021">&nbsp;</a>NAME</h4><blockquote>
+strcat - concatenate two strings
+</blockquote><h4><a name = "tag_000_009_022">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="string.h.html">string.h</a>&gt;
+
+char *strcat(char *<i>s1</i>, const char *<i>s2</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_009_023">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>strcat()</i>
+function appends a copy of the string pointed to by
+<i>s2</i>
+(including the terminating null byte) to the end of the
+string pointed to by
+<i>s1</i>.
+The initial byte of
+<i>s2</i>
+overwrites the null byte at the end of
+<i>s1</i>.
+If copying takes place between objects that overlap, the
+behaviour is undefined.
+</blockquote><h4><a name = "tag_000_009_024">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>strcat()</i>
+function returns
+<i>s1</i>;
+no return value is reserved to indicate an error.
+</blockquote><h4><a name = "tag_000_009_025">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_009_026">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_027">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+This issue is aligned with the ISO&nbsp;C standard; this does not affect compatibility
+with XPG3 applications.
+Reliable error detection by this function was never guaranteed.
+</blockquote><h4><a name = "tag_000_009_028">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_009_029">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="strncat.html">strncat()</a></i>,
+<i><a href="string.h.html">&lt;string.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

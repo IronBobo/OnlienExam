@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fopen</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_158">&nbsp;</a>NAME</h4><blockquote>
+fopen - open a stream
+</blockquote><h4><a name = "tag_000_005_159">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+FILE *fopen(const char *<i>filename</i>, const char *<i>mode</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_160">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fopen()</i>
+function opens the file whose pathname is the string pointed to by
+<i>filename</i>,
+and associates a stream with it.
+<p>
+The argument
+<i>mode</i>
+points to a string beginning with one of the following sequences:
+<dl compact>
+
+<dt><b>r</b>&nbsp;or&nbsp;<b>rb</b><dd>Open file for reading.
+
+<dt><b>w</b>&nbsp;or&nbsp;<b>wb</b><dd>Truncate to zero length or create file for writing.
+
+<dt><b>a</b>&nbsp;or&nbsp;<b>ab</b><dd>Append; open or create file for writing at end-of-file.
+
+<dt><b>r+</b>&nbsp;or&nbsp;<b>rb+</b>&nbsp;or&nbsp;<b>r+b</b><dd>Open file for update (reading and writing).
+
+<dt><b>w+</b>&nbsp;or&nbsp;<b>wb+</b>&nbsp;or&nbsp;<b>w+b</b><dd>Truncate to zero length or create file for update.
+
+<dt><b>a+</b>&nbsp;or&nbsp;<b>ab+</b>&nbsp;or&nbsp;<b>a+b</b><dd>Append; open or create file for update, writing at end-of-file.
+
+</dl>
+<p>
+The character b has no effect, but is allowed for ISO&nbsp;C standard
+conformance.
+Opening a file with read mode (r as the first character in the
+<i>mode</i>
+argument) fails if the file does not exist or cannot be read.
+<p>
+Opening a file with append mode (a as the first character in the
+<i>mode</i>
+argument) causes all subsequent writes to the file to be forced
+to the then current end-of-file, regardless of intervening calls
+to
+<i><a href="fseek.html">fseek()</a></i>.
+<p>
+When a file is opened with update mode (+ as the second or third
+character in the
+<i>mode</i>
+argument), both input and output may be performed on the
+associated stream.
+However, output must not be directly followed by input without an
+intervening call to
+<i><a href="fflush.html">fflush()</a></i>
+or to a file positioning function (.Fn fseek ,
+<i><a href="fsetpos.html">fsetpos()</a></i>
+or
+<i><a href="rewind.html">rewind()</a></i>),
+and input must not be directly followed by output without an
+intervening call to a file positioning function, unless the input
+operation encounters end-of-file.
+<p>
+When opened, a stream is fully buffered if and only if it can be
+determined not to refer to an interactive device.
+The error and end-of-file indicators for the stream are cleared.
+<p>
+If
+<i>mode</i>
+is <b>w</b>, <b>a</b>, <b>w+</b> or <b>a+</b> and the file
+did not previously exist, upon successful completion,
+<i>fopen()</i>
+function will mark for update the
+<i>st_atime</i>,
+<i>st_ctime</i>
+and
+<i>st_mtime</i>
+fields of the file and the
+<i>st_ctime</i>
+and
+<i>st_mtime</i>
+fields of the parent directory.
+<p>
+If
+<i>mode</i>
+is <b>w</b> or <b>w+</b> and the file did previously exist, upon successful
+completion,
+<i>fopen()</i>
+will mark for update the
+<i>st_ctime</i>
+and
+<i>st_mtime</i>
+fields of the file.  The
+<i>fopen()</i>
+function will allocate a file descriptor as
+<i><a href="open.html">open()</a></i>
+does.
+<p>
+The largest value that can be represented correctly in an object of type
+<b>off_t</b>
+will be established as the offset maximum in the open file description.
+</blockquote><h4><a name = "tag_000_005_161">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>fopen()</i>
+returns a pointer to the object controlling the stream.  Otherwise, a null
+pointer is returned, and
+<i>errno</i>
+is set to indicate the error.
+<br>
+</blockquote><h4><a name = "tag_000_005_162">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>fopen()</i>
+function will fail if:
+<dl compact>
+
+<dt>[EACCES]<dd>
+Search permission is denied on a component of the path prefix,
+or the file exists and the permissions specified by
+<i>mode</i>
+are denied, or the file does not exist and write permission is
+denied for the parent directory of the file to be created.
+
+<dt>[EINTR]<dd>
+A signal was caught during
+<i>fopen()</i>.
+
+<dt>[EISDIR]<dd>
+The named file is a directory and
+<i>mode</i>
+requires write access.
+
+<dt>[ELOOP]<dd>
+Too many symbolic links were encountered in resolving <i>path</i>.
+
+<dt>[EMFILE]<dd>
+{OPEN_MAX} file descriptors are currently open in the calling process.
+
+<dt>[ENAMETOOLONG]<dd>
+
+The length of the
+<i>filename</i>
+exceeds {PATH_MAX} or a pathname component is longer than {NAME_MAX}.
+
+<dt>[ENFILE]<dd>
+The maximum allowable number of files is currently open in the system.
+
+<dt>[ENOENT]<dd>
+A component of <i>filename</i> does not name an existing file
+or <i>filename</i> is an empty string.
+
+<dt>[ENOSPC]<dd>
+The directory or file system that would contain the
+new file cannot be expanded, the file does not exist, and
+it was to be created.
+
+<dt>[ENOTDIR]<dd>
+A component of the path prefix is not a directory.
+
+<dt>[ENXIO]<dd>
+The named file is a character special or block special file,
+and the device associated with this special file does not exist.
+
+<dt>[EOVERFLOW]<dd>
+The named file is a regular file and the size of the file cannot be
+represented correctly in an object of type
+<b>off_t</b>.
+
+<dt>[EROFS]<dd>
+The named file resides on a read-only file system and
+<i>mode</i>
+requires write access.
+
+</dl>
+<p>
+The
+<i>fopen()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EINVAL]<dd>
+The value of the
+<i>mode</i>
+argument is not valid.
+
+<dt>[EMFILE]<dd>
+{FOPEN_MAX} streams are currently open in the calling process.
+
+<dt>[EMFILE]<dd>
+{STREAM_MAX} streams are currently open in the calling process.
+
+<dt>[ENAMETOOLONG]<dd>
+
+Pathname resolution of a symbolic link produced an intermediate result whose
+length exceeds {PATH_MAX}.
+
+<dt>[ENOMEM]<dd>
+Insufficient storage space is available.
+
+<dt>[ETXTBSY]<dd>
+The file is a pure procedure (shared text) file that is being executed and
+<i>mode</i>
+requires write access.
+
+</dl>
+</blockquote><h4><a name = "tag_000_005_163">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_164">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_165">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_166">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fclose.html">fclose()</a></i>,
+<i><a href="fdopen.html">fdopen()</a></i>,
+<i><a href="freopen.html">freopen()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

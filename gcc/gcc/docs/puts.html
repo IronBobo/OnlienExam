@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>puts</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_007_1795">&nbsp;</a>NAME</h4><blockquote>
+puts - put a string on standard output
+</blockquote><h4><a name = "tag_000_007_1796">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int puts(const char *<i>s</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_007_1797">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>puts()</i>
+function writes the string pointed to by
+<i>s</i>,
+followed by a newline character,
+to the standard output stream
+<i>stdout</i>.
+The terminating null byte is not written.
+<p>
+The
+<i>st_ctime</i>
+and
+<i>st_mtime</i>
+fields of the file will be marked for update between the
+successful execution of
+<i>puts()</i>
+and the next successful completion of a call to
+<i><a href="fflush.html">fflush()</a></i>
+or
+<i><a href="fclose.html">fclose()</a></i>
+on the same stream or a call to
+<i><a href="exit.html">exit()</a></i>
+or
+<i><a href="abort.html">abort()</a></i>.
+</blockquote><h4><a name = "tag_000_007_1798">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>puts()</i>
+returns a non-negative number.  Otherwise it returns EOF, sets an error
+indicator for the stream and
+<i>errno</i>
+is set to indicate the error.
+</blockquote><h4><a name = "tag_000_007_1799">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="fputc.html">fputc()</a></i>.
+</blockquote><h4><a name = "tag_000_007_1800">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1801">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+The
+<i>puts()</i>
+function appends a newline character, while
+<i><a href="fputs.html">fputs()</a></i>
+does not.
+</blockquote><h4><a name = "tag_000_007_1802">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_007_1803">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="fputs.html">fputs()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="putc.html">putc()</a></i>,
+<i><a href="stdio.html">stdio()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

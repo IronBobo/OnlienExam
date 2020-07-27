@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>acos</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_001_077">&nbsp;</a>NAME</h4><blockquote>
+acos - arc cosine function
+</blockquote><h4><a name = "tag_000_001_078">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="math.h.html">math.h</a>&gt;
+
+double acos(double <i>x</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_001_079">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>acos()</i>
+function computes the principal value of the arc cosine of
+<i>x.</i>
+The value of
+<i>x</i>
+should be in the range [-1,1].
+<p>
+An application wishing to check for error situations should set
+<i>errno</i>
+to 0 before calling
+<i>acos()</i>.
+If
+<i>errno</i>
+is non-zero on return, or the value NaN is returned,
+an error has occurred.
+</blockquote><h4><a name = "tag_000_001_080">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>acos()</i>
+returns the arc cosine of
+<i>x,</i>
+in the range [0,&nbsp;<sub><img src="pi.gif" border=0></sub>] radians.
+If the value of
+<i>x</i>
+is not in the range [-1,1],
+and is not &plusmn;Inf or NaN, either 0.0 or NaN is returned
+and
+<i>errno</i>
+is set to [EDOM].
+<p>
+If
+<i>x</i>
+is NaN, NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+If
+<i>x</i>
+is &plusmn;Inf, either 0.0 is returned and
+<i>errno</i>
+is set to [EDOM], or NaN is returned and
+<i>errno</i>
+may be set to [EDOM].
+</blockquote><h4><a name = "tag_000_001_081">&nbsp;</a>ERRORS</h4><blockquote>
+The
+<i>acos()</i>
+function will fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>
+The value
+<i>x</i>
+is not &plusmn;Inf or NaN and
+is not in the range [-1,1].
+
+</dl>
+<p>
+The
+<i>acos()</i>
+function may fail if:
+<dl compact>
+
+<dt>[EDOM]<dd>The value
+<i>x</i>
+is &plusmn;Inf or NaN.
+
+</dl>
+<p>
+No other errors will occur.
+</blockquote><h4><a name = "tag_000_001_082">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_083">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_084">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_085">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="cos.html">cos()</a></i>,
+<i><a href="isnan.html">isnan()</a></i>,
+<i><a href="math.h.html">&lt;math.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

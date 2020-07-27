@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fwrite</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_005_413">&nbsp;</a>NAME</h4><blockquote>
+fwrite - binary output
+</blockquote><h4><a name = "tag_000_005_414">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+size_t fwrite(const void *ptr, size_t <i>size</i>, size_t <i>nitems</i>,
+    FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_005_415">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fwrite()</i>
+function writes, from the array pointed to by
+<i>ptr</i>,
+up to
+<i>nitems</i>
+members whose size is specified by
+<i>size</i>,
+to the stream pointed to by
+<i>stream</i>.
+The file-position indicator for the stream (if defined) is
+advanced by the number of bytes successfully written.
+If an error occurs, the resulting value of the file-position
+indicator for the stream is indeterminate.
+<p>
+The
+<i>st_ctime</i>
+and
+<i>st_mtime</i>
+fields of the file will be marked for update between the successful
+execution of
+<i>fwrite()</i>
+and the next successful completion of a call to
+<i><a href="fflush.html">fflush()</a></i>
+or
+<i><a href="fclose.html">fclose()</a></i>
+on the same stream or a call to
+<i><a href="exit.html">exit()</a></i>
+or
+<i><a href="abort.html">abort()</a></i>.
+</blockquote><h4><a name = "tag_000_005_416">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>fwrite()</i>
+function returns the number of members successfully written, which may
+be less than
+<i>nitems</i>
+if a write error is encountered.
+If
+<i>size</i>
+or
+<i>nitems</i>
+is 0,
+<i>fwrite()</i>
+returns 0 and the state of the stream remains unchanged.  Otherwise, if a
+write error occurs, the error indicator for the stream is set and
+<i>errno</i>
+is set to indicate the error.
+</blockquote><h4><a name = "tag_000_005_417">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="fputc.html">fputc()</a></i>.
+</blockquote><h4><a name = "tag_000_005_418">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_419">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Because of possible differences in member length and byte ordering,
+files written using
+<i>fwrite()</i>
+are application-dependent, and possibly cannot be read using
+<i><a href="fread.html">fread()</a></i>
+by a different application or by the same application on a different
+processor.
+</blockquote><h4><a name = "tag_000_005_420">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_005_421">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="ferror.html">ferror()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="printf.html">printf()</a></i>,
+<i><a href="putc.html">putc()</a></i>,
+<i><a href="puts.html">puts()</a></i>,
+<i><a href="write.html">write()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>fclose</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_004_137">&nbsp;</a>NAME</h4><blockquote>
+fclose - close a stream
+</blockquote><h4><a name = "tag_000_004_138">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int fclose(FILE *<i>stream</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_004_139">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>fclose()</i>
+function causes the stream pointed to by
+<i>stream</i>
+to be flushed and the associated file to be closed.
+Any unwritten buffered data for the stream is
+written to the file; any unread buffered
+data is discarded.
+The stream is disassociated from the file.
+If the associated buffer was automatically allocated, it is
+deallocated.
+It marks for update the
+<i>st_ctime</i>
+and
+<i>st_mtime</i>
+fields of the underlying file, if the stream was writable, and if
+buffered data had not been written to the file yet.
+The
+<i>fclose()</i>
+function will perform a
+<i><a href="close.html">close()</a></i>
+on the file descriptor that is associated with the stream pointed to by
+<i>stream</i>.
+<p>
+After the call to
+<i>fclose()</i>,
+any use of
+<i>stream</i>
+causes undefined behaviour.
+</blockquote><h4><a name = "tag_000_004_140">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Upon successful completion,
+<i>fclose()</i>
+returns 0.  Otherwise, it returns EOF and sets
+<i>errno</i>
+to indicate the error.
+</blockquote><h4><a name = "tag_000_004_141">&nbsp;</a>ERRORS</h4><blockquote>
+<br>
+The
+<i>fclose()</i>
+function will fail if:
+<dl compact>
+
+<dt>[EAGAIN]<dd>
+The O_NONBLOCK flag is set for the file descriptor underlying
+<i>stream</i>
+and the process would be delayed in the write operation.
+
+<dt>[EBADF]<dd>
+The file descriptor underlying stream is not valid.
+
+<dt>[EFBIG]<dd>
+An attempt was made to write a file that exceeds the maximum file size
+or the process' file size limit.
+
+<dt>[EFBIG]<dd>
+The file is a regular file and an attempt was made to write at or beyond
+the offset maximum associated with the corresponding stream.
+
+<dt>[EINTR]<dd>
+The
+<i>fclose()</i>
+function was interrupted by a signal.
+
+<dt>[EIO]<dd>
+The process is a member
+of a background process group attempting to write to its
+controlling terminal, TOSTOP is set, the process is neither ignoring nor
+blocking SIGTTOU and the process group of the process is
+orphaned.
+This error may also be returned under implementation-dependent conditions.
+
+<dt>[ENOSPC]<dd>
+There was no free space remaining on the device containing
+the file.
+
+<dt>[EPIPE]<dd>
+An attempt is made to write to a pipe or FIFO that is not open
+for reading by any process.
+A SIGPIPE signal will also be sent to the thread.
+
+</dl>
+<p>
+The
+<i>fclose()</i>
+function may fail if:
+<dl compact>
+
+<dt>[ENXIO]<dd>
+A request was made of a non-existent device, or the request was
+outside the capabilities of the device.
+
+</dl>
+</blockquote><h4><a name = "tag_000_004_142">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_143">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_144">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_004_145">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="close.html">close()</a></i>,
+<i><a href="fopen.html">fopen()</a></i>,
+<i><a href="getrlimit.html">getrlimit()</a></i>,
+<i><a href="ulimit.html">ulimit()</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+<br>
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

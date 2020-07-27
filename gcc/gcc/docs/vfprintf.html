@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>vfprintf</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_010_398">&nbsp;</a>NAME</h4><blockquote>
+vfprintf, vprintf, vsnprintf, vsprintf - format output of a
+stdarg argument list
+</blockquote><h4><a name = "tag_000_010_399">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdarg.h.html">stdarg.h</a>&gt;
+#include &lt;<a href="stdio.h.html">stdio.h</a>&gt;
+
+int vfprintf(FILE *<i>stream</i>, const char *<i>format</i>, va_list <i>ap</i>);
+int vprintf(const char *<i>format</i>, va_list <i>ap</i>);
+int vsnprintf(char *<i>s</i>, size_t <i>n</i>, const char *<i>format</i>, va_list <i>ap</i>);
+int vsprintf(char *<i>s</i>, const char *<i>format</i>, va_list <i>ap</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_010_400">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>vprintf()</i>,
+<i>vfprintf()</i>,
+<i>vsnprintf()</i>
+and
+<i><a href="vsprintf.html">vsprintf()</a></i>
+functions are the same as
+<i><a href="printf.html">printf()</a></i>,
+<i><a href="fprintf.html">fprintf()</a></i>,
+<i><a href="snprintf.html">snprintf()</a></i>
+and
+<i><a href="sprintf.html">sprintf()</a></i>
+respectively,
+except that instead of being called with a variable number of
+arguments, they are called with an argument list as defined by
+<i><a href="stdarg.h.html">&lt;stdarg.h&gt;</a></i>.
+<p>
+These functions do not invoke the
+<i>va_end</i>
+macro.
+As these functions invoke the
+<i>va_arg</i>
+macro, the value of
+<i>ap</i>
+after the return is indeterminate.
+</blockquote><h4><a name = "tag_000_010_401">&nbsp;</a>RETURN VALUE</h4><blockquote>
+Refer to
+<i><a href="printf.html">printf()</a></i>.
+</blockquote><h4><a name = "tag_000_010_402">&nbsp;</a>ERRORS</h4><blockquote>
+Refer to
+<i><a href="printf.html">printf()</a></i>.
+</blockquote><h4><a name = "tag_000_010_403">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_404">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Applications using these functions should call
+<i>va_end</i>(<i>ap</i>)
+afterwards to clean up.
+</blockquote><h4><a name = "tag_000_010_405">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_010_406">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="printf.html">printf()</a></i>,
+<i><a href="stdarg.h.html">&lt;stdarg.h&gt;</a></i>,
+<i><a href="stdio.h.html">&lt;stdio.h&gt;</a></i>.
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

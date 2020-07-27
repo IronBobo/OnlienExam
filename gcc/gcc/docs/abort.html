@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>abort</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_001_050">&nbsp;</a>NAME</h4><blockquote>
+abort - generate an abnormal process abort
+</blockquote><h4><a name = "tag_000_001_051">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+void abort(void);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_001_052">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>abort()</i>
+function causes abnormal process termination to occur, unless
+the signal SIGABRT is being caught and the signal handler does
+not return.
+The abnormal termination processing includes at least the effect of
+<i><a href="fclose.html">fclose()</a></i>
+on all open streams,
+and message catalogue descriptors,
+and the default actions defined
+for SIGABRT. The SIGABRT signal is sent to the calling process
+as if by means of
+<i><a href="raise.html">raise()</a></i>
+with the argument SIGABRT.
+<p>
+The status made available to
+<i><a href="wait.html">wait()</a></i>
+or
+<i><a href="waitpid.html">waitpid()</a></i>
+by
+<i>abort()</i>
+will be that of a process terminated by the SIGABRT signal.  The
+<i>abort()</i>
+function will override blocking or ignoring the SIGABRT signal.
+</blockquote><h4><a name = "tag_000_001_053">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>abort()</i>
+function does not return.
+</blockquote><h4><a name = "tag_000_001_054">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_001_055">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_056">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+Catching the signal is intended to provide the application writer with
+a portable means to abort processing, free from possible interference
+from any implementation-provided library functions.  If SIGABRT is neither
+caught nor ignored, and the current directory is writable, a core dump may
+be produced.
+</blockquote><h4><a name = "tag_000_001_057">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_001_058">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="exit.html">exit()</a></i>,
+<i><a href="kill.html">kill()</a></i>,
+<i><a href="raise.html">raise()</a></i>,
+<i><a href="signal.html">signal()</a></i>,
+</blockquote><h4>DERIVATION</h4><blockquote>
+Derived from Issue 1 of the SVID.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
+

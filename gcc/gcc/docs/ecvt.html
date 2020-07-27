@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+
+<title>ecvt</title>
+</head><body bgcolor=white>
+<center>
+<font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+<h4><a name = "tag_000_003_187">&nbsp;</a>NAME</h4><blockquote>
+ecvt, fcvt, gcvt - convert a floating-point number to a string
+</blockquote><h4><a name = "tag_000_003_188">&nbsp;</a>SYNOPSIS</h4><blockquote>
+<pre><code>
+
+#include &lt;<a href="stdlib.h.html">stdlib.h</a>&gt;
+
+char *ecvt(double <i>value</i>, int <i>ndigit</i>, int *<i>decpt</i>, int *<i>sign</i>);
+char *fcvt(double <i>value</i>, int <i>ndigit</i>, int *<i>decpt</i>, int *<i>sign</i>);
+char *gcvt(double <i>value</i>, int <i>ndigit</i>, char *<i>buf</i>);
+</code>
+</pre>
+</blockquote><h4><a name = "tag_000_003_189">&nbsp;</a>DESCRIPTION</h4><blockquote>
+The
+<i>ecvt()</i>,
+<i><a href="fcvt.html">fcvt()</a></i>
+and
+<i><a href="gcvt.html">gcvt()</a></i>
+functions convert floating-point numbers to null-terminated strings.
+<dl compact>
+
+<dt><i>ecvt</i>()<dd>Converts
+<i>value</i>
+to a null-terminated string of
+<i>ndigit</i>
+digits (where
+<i>ndigit</i>
+is reduced to an unspecified limit determined by the precision of a
+<b>double</b>) and returns a pointer to the string.  The high-order digit is
+non-zero, unless the value is 0.  The low-order digit is rounded.  The
+position of the radix character relative to the beginning of the string is
+stored in the integer pointed to by
+<i>decpt</i>
+(negative means to the left of the returned digits).
+If
+<i>value</i>
+is zero, it is unspecified whether the integer pointed to by
+<i>decpt</i>
+would be 0 or 1.
+The radix character is not included in the returned string.
+If the sign of the result is negative, the integer pointed to by
+<i>sign</i>
+is non-zero, otherwise it is 0.
+
+If the converted value is out of range or is not representable,
+the contents of the returned string are unspecified.
+
+<dt><i>fcvt</i>()<dd>Identical to
+<i>ecvt()</i>
+except that
+<i>ndigit</i>
+specifies the number of digits desired after the radix point.  The total
+number of digits in the result string is restricted to an unspecified limit as
+determined by the precision of a <b>double</b>.
+
+<dt><i>gcvt</i>()<dd>Converts
+<i>value</i>
+to a null-terminated string (similar to that of the %g format of
+<i><a href="printf.html">printf()</a></i>)
+in the array pointed to by
+<i>buf</i>
+and returns
+<i>buf</i>.
+It produces
+<i>ndigit</i>
+significant digits (limited to an unspecified value determined by the
+precision of a <b>double</b>) in %f if possible, or %e
+(scientific notation) otherwise.  A minus sign is included in the returned
+string if <i>value</i> is less than 0.  A radix character is included in the
+returned string if <i>value</i> is not a whole number.  Trailing zeros are
+suppressed where <i>value</i> is not a whole number.  The radix character is
+determined by the current locale.
+If
+<i><a href="setlocale.html">setlocale()</a></i>
+has not been called successfully, the default locale, "POSIX", is used.  The
+default locale specifies a period (<b>.</b>)
+as the radix character.  The LC_NUMERIC category determines the value of the
+radix character within the current locale.
+
+</dl>
+<p>
+These interfaces need not be reentrant.
+</blockquote><h4><a name = "tag_000_003_190">&nbsp;</a>RETURN VALUE</h4><blockquote>
+The
+<i>ecvt()</i>
+and
+<i><a href="fcvt.html">fcvt()</a></i>
+functions return a pointer to a null-terminated string of digits.
+<p>
+The
+<i><a href="gcvt.html">gcvt()</a></i>
+function returns
+<i>buf</i>.
+<p>
+The return values from
+<i>ecvt()</i>
+and
+<i><a href="fcvt.html">fcvt()</a></i>
+may point to static data which may be overwritten by subsequent calls to these
+functions.
+</blockquote><h4><a name = "tag_000_003_191">&nbsp;</a>ERRORS</h4><blockquote>
+No errors are defined.
+</blockquote><h4><a name = "tag_000_003_192">&nbsp;</a>EXAMPLES</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_003_193">&nbsp;</a>APPLICATION USAGE</h4><blockquote>
+For portability to implementations conforming to earlier versions of this
+specification,
+<i><a href="sprintf.html">sprintf()</a></i>
+is preferred over this function.
+</blockquote><h4><a name = "tag_000_003_194">&nbsp;</a>FUTURE DIRECTIONS</h4><blockquote>
+None.
+</blockquote><h4><a name = "tag_000_003_195">&nbsp;</a>SEE ALSO</h4><blockquote>
+<i><a href="printf.html">printf()</a></i>,
+<i><a href="setlocale.html">setlocale()</a></i>,
+<i><a href="stdlib.h.html">&lt;stdlib.h&gt;</a></i>.
+</blockquote>
+<center><font size=2>
+
+
+
+</font></center><hr size=2 noshade>
+</body></html>
